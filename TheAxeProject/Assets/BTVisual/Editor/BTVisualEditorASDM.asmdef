@@ -1,0 +1,16 @@
+{
+    "name": "BTVisualEditorASDM",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c794a8a1176de724a8eab10de2af3789"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
