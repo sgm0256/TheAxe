@@ -1,15 +1,28 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "SO/Input")]
-public class InputReaderSO : ScriptableObject, Contorls.IPlayerActions
+public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IPlayerComponent
 {
     public event Action<Vector2> MovementEvent;
-    public event Action<bool> FireEvent;
-    
+    public event Action FireEvent;
+
+    public Vector2 MousePos {  get; private set; }
+
+    private Controls _controls;
+
+    private void OnEnable()
+    {
+        if (_controls == null)
+            _controls = new Controls();
+
+        _controls.Player.Enable();
+        _controls.Player.SetCallbacks(this);
+    }
+
+    public void Initialize(Player player) { }
+
     public void OnMovement(InputAction.CallbackContext context)
     {
         MovementEvent?.Invoke(context.ReadValue<Vector2>());
@@ -17,9 +30,12 @@ public class InputReaderSO : ScriptableObject, Contorls.IPlayerActions
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if(context.performed)
-            FireEvent?.Invoke(true);
-        else if(context.canceled)
-            FireEvent?.Invoke(false);
+        if (context.performed)
+            FireEvent?.Invoke();
+    }
+
+    public void OnAim(InputAction.CallbackContext context)
+    {
+        MousePos = context.ReadValue<Vector2>();
     }
 }
