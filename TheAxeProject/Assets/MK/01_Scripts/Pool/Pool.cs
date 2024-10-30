@@ -38,8 +38,7 @@ public class Pool
 
         LoadCompleteEvent?.Invoke(); //로딩성공 메시지
     }
-
-
+    
     public IPoolable Pop()
     {
         IPoolable item;
