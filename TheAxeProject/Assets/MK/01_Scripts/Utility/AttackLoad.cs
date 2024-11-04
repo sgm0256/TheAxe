@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class AttackLoad : MonoBehaviour, IPoolable
 {
     [SerializeField] private Transform _gauge;
     [SerializeField] private float _duration = 1f;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     public float Duration
     {
@@ -17,14 +19,39 @@ public class AttackLoad : MonoBehaviour, IPoolable
     public GameObject GameObject => gameObject;
 
     private Pool _myPool;
-    
-    private void Start()
-    {
-        _gauge.localScale = new Vector3(1, 0, 1);
-    }
 
+    public event Action ReadyToAttackEvent;
+
+    public void ChargeAttackLoad() => StartCoroutine(ChargeAlpha());
     public void StartCharge() => StartCoroutine(Charging());
 
+    private void Awake()
+    {
+        _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 0.2f);
+    }
+
+    private IEnumerator ChargeAlpha()
+    {
+        float time = 0;
+        float start = 0.2f;
+        Color end = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 1f);
+
+        while (time < _duration)
+        {
+            _spriteRenderer.color = new Color(
+                _spriteRenderer.color.r, 
+                _spriteRenderer.color.g, 
+                _spriteRenderer.color.b,
+                Mathf.Lerp(0f, 1f, time / _duration));
+            
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        _spriteRenderer.color = end;
+        ReadyToAttackEvent?.Invoke();
+    }
+    
     private IEnumerator Charging()
     {
         float time = 0;
@@ -38,6 +65,7 @@ public class AttackLoad : MonoBehaviour, IPoolable
         }
         
         _gauge.localScale = new Vector3(1, 1, 1);
+        ReadyToAttackEvent?.Invoke();
     }
     
     public void SetUpPool(Pool pool)

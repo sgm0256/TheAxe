@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: AttackLoad
   assetRef:
-    m_AssetGUID: 6b125ae669e4c95418859260086a9632
+    m_AssetGUID: 97a550cfd0b241e45959065568e4a4c0
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

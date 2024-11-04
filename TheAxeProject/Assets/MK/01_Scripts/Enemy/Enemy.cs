@@ -1,21 +1,24 @@
-using System;
 using UnityEngine;
 
 namespace MK.Enemy
 {
-    public class Enemy : MonoBehaviour
+    public abstract class Enemy : MonoBehaviour
     {
-        [SerializeField] private PoolManagerSO _enemyPoolManager;
+        [SerializeField] protected PoolManagerSO _enemyPoolManager;
         public PoolManagerSO EnemyPoolManager => _enemyPoolManager;
         
         // TODO : Add StatSystem
+
+        protected Rigidbody2D _myRigid;
+        public Rigidbody2D MyRigid => _myRigid;
         
-        private void Initialize()
+        protected virtual void Initialize()
         {
             _enemyPoolManager.InitializePool(transform);
+            _myRigid = GetComponent<Rigidbody2D>();
         }
         
-        private void Awake()
+        protected virtual void Awake()
         {
             Initialize();
         }
