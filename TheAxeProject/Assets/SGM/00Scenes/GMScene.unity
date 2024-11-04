@@ -394,9 +394,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1014ce3ae784ba24db8cb35cde8f20fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axePrefab: {fileID: 4251472658110178434, guid: da577d6abbac0c549afdf41286a0be77, type: 3}
   axeContainer: {fileID: 87760768}
-  maxAxeCount: 5
+  axePrefab: {fileID: 4251472658110178434, guid: da577d6abbac0c549afdf41286a0be77, type: 3}
+  maxAxeCount: 10
+  rotationSpeed: 1
+  axeRotateSpeed: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

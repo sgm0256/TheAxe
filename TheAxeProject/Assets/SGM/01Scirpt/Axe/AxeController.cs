@@ -5,11 +5,11 @@ using UnityEngine;
 public class AxeController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float attackAngle = 45f;
     [SerializeField] private float rotateSpeed = 1f;
-    private float gravity = 9.8f;
+    [SerializeField] private float attackAngle = 45f;
     private int dir;
-    private int curAngle = 0;
+    private float curAngle = 0;
+    private float gravity = 9.8f;
     private bool isAttack = false;
 
     private Transform visualTrm;
@@ -25,7 +25,7 @@ public class AxeController : MonoBehaviour
     {
         Rotate();
 
-        if(!isAttack)
+        if (!isAttack)
             transform.rotation = Quaternion.identity;
     }
 
@@ -35,20 +35,35 @@ public class AxeController : MonoBehaviour
             visualTrm.rotation = Quaternion.Euler(0, 0, visualTrm.rotation.eulerAngles.z + (rotateSpeed * -dir));
     }
 
-    public void MoveTheCircle(int targetAngle, bool isSpawn)
+    public void MoveTheCircle(float moveAngle, bool isSpawn)
     {
         if (isSpawn)
-            transform.DOLocalMove(Vector3.up, 0.5f);
+        {
+            Vector3 pos = (Quaternion.Euler(0, 1, moveAngle) * transform.parent.up).normalized;
+            transform.DOLocalMove(pos, 0.1f);
+            curAngle = moveAngle;
+        }
         else
         {
-            Debug.Log($"target:{targetAngle}, cur:{curAngle}");
-            for (; curAngle < targetAngle; ++curAngle)
-            {
-                Vector3 pos = (Quaternion.Euler(0, 0, 1f) * transform.localPosition).normalized;
-                transform.localPosition = pos;
-                Debug.Log($"pos: {transform.localPosition}");
-            }
+            StartCoroutine(MoveCoroutine(moveAngle));
         }
+    }
+
+    private IEnumerator MoveCoroutine(float moveAngle)
+    {
+        float timer = 0;
+        while (timer <= 0.1f)
+        {
+            timer += Time.deltaTime;
+
+            float angle = Mathf.Lerp(curAngle, moveAngle, timer * 10);
+            Vector3 pos = (Quaternion.Euler(0, 0, angle) * transform.parent.up).normalized;
+            transform.localPosition = pos;
+
+            yield return null;
+        }
+
+        curAngle = moveAngle;
     }
 
     public void StartAttack()
@@ -56,6 +71,7 @@ public class AxeController : MonoBehaviour
         Vector2 mousePos = player.GetCompo<InputReaderSO>().MousePos;
         Vector2 targetPoint = Camera.main.ScreenToWorldPoint(mousePos);
 
+        StopAllCoroutines();
         transform.parent = null;
         transform.DOKill();
 
