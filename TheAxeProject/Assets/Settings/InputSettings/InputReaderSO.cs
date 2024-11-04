@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "SO/Input")]
 public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IPlayerComponent
 {
-    public event Action<Vector2> MovementEvent;
-    public event Action FireEvent;
-
+    public Vector2 Movement {  get; private set; }
     public Vector2 MousePos {  get; private set; }
+
+    public event Action FireEvent;
 
     private Controls _controls;
 
@@ -25,7 +25,7 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IPlayerC
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        MovementEvent?.Invoke(context.ReadValue<Vector2>());
+        Movement = context.ReadValue<Vector2>();
     }
 
     public void OnFire(InputAction.CallbackContext context)
