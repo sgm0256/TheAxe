@@ -21,4 +21,15 @@ public class RangeDected : Conditional
         
         return TaskStatus.Failure;
     }
+
+    public override void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
+
+        Gizmos.color = Color.red;
+        if (transform != null)
+        {
+            Gizmos.DrawWireSphere(transform.position, radiusRange);
+        }
+    }
 }
