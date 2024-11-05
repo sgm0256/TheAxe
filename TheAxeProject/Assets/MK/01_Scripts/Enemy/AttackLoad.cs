@@ -10,6 +10,8 @@ public class AttackLoad : MonoBehaviour, IPoolable
     
     [field: SerializeField] public Transform AttackPoint { get; private set; }
 
+    [SerializeField] private AttackLoadGenerator _attackLoadGenerator;
+
     public float Duration
     {
         get => _duration;
@@ -51,6 +53,7 @@ public class AttackLoad : MonoBehaviour, IPoolable
         }
 
         _spriteRenderer.color = end;
+        _attackLoadGenerator.PoolManager.Push(this);
         ReadyToAttackEvent?.Invoke();
     }
     

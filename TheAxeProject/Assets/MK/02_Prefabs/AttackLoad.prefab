@@ -51,6 +51,7 @@ MonoBehaviour:
   _duration: 0.5
   _spriteRenderer: {fileID: 2473325911753902745}
   <AttackPoint>k__BackingField: {fileID: 8014526938244155984}
+  _attackLoadGenerator: {fileID: 4413784641464094218, guid: ab933640df9ef9e46b8a61e001928746, type: 3}
   _poolType: {fileID: 11400000, guid: f67e70eae4e5fbd4eb08f689bd7f13d4, type: 2}
 --- !u!1 &3982792429480372119
 GameObject:

@@ -11,6 +11,7 @@ public class PoolManagerSO : ScriptableObject
 
     public event Action<int> LoadCountEvent;
     public event Action<int, string> LoadMessageEvent;
+    public event Action LoadSuccessEvent; 
 
     public void InitializePool(Transform root)
     {
@@ -28,6 +29,7 @@ public class PoolManagerSO : ScriptableObject
 
             _pools.Add(poolType, pool);
         }
+        LoadSuccessEvent?.Invoke();
     }
 
     public IPoolable Pop(PoolTypeSO type)
