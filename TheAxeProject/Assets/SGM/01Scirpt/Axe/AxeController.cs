@@ -8,9 +8,10 @@ public class AxeController : MonoBehaviour
     [SerializeField] private float rotateSpeed = 1f;
     [SerializeField] private float attackAngle = 45f;
     private int dir;
-    private float curAngle = 0;
     private float gravity = 9.8f;
     private bool isAttack = false;
+
+    private IEnumerator coroutine = null;
 
     private Transform visualTrm;
     private Player player;
@@ -35,49 +36,57 @@ public class AxeController : MonoBehaviour
             visualTrm.rotation = Quaternion.Euler(0, 0, visualTrm.rotation.eulerAngles.z + (rotateSpeed * -dir));
     }
 
-    public void MoveTheCircle(float moveAngle, bool isSpawn)
+    public void MoveTheAngle(float moveAngle, bool isSpawn)
     {
         if (isSpawn)
         {
             Vector3 pos = (Quaternion.Euler(0, 1, moveAngle) * transform.parent.up).normalized;
-            transform.DOLocalMove(pos, 0.1f);
-            curAngle = moveAngle;
+            transform.DOLocalMove(pos, 0.2f);
         }
         else
         {
-            StartCoroutine(MoveCoroutine(moveAngle));
+            if (coroutine != null)
+                StopCoroutine(coroutine);
+
+            coroutine = MoveCoroutine(moveAngle);
+            StartCoroutine(coroutine);
         }
     }
 
     private IEnumerator MoveCoroutine(float moveAngle)
     {
+        float curAngle = Quaternion.FromToRotation(Vector3.up, transform.localPosition - Vector3.zero).eulerAngles.z;
+
         float timer = 0;
-        while (timer <= 0.1f)
+        while (timer <= 0.2f)
         {
             timer += Time.deltaTime;
 
-            float angle = Mathf.Lerp(curAngle, moveAngle, timer * 10);
+            float angle = Mathf.Lerp(curAngle, moveAngle, timer * 5f);
             Vector3 pos = (Quaternion.Euler(0, 0, angle) * transform.parent.up).normalized;
             transform.localPosition = pos;
 
             yield return null;
         }
 
-        curAngle = moveAngle;
+        coroutine = null;
     }
 
-    public void StartAttack()
+    public bool StartAttack()
     {
         Vector2 mousePos = player.GetCompo<InputReaderSO>().MousePos;
         Vector2 targetPoint = Camera.main.ScreenToWorldPoint(mousePos);
 
-        StopAllCoroutines();
-        transform.parent = null;
+        if (coroutine != null)
+            StopCoroutine(coroutine);
+
         transform.DOKill();
+        transform.parent = null;
 
         dir = (Random.Range(0, 2) == 0 ? -1 : 1);
 
         StartCoroutine(Attack(targetPoint));
+        return true;
     }
 
     private IEnumerator Attack(Vector2 targetPoint)
