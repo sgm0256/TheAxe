@@ -14,7 +14,10 @@ namespace MK.Enemy
         
         protected virtual void Initialize()
         {
-            _enemyPoolManager.InitializePool(transform);
+            if (_enemyPoolManager != null)
+            {
+                _enemyPoolManager.InitializePool(transform);
+            }
             _myRigid = GetComponent<Rigidbody2D>();
         }
         

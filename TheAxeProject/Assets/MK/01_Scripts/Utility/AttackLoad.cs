@@ -7,6 +7,8 @@ public class AttackLoad : MonoBehaviour, IPoolable
     [SerializeField] private Transform _gauge;
     [SerializeField] private float _duration = 1f;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    
+    [field: SerializeField] public Transform AttackPoint { get; private set; }
 
     public float Duration
     {
@@ -39,7 +41,7 @@ public class AttackLoad : MonoBehaviour, IPoolable
         while (time < _duration)
         {
             _spriteRenderer.color = new Color(
-                _spriteRenderer.color.r, 
+                _spriteRenderer.color.r,
                 _spriteRenderer.color.g, 
                 _spriteRenderer.color.b,
                 Mathf.Lerp(0f, 1f, time / _duration));
@@ -68,13 +70,13 @@ public class AttackLoad : MonoBehaviour, IPoolable
         ReadyToAttackEvent?.Invoke();
     }
     
-    public void SetUpPool(Pool pool)
+    public void SetUpPool(Pool pool)    
     {
         _myPool = pool; 
     }
 
     public void ResetItem()
     {
-        
+        _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 0.2f);
     }
 }
