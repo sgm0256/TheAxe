@@ -530,7 +530,7 @@ MonoBehaviour:
   logTaskChanges: 0
   group: 0
   resetValuesOnRestart: 0
-  externalBehavior: {fileID: 0}
+  externalBehavior: {fileID: 11400000, guid: bd70b171a1324a64491141b675784adb, type: 2}
   mBehaviorSource:
     behaviorName: Behavior
     behaviorDescription: 
@@ -705,7 +705,7 @@ MonoBehaviour:
   logTaskChanges: 0
   group: 0
   resetValuesOnRestart: 0
-  externalBehavior: {fileID: 0}
+  externalBehavior: {fileID: 11400000, guid: bd70b171a1324a64491141b675784adb, type: 2}
   mBehaviorSource:
     behaviorName: Behavior
     behaviorDescription: 
@@ -1204,7 +1204,7 @@ MonoBehaviour:
   logTaskChanges: 0
   group: 0
   resetValuesOnRestart: 0
-  externalBehavior: {fileID: 0}
+  externalBehavior: {fileID: 11400000, guid: bd70b171a1324a64491141b675784adb, type: 2}
   mBehaviorSource:
     behaviorName: Behavior
     behaviorDescription: 
@@ -1386,7 +1386,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2021,7 +2021,7 @@ MonoBehaviour:
   logTaskChanges: 0
   group: 0
   resetValuesOnRestart: 0
-  externalBehavior: {fileID: 0}
+  externalBehavior: {fileID: 11400000, guid: bd70b171a1324a64491141b675784adb, type: 2}
   mBehaviorSource:
     behaviorName: Behavior
     behaviorDescription: 
@@ -2036,7 +2036,7 @@ MonoBehaviour:
         Dected","Instant":true,"LayerMask_whatIsTarget":64,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":0},"SingleradiusRange":3}]},{"Type":"MK.BT.ChaseTarget","NodeData":{"Offset":"(71.24735,160.000015)"},"ID":6,"Name":"Chase
         Target","Instant":true,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":1},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":2},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":5},"SinglerotateSpeed":30}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(190,130)"},"ID":7,"Name":"\ub3cc\uc9c4
         \uacf5\uaca9","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"MK.BT.ChargeAttack","NodeData":{"Offset":"(-74.54456,163.973557)"},"ID":8,"Name":"Charge
-        Attack","Instant":true,"PoolTypeSOattackLoadPool":3,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":4},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":5},"Singleduration":0.7}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":6},{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":7}]}'
+        Attack","Instant":true,"PoolTypeSOattackLoadPool":3,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":4},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":5},"Singleduration":0.5}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":6},{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":7}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
