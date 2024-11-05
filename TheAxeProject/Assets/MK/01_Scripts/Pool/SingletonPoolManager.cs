@@ -19,6 +19,7 @@ namespace ObjectPooling
             base.Awake();
             foreach (PoolManagerSO poolManager in poolManagerList)
             {
+                poolManager.InitializePool(this.transform);
                 _poolManagers.Add(poolManager.PoolEnumType, poolManager);
             }
         }

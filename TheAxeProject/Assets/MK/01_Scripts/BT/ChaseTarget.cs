@@ -1,6 +1,6 @@
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
-using Unity.Mathematics;
+using Core.Entities;
 using UnityEngine;
 
 namespace MK.BT
@@ -10,25 +10,29 @@ namespace MK.BT
         public SharedTransform target;
         public SharedEnemy enemy;
 
-        public SharedFloat speed;
+        private EntityMover _mover;
+        
         public float rotateSpeed = 3f;
+
+        public override void OnAwake()
+        {
+            _mover = enemy.Value.GetCompo<EntityMover>();
+        }
 
         public override TaskStatus OnUpdate()
         {
             if (Vector2.Distance(transform.position, target.Value.position) < Mathf.Epsilon)
             {
-                Debug.Log("추적 성공");
                 return TaskStatus.Success;
             }
-
-            transform.position =
-                Vector2.MoveTowards(transform.position, target.Value.position, speed.Value * Time.deltaTime);
-
+            
             Vector2 direction = target.Value.position - transform.position;
             
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
             Quaternion rotation = Quaternion.Slerp(transform.rotation, angleAxis, rotateSpeed * Time.deltaTime);
+
+            _mover.SetMovement(direction);
             
             transform.rotation = rotation;
 

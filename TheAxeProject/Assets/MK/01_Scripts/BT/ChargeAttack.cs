@@ -1,7 +1,7 @@
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
+using Core.Entities;
 using DG.Tweening;
-using MK.Enemy;
 using ObjectPooling;
 using UnityEngine;
 
@@ -13,14 +13,22 @@ namespace MK.BT
         public SharedTransform target;
         public SharedEnemy enemy;
         public float duration = 1f;
-        
+
+        private EntityMover _mover;
         private Vector2 _attackDirection = Vector2.zero;
         private bool _isCanAttack = false;
         private AttackLoad _attackLoad;
         private Transform _attackTrm;
 
+        public override void OnAwake()
+        {
+            _mover = enemy.Value.GetCompo<EntityMover>();
+        }
+
         public override void OnStart()
         {
+            _mover.StopImmediately();
+            
             _attackDirection = target.Value.position - transform.position;
             float angle = Mathf.Atan2(_attackDirection.y, _attackDirection.x) * Mathf.Rad2Deg;
             Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.forward);

@@ -17,7 +17,7 @@ namespace Core.Entities
         private EntityRenderer _renderer;
         private EntityStat _stat;
         
-        private float _xMovement;
+        private Vector2 _movementVec;
         
         private Collider2D _collider;
 
@@ -49,10 +49,10 @@ namespace Core.Entities
 
         public void StopImmediately()
         {
-            _rbCompo.velocity = Vector2.zero;
+            _movementVec = Vector2.zero;
         }
 
-        public void SetMovement(float xMovement) => _xMovement = xMovement;
+        public void SetMovement(Vector2 movement) => _movementVec = movement.normalized;
         
         private void FixedUpdate()
         {
@@ -61,9 +61,9 @@ namespace Core.Entities
         
         private void MoveCharacter()
         {
-            _rbCompo.velocity = new Vector2(_xMovement * _moveSpeed * SpeedMultiplier, _rbCompo.velocity.y);
+            _rbCompo.velocity = _moveSpeed * SpeedMultiplier * _movementVec;
             
-            _renderer.FlipController(_xMovement);
+            _renderer.FlipController(_rbCompo.velocity.x);
         }
     }
 }
