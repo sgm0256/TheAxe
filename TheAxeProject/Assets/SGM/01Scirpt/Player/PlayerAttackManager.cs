@@ -8,7 +8,6 @@ public class PlayerAttackManager : MonoBehaviour, IPlayerComponent
     [SerializeField] private GameObject axePrefab;
     [SerializeField] private int maxAxeCount = 3;
     [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private float axeRotateSpeed = 5f;
     private float spawnCoolTime = 1f;
     private bool isSpawning = false;
 
@@ -26,15 +25,6 @@ public class PlayerAttackManager : MonoBehaviour, IPlayerComponent
                 StartCoroutine(CreateAxe());
             }
         }
-
-        //AxeRotate();
-    }
-
-    private void AxeRotate()
-    {
-        Vector3 rotation = axeContainer.rotation.eulerAngles;
-        rotation.z += axeRotateSpeed;
-        axeContainer.rotation = Quaternion.Euler(rotation);
     }
 
     private IEnumerator CreateAxe()
@@ -61,7 +51,7 @@ public class PlayerAttackManager : MonoBehaviour, IPlayerComponent
         {
             float angle = i * curAngle;
             bool isLast = i == axeList.Count - 1;
-            axeList[i].MoveTheCircle(angle, isSpawn && isLast);
+            axeList[i].MoveTheAngle(angle, isSpawn && isLast);
         }
     }
 
