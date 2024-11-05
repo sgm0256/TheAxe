@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RPG.StatSystem
+namespace Core.StatSystem
 {
     [CreateAssetMenu(fileName = "StatSO", menuName = "SO/StatSystem/Stat")]
     public class StatSO : ScriptableObject, ICloneable

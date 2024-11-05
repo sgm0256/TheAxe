@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
-using RPG.Entities;
+using Core.Entities;
 using UnityEngine;
 
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-namespace RPG.StatSystem
+namespace Core.StatSystem
 {
     public class EntityStat : MonoBehaviour, IEntityComponent
     {
@@ -74,7 +74,7 @@ namespace RPG.StatSystem
         [ContextMenu("Load Override Stat")]
         private void LoadStatAsOverride()
         {
-            string path = "Assets/08_SO/StatSystem";
+            string path = "Assets/MK/07_SO/StatSystem";
             string[] assetNames = AssetDatabase.FindAssets("", new[] { path });
 
             List<StatSO> loadedStats = new List<StatSO>();

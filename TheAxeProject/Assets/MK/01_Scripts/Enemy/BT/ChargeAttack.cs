@@ -2,13 +2,14 @@ using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
 using DG.Tweening;
 using MK.Enemy;
+using ObjectPooling;
 using UnityEngine;
 
 namespace MK.BT
 {
     public class ChargeAttack : Conditional
     {
-        public PoolTypeSO attackLoadPool;
+        public PoolTypeSO attackLoadType;
         public SharedTransform target;
         public SharedEnemy enemy;
         public float duration = 1f;
@@ -16,19 +17,16 @@ namespace MK.BT
         private Vector2 _attackDirection = Vector2.zero;
         private bool _isCanAttack = false;
         private AttackLoad _attackLoad;
-        private RushEnemy _rushEnemy;
         private Transform _attackTrm;
 
         public override void OnStart()
         {
-            _rushEnemy = enemy.Value as RushEnemy;
-            
             _attackDirection = target.Value.position - transform.position;
             float angle = Mathf.Atan2(_attackDirection.y, _attackDirection.x) * Mathf.Rad2Deg;
             Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
             transform.rotation = angleAxis;
             
-            _attackLoad = _rushEnemy.AttackLoadGenerator.PoolManager.Pop(attackLoadPool) as AttackLoad;
+            _attackLoad = SingletonPoolManager.Instnace.GetPoolManager(PoolEnumType.AttackLoad_Rush).Pop(attackLoadType) as AttackLoad;
             _attackTrm = _attackLoad.AttackPoint;
             
             _attackLoad.transform.position = transform.position;
@@ -48,10 +46,7 @@ namespace MK.BT
 
         private void HandleReadyToAttack()
         {
-            transform.DOMove(_attackTrm.position, duration).SetEase(Ease.InQuad).OnComplete(() =>
-            {
-                _isCanAttack = true;
-            });
+            transform.DOMove(_attackTrm.position, duration).SetEase(Ease.InQuad).OnComplete(() => _isCanAttack = true );
         }
 
         public override void OnEnd()

@@ -1,4 +1,4 @@
-using RPG.StatSystem;
+using Core.StatSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

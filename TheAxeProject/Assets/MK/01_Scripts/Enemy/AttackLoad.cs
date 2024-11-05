@@ -1,16 +1,16 @@
 using System;
 using System.Collections;
+using ObjectPooling;
 using UnityEngine;
 
 public class AttackLoad : MonoBehaviour, IPoolable
 {
+    [SerializeField] private PoolEnumType type;
     [SerializeField] private Transform _gauge;
     [SerializeField] private float _duration = 1f;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     
     [field: SerializeField] public Transform AttackPoint { get; private set; }
-
-    [SerializeField] private AttackLoadGenerator _attackLoadGenerator;
 
     public float Duration
     {
@@ -53,7 +53,7 @@ public class AttackLoad : MonoBehaviour, IPoolable
         }
 
         _spriteRenderer.color = end;
-        _attackLoadGenerator.PoolManager.Push(this);
+        SingletonPoolManager.Instnace.GetPoolManager(type).Push(this);
         ReadyToAttackEvent?.Invoke();
     }
     

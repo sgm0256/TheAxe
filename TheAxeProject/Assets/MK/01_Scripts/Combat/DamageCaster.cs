@@ -1,4 +1,4 @@
-using System;
+using Core.Entities;
 using UnityEngine;
 
 public class DamageCaster : MonoBehaviour

@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public interface IPoolable
+namespace ObjectPooling
 {
-    public PoolTypeSO PoolType { get; }
-    public GameObject GameObject { get; }
-    public void SetUpPool(Pool pool);
-    public void ResetItem();
+    public interface IPoolable
+    {
+        public PoolTypeSO PoolType { get; }
+        public GameObject GameObject { get; }
+        public void SetUpPool(Pool pool);
+        public void ResetItem();
+    }
 }

@@ -1,3 +1,4 @@
+using ObjectPooling;
 using UnityEngine;
 
 public class AttackLoadGenerator : MonoBehaviour

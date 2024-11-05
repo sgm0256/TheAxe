@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace RPG.Entities
+namespace Core.Entities
 {
     public interface IEntityComponent
     {
