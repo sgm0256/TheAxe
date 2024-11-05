@@ -1,19 +1,18 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttackManager : MonoBehaviour, IPlayerComponent
 {
-    [SerializeField] private GameObject axePrefab;
     [SerializeField] private Transform axeContainer;
+    [SerializeField] private GameObject axePrefab;
     [SerializeField] private int maxAxeCount = 3;
+    [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private float axeRotateSpeed = 5f;
     private float spawnCoolTime = 1f;
     private bool isSpawning = false;
-    private bool isSorting = false;
 
     private InputReaderSO input;
-    private Player player;
 
     private List<AxeController> axeList = new List<AxeController>();
 
@@ -28,13 +27,13 @@ public class PlayerAttackManager : MonoBehaviour, IPlayerComponent
             }
         }
 
-        RevolutionAxe();
+        //AxeRotate();
     }
 
-    private void RevolutionAxe()
+    private void AxeRotate()
     {
-        Vector3 rotation = axeContainer.eulerAngles;
-        rotation.z += 1;
+        Vector3 rotation = axeContainer.rotation.eulerAngles;
+        rotation.z += axeRotateSpeed;
         axeContainer.rotation = Quaternion.Euler(rotation);
     }
 
@@ -43,51 +42,43 @@ public class PlayerAttackManager : MonoBehaviour, IPlayerComponent
         yield return new WaitForSeconds(spawnCoolTime);
         //yield return null;
 
-        AxeController axe = Instantiate(axePrefab, transform.position, Quaternion.identity).GetComponent<AxeController>();
-        axe.transform.parent = axeContainer;
+        AxeController axe = Instantiate(axePrefab, transform.position, Quaternion.identity, axeContainer).GetComponent<AxeController>();
 
-        //axe.MoveTheCircle(0, true);
         axeList.Add(axe);
-        SortAxe();
+        SortAxe(true);
 
         isSpawning = false;
     }
 
-    private void SortAxe()
+    private void SortAxe(bool isSpawn)
     {
-        if (axeList.Count == 0 || isSorting)
+        if (axeList.Count == 0)
             return;
 
-        isSorting = true;
-        int angle = 360 / axeList.Count;
+        float curAngle = 360 / axeList.Count;
 
         for (int i = 0; i < axeList.Count; i++)
         {
-            Vector3 dir = Quaternion.Euler(0, 0, i * angle) * transform.up;
-            Vector3 pos = dir.normalized;
-
-            axeList[i].transform.DOLocalMove(pos, 0.5f);
-            //axeList[i].MoveTheCircle(i * angle, false);
+            float angle = i * curAngle;
+            bool isLast = i == axeList.Count - 1;
+            axeList[i].MoveTheCircle(angle, isSpawn && isLast);
         }
-        isSorting = false;
     }
 
     public void Initialize(Player player)
     {
-        this.player = player;
-
         input = player.GetCompo<InputReaderSO>();
         input.FireEvent += Attack;
     }
 
     private void Attack()
     {
-        if (axeList.Count == 0 || isSorting)
+        if (axeList.Count == 0)
             return;
 
         AxeController axe = axeList[0];
         axeList.Remove(axe);
-        SortAxe();
+        SortAxe(false);
 
         axe.StartAttack();
     }
