@@ -46,7 +46,7 @@ public class AttackLoad : MonoBehaviour, IPoolable
                 _spriteRenderer.color.r,
                 _spriteRenderer.color.g, 
                 _spriteRenderer.color.b,
-                Mathf.Lerp(0f, 1f, time / _duration));
+                Mathf.Lerp(start, 1f, time / _duration));
             
             time += Time.deltaTime;
             yield return null;

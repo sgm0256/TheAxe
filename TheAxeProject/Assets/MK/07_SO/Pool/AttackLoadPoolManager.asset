@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolList:
   - {fileID: 11400000, guid: f67e70eae4e5fbd4eb08f689bd7f13d4, type: 2}
+  - {fileID: 11400000, guid: 3ab95a894d3b49949a56d4d527945041, type: 2}
   _rootTrm: {fileID: 0}
+  <PoolEnumType>k__BackingField: 0

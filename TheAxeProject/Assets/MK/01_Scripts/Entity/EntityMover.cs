@@ -7,7 +7,8 @@ namespace Core.Entities
     {
         [Header("Move stats")] 
         [SerializeField] private StatSO _moveStat;
-        [SerializeField] private float _moveSpeed = 5f;
+
+        private float _moveSpeed;
 
         public Vector2 Velocity => _rbCompo.velocity;
         public float SpeedMultiplier { get; set; } = 1f;

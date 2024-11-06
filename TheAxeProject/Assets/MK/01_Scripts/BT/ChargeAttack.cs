@@ -34,7 +34,7 @@ namespace MK.BT
             Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
             transform.rotation = angleAxis;
             
-            _attackLoad = SingletonPoolManager.Instnace.GetPoolManager(PoolEnumType.AttackLoad_Rush).Pop(attackLoadType) as AttackLoad;
+            _attackLoad = SingletonPoolManager.Instnace.GetPoolManager(PoolEnumType.AttackLoad).Pop(attackLoadType) as AttackLoad;
             _attackTrm = _attackLoad.AttackPoint;
             
             _attackLoad.transform.position = transform.position;

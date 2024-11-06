@@ -5,7 +5,7 @@ namespace ObjectPooling
 {
     public enum PoolEnumType
     {
-        AttackLoad_Rush, AttackLoad_Circle
+        AttackLoad
     }
     
     public class SingletonPoolManager : MonoSingleton<SingletonPoolManager>
