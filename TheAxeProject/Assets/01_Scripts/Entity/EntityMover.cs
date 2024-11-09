@@ -5,9 +5,6 @@ namespace Core.Entities
 {
     public class EntityMover : MonoBehaviour, IEntityComponent, IAfterInitable
     {
-        [Header("Move stats")] 
-        [SerializeField] private StatSO _moveStat;
-
         private float _moveSpeed;
 
         public Vector2 Velocity => _rbCompo.velocity;

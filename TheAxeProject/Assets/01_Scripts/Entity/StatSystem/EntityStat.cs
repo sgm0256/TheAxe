@@ -21,7 +21,7 @@ namespace Core.StatSystem
         public Entity Owner { get; private set; }
         public StatSO HpStat { get; private set; }
         public StatSO MoveSpeedStat { get; private set; }
-        
+
         public void Initialize(Entity agent)
         {
             Owner = agent;
@@ -91,6 +91,6 @@ namespace Core.StatSystem
             _statOverrides = loadedStats.Select(x => new StatOverride(x)).ToArray();
         }
 #endif
-        
+
     }
 }
