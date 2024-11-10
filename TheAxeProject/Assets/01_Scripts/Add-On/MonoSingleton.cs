@@ -6,7 +6,7 @@ namespace MKDir
     {
         private static T _instance;
 
-        public static T Instnace
+        public static T Instance
         {
             get
             {

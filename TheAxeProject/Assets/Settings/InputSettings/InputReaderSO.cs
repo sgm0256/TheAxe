@@ -1,12 +1,13 @@
+using Core.Entities;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "SO/Input")]
-public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IPlayerComponent
+public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IEntityComponent
 {
-    public Vector2 Movement {  get; private set; }
-    public Vector2 MousePos {  get; private set; }
+    public Vector2 Movement { get; private set; }
+    public Vector2 MousePos { get; private set; }
 
     public event Action FireEvent;
 
@@ -21,7 +22,7 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IPlayerC
         _controls.Player.SetCallbacks(this);
     }
 
-    public void Initialize(Player player) { }
+    public void Initialize(Entity entity) { }
 
     public void OnMovement(InputAction.CallbackContext context)
     {

@@ -1,42 +1,32 @@
+using Core.Entities;
 using DG.Tweening;
+using ObjectPooling;
 using System.Collections;
 using UnityEngine;
 
-public class AxeController : MonoBehaviour
+public class AxeMover : MonoBehaviour, IEntityComponent
 {
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float rotateSpeed = 1f;
     [SerializeField] private float attackAngle = 45f;
     private int dir;
     private float gravity = 9.8f;
-    private bool isAttack = false;
 
     private IEnumerator coroutine = null;
 
     private Transform visualTrm;
-    private Player player;
+    private Entity parentEntity;
+    private Axe axe;
 
-    private void Start()
+    public void Initialize(Entity entity)
     {
+        parentEntity = transform.root.GetComponent<Entity>();
+
+        axe = (Axe)entity;
         visualTrm = transform.Find("Visual");
-        player = GetComponentInParent<Player>();
     }
 
-    private void Update()
-    {
-        Rotate();
-
-        if (!isAttack)
-            transform.rotation = Quaternion.identity;
-    }
-
-    private void Rotate()
-    {
-        if (isAttack)
-            visualTrm.rotation = Quaternion.Euler(0, 0, visualTrm.rotation.eulerAngles.z + (rotateSpeed * -dir));
-    }
-
-    public void MoveTheAngle(float moveAngle, bool isSpawn)
+    public void Sort(float moveAngle, bool isSpawn)
     {
         if (isSpawn)
         {
@@ -48,12 +38,12 @@ public class AxeController : MonoBehaviour
             if (coroutine != null)
                 StopCoroutine(coroutine);
 
-            coroutine = MoveCoroutine(moveAngle);
+            coroutine = MoveToAngle(moveAngle);
             StartCoroutine(coroutine);
         }
     }
 
-    private IEnumerator MoveCoroutine(float moveAngle)
+    private IEnumerator MoveToAngle(float moveAngle)
     {
         float curAngle = Quaternion.FromToRotation(Vector3.up, transform.localPosition - Vector3.zero).eulerAngles.z;
 
@@ -72,9 +62,9 @@ public class AxeController : MonoBehaviour
         coroutine = null;
     }
 
-    public bool StartAttack()
+    public void AttackMove()
     {
-        Vector2 mousePos = player.GetCompo<InputReaderSO>().MousePos;
+        Vector2 mousePos = parentEntity.GetCompo<InputReaderSO>().MousePos;
         Vector2 targetPoint = Camera.main.ScreenToWorldPoint(mousePos);
 
         if (coroutine != null)
@@ -86,13 +76,10 @@ public class AxeController : MonoBehaviour
         dir = (Random.Range(0, 2) == 0 ? -1 : 1);
 
         StartCoroutine(Attack(targetPoint));
-        return true;
     }
 
     private IEnumerator Attack(Vector2 targetPoint)
     {
-        isAttack = true;
-
         float target_Distance = Vector2.Distance(transform.position, targetPoint);
 
         float projectile_Velocity = target_Distance / (Mathf.Sin(2 * attackAngle * Mathf.Deg2Rad) / gravity);
@@ -108,11 +95,20 @@ public class AxeController : MonoBehaviour
         float elapse_time = 0;
         while (elapse_time < flightDuration)
         {
+            Rotate();
+
             transform.Translate(new Vector3(Vx, dir * (Vy - (gravity * elapse_time)), 0) * Time.deltaTime * moveSpeed);
+
             elapse_time += Time.deltaTime * moveSpeed;
             yield return null;
         }
 
-        Destroy(gameObject);
+        axe.OnAxeImpact.Invoke();
+        SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(axe);
+    }
+
+    private void Rotate()
+    {
+        visualTrm.rotation = Quaternion.Euler(0, 0, visualTrm.rotation.eulerAngles.z + (rotateSpeed * -dir));
     }
 }

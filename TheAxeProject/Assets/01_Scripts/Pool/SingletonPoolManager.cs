@@ -5,7 +5,8 @@ namespace ObjectPooling
 {
     public enum PoolEnumType
     {
-        AttackLoad
+        AttackLoad,
+        Axe
     }
     
     public class SingletonPoolManager : MonoSingleton<SingletonPoolManager>
