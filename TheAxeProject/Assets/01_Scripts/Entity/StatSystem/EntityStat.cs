@@ -66,7 +66,7 @@ namespace Core.StatSystem
         {
             foreach (StatSO stat in _stats)
             {
-                //stat.ClearModifier();  //다음시간에 만들어요
+                stat.ClearModifier();  //다음시간에 만들어요
             }
         }
 
@@ -74,7 +74,7 @@ namespace Core.StatSystem
         [ContextMenu("Load Override Stat")]
         private void LoadStatAsOverride()
         {
-            string path = "Assets/MK/07_SO/StatSystem";
+            string path = "Assets/07_SO/StatSystem";
             string[] assetNames = AssetDatabase.FindAssets("", new[] { path });
 
             List<StatSO> loadedStats = new List<StatSO>();

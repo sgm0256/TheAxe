@@ -71,6 +71,12 @@ namespace Core.StatSystem
             }
         }
 
+        public void ClearModifier()
+        {
+            _modifiedValue = 0;
+            _modifyValueByKey.Clear();
+        }
+
         private void TryInvokeValueChangedEvent(float value, float prevValue)
         {
             if(Mathf.Approximately(prevValue, value) == false) 
