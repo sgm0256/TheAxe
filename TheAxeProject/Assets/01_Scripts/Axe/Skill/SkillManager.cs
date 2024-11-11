@@ -1,5 +1,6 @@
 using MKDir;
 using ObjectPooling;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,18 +15,20 @@ public enum SkillType
 
 public class SkillManager : MonoSingleton<SkillManager>
 {
-    [SerializeField] private List<PoolTypeSO> poolTypes;
+    [SerializeField] private List<GameObject> axeList;
 
-    private Dictionary<string, PoolTypeSO> skillPoolTypeDictionary= new();
+    private Dictionary<SkillType, Axe> skillOfAxeDictionary = new();
     private Dictionary<SkillType, int> skillLevelDictionary = new();
 
     protected override void Awake()
     {
         base.Awake();
 
-        foreach(PoolTypeSO poolType in poolTypes)
+        foreach(GameObject axePrefab in axeList)
         {
-            skillPoolTypeDictionary.Add(poolType.name, poolType);
+            Axe axe = Instantiate(axePrefab, Vector3.zero, Quaternion.identity).GetComponent<Axe>();
+            SkillType type = axe.GetCompo<Skill>().Type;
+            skillOfAxeDictionary.Add(type, axe);
         }
 
         foreach (SkillType skillType in System.Enum.GetValues(typeof(SkillType)))
@@ -34,9 +37,9 @@ public class SkillManager : MonoSingleton<SkillManager>
         }
     }
 
-    public PoolTypeSO GetSkillPoolType(string skillName)
+    public Axe GetAxeOfSkillType(SkillType type)
     {
-        return skillPoolTypeDictionary.TryGetValue(skillName, out PoolTypeSO poolType) ? poolType : null;
+        return skillOfAxeDictionary.TryGetValue(type, out Axe axe) ? axe : null;
     }
 
     public int GetSkillLevel(SkillType type)
@@ -47,8 +50,6 @@ public class SkillManager : MonoSingleton<SkillManager>
     public void SetSkillLevel(SkillType type, int level)
     {
         if (skillLevelDictionary.ContainsKey(type))
-        {
             skillLevelDictionary[type] = level;
-        }
     }
 }

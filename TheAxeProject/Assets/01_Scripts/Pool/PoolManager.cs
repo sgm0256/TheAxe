@@ -15,7 +15,7 @@ namespace ObjectPooling
 
         public event Action<int> LoadCountEvent;
         public event Action<int, string> LoadMessageEvent;
-        public event Action LoadSuccessEvent; 
+        public event Action LoadSuccessEvent;
 
         public void InitializePool(Transform root)
         {

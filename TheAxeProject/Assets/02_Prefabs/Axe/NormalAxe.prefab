@@ -94,7 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a36a766f52053d4ca1f669fd13d9d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolType: {fileID: 11400000, guid: c7b65422fdb52f94185651afb4965c05, type: 2}
+  _inputCompo: {fileID: 11400000, guid: bc8cabd3904b03e4ba6fc4a4761b04a1, type: 2}
+  visualTrm: {fileID: 485616354991622316}
+  isAttack: 0
 --- !u!60 &6380336975308428804
 PolygonCollider2D:
   m_ObjectHideFlags: 0

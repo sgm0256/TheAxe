@@ -1,28 +1,38 @@
 using Core.Entities;
-using DG.Tweening;
 using ObjectPooling;
 using System;
-using System.Collections;
 using UnityEngine;
 
-public class Axe : Entity, IPoolable
+public class Axe : Entity
 {
-    [SerializeField] private PoolTypeSO poolType;
-
-    public PoolTypeSO PoolType => poolType;
-
-    public GameObject GameObject => gameObject;
+    [SerializeField] private InputReaderSO _inputCompo;
 
     public Action OnAxeImpact;
+    public Transform visualTrm;
 
-    public void ResetItem()
+    public bool isAttack = false;
+    protected override void Awake()
     {
-        transform.position = Vector3.zero;
-        transform.rotation = Quaternion.identity;
+        base.Awake();
+        _components.Add(_inputCompo.GetType(), _inputCompo);
+
+        visualTrm = transform.Find("Visual");
+        visualTrm.gameObject.SetActive(false);
     }
 
-    public void SetUpPool(Pool pool)
+    public void Attack(Vector2 startPos)
     {
-        
+        isAttack = true;
+        visualTrm.gameObject.SetActive(true);
+        transform.position = startPos;
+        transform.rotation = Quaternion.identity;
+
+        GetCompo<Skill>().StartSkill();
+    }
+
+    public void EndAttack()
+    {
+        isAttack = false;
+        visualTrm.gameObject.SetActive(false);
     }
 }

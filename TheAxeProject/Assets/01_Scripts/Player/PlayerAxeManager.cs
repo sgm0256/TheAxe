@@ -2,13 +2,12 @@ using Core.Entities;
 using ObjectPooling;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAxeManager : MonoBehaviour, IEntityComponent
 {
+    [SerializeField] private PoolTypeSO visualAxePoolType;
     [SerializeField] private Transform axeContainer;
-    [SerializeField] private PoolTypeSO normalAxeType;
     [SerializeField] private int maxAxeCount = 3;
     [SerializeField] private float rotationSpeed = 5f;
     private float spawnCoolTime = 1f;
@@ -17,15 +16,13 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
 
     private InputReaderSO input;
 
-    private List<PoolTypeSO> skillList = new();
-    private List<Axe> axeList = new List<Axe>();
+    private List<SkillDataSO> skillList = new();
+    private List<VisualAxe> axeList = new();
 
     public void Initialize(Entity entity)
     {
         input = entity.GetCompo<InputReaderSO>();
         input.FireEvent += Attack;
-
-        skillList.Add(normalAxeType);
     }
 
     private void Update()
@@ -40,34 +37,18 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         }
     }
 
-    public void UpgradeSkill(SkillType type)
-    {
-        int level = SkillManager.Instance.GetSkillLevel(type);
-
-        if(level == 1)
-        {
-            PoolTypeSO typeSo = SkillManager.Instance.GetSkillPoolType(type.ToString());
-            skillList.Add(typeSo);
-        }
-
-        foreach(Axe axe in axeList)
-        {
-            if(axe.GetCompo<Skill>().Type == type)
-            {
-                // skill upgrade
-            }
-        }
-    }
-
     private IEnumerator CreateAxe()
     {
         yield return new WaitForSeconds(spawnCoolTime);
         //yield return null;
 
-        PoolTypeSO axeType = skillList[orderIdx++];
+        SkillDataSO data = skillList[orderIdx++];
         if (orderIdx > skillList.Count - 1)
             orderIdx = 0;
-        Axe axe = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Pop(axeType) as Axe;
+
+        VisualAxe axe = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe)
+            .Pop(visualAxePoolType) as VisualAxe;
+        axe.Init(data);
 
         axeList.Add(axe);
         SortAxe(true);
@@ -86,7 +67,7 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         {
             float angle = i * curAngle;
             bool isLast = i == axeList.Count - 1;
-            axeList[i].GetCompo<AxeMover>().Sort(angle, isSpawn && isLast);
+            axeList[i].Sort(angle, isSpawn && isLast);
         }
     }
 
@@ -95,10 +76,11 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         if (axeList.Count == 0)
             return;
 
-        Axe axe = axeList[0];
-        axeList.Remove(axe);
+        VisualAxe visualAxe = axeList[0];
+        axeList.Remove(visualAxe);
         SortAxe(false);
 
-        axe.GetCompo<Skill>().StartSkill();
+        Axe axe = SkillManager.Instance.GetAxeOfSkillType(visualAxe.SkillData.skillType);
+        axe.Attack(transform.position);
     }
 }

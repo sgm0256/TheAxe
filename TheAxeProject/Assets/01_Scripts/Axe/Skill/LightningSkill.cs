@@ -2,21 +2,27 @@ using Core.Entities;
 using MK.Enemy;
 using UnityEngine;
 
-public class LightningSkill : Skill
+public class LightningSkill : Skill, IEntityComponent
 {
-    public override void Initialize(Entity entity)
+    public void Initialize(Entity entity)
     {
-        base.Initialize(entity);
-
+        axe = (Axe)entity;
+        mover = axe.GetCompo<AxeMover>();
         Type = SkillType.Lightning;
+
+        axe.OnAxeImpact += Impact;
+    }
+
+    private void Impact()
+    {
+        //강력 스킬
+
+        axe.EndAttack();
     }
 
     public override void UpgradeSkill(int level)
     {
-        currentLevel = level;
-        SkillManager.Instance.SetSkillLevel(SkillType.Lightning, currentLevel);
-
-        switch (currentLevel)
+        switch (level)
         {
             case 2:
                 {
@@ -43,7 +49,7 @@ public class LightningSkill : Skill
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isAttack)
+        if (!axe.isAttack)
             return;
 
         if (collision.TryGetComponent(out Enemy enemy))
