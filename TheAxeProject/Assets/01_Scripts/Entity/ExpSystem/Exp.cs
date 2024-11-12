@@ -1,5 +1,5 @@
-using System;
 using Core.Entities;
+using Core.InteractiveItem;
 using DG.Tweening;
 using UnityEngine;
 
@@ -10,6 +10,7 @@ namespace Core.ExpSystem
         [SerializeField] private ExpInfoSO _info;
         [SerializeField] private float _duration = 0.3f;
         [SerializeField] private float _speed = 3f;
+        [SerializeField] private float _getDistance = 2f;
         [SerializeField] private float _speedWeighting = 3f;
 
         private Entity _target;
@@ -32,10 +33,10 @@ namespace Core.ExpSystem
             _target = entity;
 
             Vector2 direction = (_target.transform.position - transform.position).normalized;
-            Vector2 targetPosition = (Vector2)transform.position - direction * _speed;
+            Vector2 targetPosition = (Vector2)transform.position - direction * _getDistance;
 
             transform.DOMove(targetPosition, _duration)
-                .SetEase(Ease.InSine)
+                .SetEase(Ease.Linear)
                 .OnComplete(() => _isMovement = true);
         }
 
