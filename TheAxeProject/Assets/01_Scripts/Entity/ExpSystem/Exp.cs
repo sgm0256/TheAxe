@@ -1,4 +1,3 @@
-using System;
 using Core.Entities;
 using Core.InteractiveObjects;
 using DG.Tweening;
@@ -35,8 +34,9 @@ namespace Core.ExpSystem
             _isMovement = false;
         }
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _myRigid = GetComponent<Rigidbody2D>();
         }
 
@@ -69,8 +69,7 @@ namespace Core.ExpSystem
         {
             if (other.TryGetComponent(out Entity entity))
             {
-                // TODO : 풀 넣기
-                // TODO : Pool 코드 정리
+                SingletonPoolManager.Instnace.GetPoolManager(PoolEnumType.InteractiveObject)?.Push(this);
                 Destroy(gameObject);
             }
         }

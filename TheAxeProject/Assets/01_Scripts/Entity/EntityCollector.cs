@@ -54,7 +54,6 @@ namespace Core.Entities
             if (other.TryGetComponent(out InteractiveObject obj))
             {
                 GetObjectEvent?.Invoke(obj.Info);
-                // 여기서 먹은 거 처리해 줘야 됨
             }
         }
 

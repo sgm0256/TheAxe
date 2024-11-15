@@ -1,3 +1,4 @@
+using System;
 using Core.Entities;
 using UnityEngine;
 
@@ -10,8 +11,14 @@ namespace Core.InteractiveObjects
     
     public abstract class InteractiveObject : MonoBehaviour
     {
-        [field: SerializeField] public InteractiveObjectInfoSO Info { get; private set; }
+        [SerializeField] protected InteractiveOverride InfoOverride;
+        public InteractiveObjectInfoSO Info { get; private set; }
         protected Entity _entity;
+        protected virtual void Awake()
+
+        {
+            Info = InfoOverride.CreateInfo();
+        }
 
         public abstract void PickUpItem(Entity entity);
     }
