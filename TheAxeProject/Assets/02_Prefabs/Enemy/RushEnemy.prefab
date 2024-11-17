@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5622498925452659845}
-  - component: {fileID: 3544665615679329790}
+  - component: {fileID: 440524044884442232}
   m_Layer: 0
   m_Name: EntityMover
   m_TagString: Untagged
@@ -349,7 +349,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4443055027283184883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3544665615679329790
+--- !u!114 &440524044884442232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,7 +358,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6824097894337272279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcee50f57c45be84f80f866fd2cd4392, type: 3}
+  m_Script: {fileID: 11500000, guid: e58d9f20b22bb834d933c179937d2e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveStat: {fileID: 11400000, guid: 25655f51c805fd84b8840a3e8613aa93, type: 2}
