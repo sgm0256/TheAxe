@@ -10,7 +10,9 @@ public class Axe : Entity
     public Transform visualTrm;
     private Skill skillCompo;
 
+    [HideInInspector]
     public bool isAttack = false;
+
     protected override void Awake()
     {
         base.Awake();

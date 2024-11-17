@@ -7,7 +7,7 @@ public class NormalSkill : Skill
     {
         base.Awake();
 
-        Type = SkillType.Lightning;
+        Type = SkillType.Normal;
     }
 
     protected override void Impact()

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: {fileID: 11400000, guid: 0e242d4daecbbe7438c2dbf5cbc992d6, type: 2}
   skillType: 1
-  color: {r: 1, g: 0.9057771, b: 0, a: 1}
+  color: {r: 1, g: 0.87058824, b: 0, a: 1}
