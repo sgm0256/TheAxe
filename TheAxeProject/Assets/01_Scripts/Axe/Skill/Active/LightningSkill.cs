@@ -1,23 +1,20 @@
-using Core.Entities;
 using MK.Enemy;
 using UnityEngine;
 
-public class LightningSkill : Skill, IEntityComponent
+public class LightningSkill : Skill
 {
-    public void Initialize(Entity entity)
+    public override void Awake()
     {
-        axe = (Axe)entity;
-        mover = axe.GetCompo<AxeMover>();
-        Type = SkillType.Lightning;
+        base.Awake();
 
-        axe.OnAxeImpact += Impact;
+        Type = SkillType.Lightning;
     }
 
-    private void Impact()
+    protected override void Impact()
     {
-        //강력 스킬
+        base.Impact();
 
-        axe.EndAttack();
+        //강력 스킬
     }
 
     public override void UpgradeSkill(int level)

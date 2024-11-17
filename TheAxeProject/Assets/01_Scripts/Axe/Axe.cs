@@ -1,5 +1,4 @@
 using Core.Entities;
-using ObjectPooling;
 using System;
 using UnityEngine;
 
@@ -9,6 +8,7 @@ public class Axe : Entity
 
     public Action OnAxeImpact;
     public Transform visualTrm;
+    private Skill skillCompo;
 
     public bool isAttack = false;
     protected override void Awake()
@@ -18,21 +18,29 @@ public class Axe : Entity
 
         visualTrm = transform.Find("Visual");
         visualTrm.gameObject.SetActive(false);
+        skillCompo = GetComponentInChildren<Skill>();
     }
 
     public void Attack(Vector2 startPos)
     {
         isAttack = true;
         visualTrm.gameObject.SetActive(true);
+        transform.parent = null;
         transform.position = startPos;
         transform.rotation = Quaternion.identity;
 
-        GetCompo<Skill>().StartSkill();
+        skillCompo.StartSkill();
     }
 
     public void EndAttack()
     {
         isAttack = false;
         visualTrm.gameObject.SetActive(false);
+        transform.SetParent(SkillManager.Instance.transform);
+    }
+
+    public Skill GetSkill()
+    {
+        return skillCompo;
     }
 }

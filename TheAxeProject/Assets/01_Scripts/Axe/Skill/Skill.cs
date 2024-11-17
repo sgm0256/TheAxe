@@ -1,4 +1,3 @@
-using Core.Entities;
 using UnityEngine;
 
 public class Skill : MonoBehaviour
@@ -10,7 +9,20 @@ public class Skill : MonoBehaviour
 
     protected bool isUpgradedAxe = false;
 
-    public virtual void StartSkill() 
+    public virtual void Awake()
+    {
+        axe = GetComponentInParent<Axe>();
+        mover = axe.GetCompo<AxeMover>();
+
+        axe.OnAxeImpact += Impact;
+    }
+
+    protected virtual void Impact()
+    {
+        axe.EndAttack();
+    }
+
+    public virtual void StartSkill()
     {
         mover.AttackMove();
     }

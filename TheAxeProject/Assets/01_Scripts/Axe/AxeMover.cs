@@ -29,7 +29,9 @@ public class AxeMover : MonoBehaviour, IEntityComponent
 
     private IEnumerator Attack(Vector2 targetPoint)
     {
-        float target_Distance = Vector2.Distance(transform.position, targetPoint);
+        Transform axeTrm = axe.transform;
+
+        float target_Distance = Vector2.Distance(axeTrm.position, targetPoint);
 
         float projectile_Velocity = target_Distance / (Mathf.Sin(2 * attackAngle * Mathf.Deg2Rad) / gravity);
 
@@ -38,21 +40,21 @@ public class AxeMover : MonoBehaviour, IEntityComponent
 
         float flightDuration = target_Distance / Vx;
 
-        float angleToTarget = Mathf.Atan2(targetPoint.y - transform.position.y, targetPoint.x - transform.position.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angleToTarget);
+        float angleToTarget = Mathf.Atan2(targetPoint.y - axeTrm.position.y, targetPoint.x - axeTrm.position.x) * Mathf.Rad2Deg;
+        axeTrm.rotation = Quaternion.Euler(0, 0, angleToTarget);
 
         float elapse_time = 0;
         while (elapse_time < flightDuration)
         {
             Rotate();
 
-            transform.Translate(new Vector3(Vx, dir * (Vy - (gravity * elapse_time)), 0) * Time.deltaTime * moveSpeed);
+            axeTrm.Translate(new Vector3(Vx, dir * (Vy - (gravity * elapse_time)), 0) * Time.deltaTime * moveSpeed);
 
             elapse_time += Time.deltaTime * moveSpeed;
             yield return null;
         }
 
-        axe.OnAxeImpact.Invoke();
+        axe.OnAxeImpact?.Invoke();
     }
 
     private void Rotate()

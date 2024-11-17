@@ -199,6 +199,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 520392574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &183914619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 183914620}
+  - component: {fileID: 183914621}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &183914620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183914619}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1354498597}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &183914621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183914619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd36fb4338594ed4aa102b53d4f0f325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillDataList:
+  - {fileID: 11400000, guid: 1a581c594bc38444c9bbe37f1b3906f1, type: 2}
+  - {fileID: 11400000, guid: 4a1ff37f1661e514e9828facd1290b8d, type: 2}
 --- !u!1 &260291446
 GameObject:
   m_ObjectHideFlags: 3
@@ -824,7 +871,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axeList:
   - {fileID: 4251472658110178434, guid: 3feac445bf0646f4d8d3eb2d232bf4cc, type: 3}
-  - {fileID: 8006300524326074854, guid: 376fe30734a7c4f48b5516df862bf73a, type: 3}
+  - {fileID: 4251472658110178434, guid: f7252979c1ed265478250495386f1e9c, type: 3}
+  SkillList: []
 --- !u!1 &1354498596
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +904,7 @@ Transform:
   m_Children:
   - {fileID: 19068455}
   - {fileID: 1253793059}
+  - {fileID: 183914620}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1604744899

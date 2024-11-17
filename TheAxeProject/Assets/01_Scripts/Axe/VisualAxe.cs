@@ -24,9 +24,8 @@ public class VisualAxe : MonoBehaviour, IPoolable
     {
         StopAllCoroutines();
         transform.DOKill();
-        transform.parent = null;
 
-        transform.position = Vector3.zero;
+        transform.localPosition = Vector3.zero;
         transform.rotation = Quaternion.identity;
     }
 

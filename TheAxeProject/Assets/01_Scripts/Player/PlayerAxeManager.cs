@@ -12,11 +12,10 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
     [SerializeField] private float rotationSpeed = 5f;
     private float spawnCoolTime = 1f;
     private bool isSpawning = false;
-    private int orderIdx = 1;
+    private int orderIdx = 0;
 
     private InputReaderSO input;
 
-    private List<SkillDataSO> skillList = new();
     private List<VisualAxe> axeList = new();
 
     public void Initialize(Entity entity)
@@ -42,12 +41,13 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         yield return new WaitForSeconds(spawnCoolTime);
         //yield return null;
 
-        SkillDataSO data = skillList[orderIdx++];
-        if (orderIdx > skillList.Count - 1)
+        SkillDataSO data = SkillManager.Instance.SkillList[orderIdx++];
+        if (orderIdx > SkillManager.Instance.SkillList.Count - 1)
             orderIdx = 0;
 
         VisualAxe axe = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe)
             .Pop(visualAxePoolType) as VisualAxe;
+        axe.transform.SetParent(transform, false);
         axe.Init(data);
 
         axeList.Add(axe);
@@ -81,6 +81,8 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         SortAxe(false);
 
         Axe axe = SkillManager.Instance.GetAxeOfSkillType(visualAxe.SkillData.skillType);
-        axe.Attack(transform.position);
+        axe.Attack(visualAxe.transform.position);
+
+        SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(visualAxe);
     }
 }

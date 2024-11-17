@@ -1,11 +1,10 @@
 using MKDir;
-using ObjectPooling;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public enum SkillType
 {
+    Normal,
     Lightning,
     Ice,
     Tornado,
@@ -17,6 +16,8 @@ public class SkillManager : MonoSingleton<SkillManager>
 {
     [SerializeField] private List<GameObject> axeList;
 
+    public List<SkillDataSO> SkillList;
+
     private Dictionary<SkillType, Axe> skillOfAxeDictionary = new();
     private Dictionary<SkillType, int> skillLevelDictionary = new();
 
@@ -24,10 +25,10 @@ public class SkillManager : MonoSingleton<SkillManager>
     {
         base.Awake();
 
-        foreach(GameObject axePrefab in axeList)
+        foreach (GameObject axePrefab in axeList)
         {
-            Axe axe = Instantiate(axePrefab, Vector3.zero, Quaternion.identity).GetComponent<Axe>();
-            SkillType type = axe.GetCompo<Skill>().Type;
+            Axe axe = Instantiate(axePrefab, Vector3.zero, Quaternion.identity, transform).GetComponent<Axe>();
+            SkillType type = axe.GetSkill().Type;
             skillOfAxeDictionary.Add(type, axe);
         }
 
@@ -51,5 +52,10 @@ public class SkillManager : MonoSingleton<SkillManager>
     {
         if (skillLevelDictionary.ContainsKey(type))
             skillLevelDictionary[type] = level;
+    }
+
+    public void AddSKill(SkillDataSO skillData)
+    {
+        SkillList.Add(skillData);
     }
 }

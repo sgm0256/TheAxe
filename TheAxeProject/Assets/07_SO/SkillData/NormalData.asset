@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: befe42bd555ff6d489e056e33c9f16c0, type: 3}
-  m_Name: LightningAxePool
+  m_Script: {fileID: 11500000, guid: c1ce1a5c66f172c4db7513e736087387, type: 3}
+  m_Name: NormalData
   m_EditorClassIdentifier: 
-  typeName: LightningAxe
-  assetRef:
-    m_AssetGUID: f7252979c1ed265478250495386f1e9c
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  initCount: 5
+  poolType: {fileID: 11400000, guid: c7b65422fdb52f94185651afb4965c05, type: 2}
+  skillType: 0
+  color: {r: 1, g: 1, b: 1, a: 1}

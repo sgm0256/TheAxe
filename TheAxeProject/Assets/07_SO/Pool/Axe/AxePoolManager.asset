@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: AxePoolManager
   m_EditorClassIdentifier: 
   poolList:
-  - {fileID: 11400000, guid: 0e242d4daecbbe7438c2dbf5cbc992d6, type: 2}
-  - {fileID: 11400000, guid: c7b65422fdb52f94185651afb4965c05, type: 2}
   - {fileID: 11400000, guid: 3133c302ecaa823478db8a6408630409, type: 2}
   <PoolEnumType>k__BackingField: 1
