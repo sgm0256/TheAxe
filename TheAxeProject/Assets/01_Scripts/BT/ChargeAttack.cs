@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace MK.BT
 {
-    public class ChargeAttack : Conditional
+    public class ChargeAttack : Action
     {
         public PoolTypeSO attackLoadType;
         public SharedTransform target;

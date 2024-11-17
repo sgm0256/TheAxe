@@ -59,6 +59,7 @@ namespace Core.Entities
         {
             // TODO : Level 방식 만들기
             _level++;
+            _levelUpNeedExp++;
             Debug.Log("Level Up!!!");
             LevelUpEvent?.Invoke();
         }

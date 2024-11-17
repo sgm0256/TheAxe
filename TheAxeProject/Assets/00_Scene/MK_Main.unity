@@ -1213,13 +1213,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 289465993043654607, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
+      propertyPath: _statOverrides.Array.data[1]._overrideBaseValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1798081796790569480, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
       propertyPath: m_Name
       value: RushEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798081796790569480, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4443055027283184883, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1263,15 +1263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8248569882754438870, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
       propertyPath: mBehaviorSource.mTaskData.JSONSerialization
-      value: '{"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":0}]}'
+      value: '{"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true}]}'
       objectReference: {fileID: 0}
     - target: {fileID: 8248569882754438870, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8248569882754438870, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
-      propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.data[0]
-      value: 
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1336,7 +1332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8248569882754438870, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
       propertyPath: mBehaviorSource.mTaskData.JSONSerialization
-      value: '{"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true}]}'
+      value: '{"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"isAttacked","IsShared":true,"BooleanmValue":false}]}'
       objectReference: {fileID: 0}
     - target: {fileID: 8248569882754438870, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.size
