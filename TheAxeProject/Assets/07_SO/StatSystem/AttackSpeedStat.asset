@@ -17,6 +17,6 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _displayName: ASPD
   _baseValue: 1
-  _minValue: 0.1
+  _minValue: 0.01
   _maxValue: 10
   <IsPercent>k__BackingField: 0

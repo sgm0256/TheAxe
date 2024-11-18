@@ -627,8 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1014ce3ae784ba24db8cb35cde8f20fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualAxePoolType: {fileID: 0}
   axeContainer: {fileID: 1959429098}
-  axePrefab: {fileID: 4251472658110178434, guid: da577d6abbac0c549afdf41286a0be77, type: 3}
   maxAxeCount: 5
   rotationSpeed: 5
 --- !u!50 &737200535
@@ -1332,7 +1332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8248569882754438870, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
       propertyPath: mBehaviorSource.mTaskData.JSONSerialization
-      value: '{"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"isAttacked","IsShared":true,"BooleanmValue":false}]}'
+      value: '{"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true}]}'
       objectReference: {fileID: 0}
     - target: {fileID: 8248569882754438870, guid: b5926e2f64366c444ac562c3eb930578, type: 3}
       propertyPath: mBehaviorSource.mTaskData.fieldSerializationData.unityObjects.Array.size
@@ -2030,7 +2030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2111388022280459753, guid: 61aa797df54c8bf42820878652c84e86, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5060589707163151022, guid: 61aa797df54c8bf42820878652c84e86, type: 3}
       propertyPath: m_LocalPosition.x

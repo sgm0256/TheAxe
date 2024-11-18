@@ -6,14 +6,12 @@ namespace Core.Entities
 {
     public class EntityLevel : MonoBehaviour, IEntityComponent, IAfterInitable
     {
-        public event Action LevelUpEvent;
+        public event Action<int> LevelUpEvent;
 
-        [SerializeField] private float _levelUpNeedExp = 3f;
+        [SerializeField] private float _levelUpNeedExp = 5f;
         
         private Entity _entity;
         private EntityCollector _collector;
-        
-
         private int _level = 0;
         private float _expValue = 0f;
         
@@ -57,11 +55,10 @@ namespace Core.Entities
         
         private void LevelUp()
         {
-            // TODO : Level 방식 만들기
             _level++;
-            _levelUpNeedExp++;
+            _levelUpNeedExp += (_levelUpNeedExp / 2);
             Debug.Log("Level Up!!!");
-            LevelUpEvent?.Invoke();
+            LevelUpEvent?.Invoke(_level);
         }
     }
 }
