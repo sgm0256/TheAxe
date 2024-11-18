@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace ObjectPooling
 {
     [CreateAssetMenu(menuName = "SO/Pool/Manager")]

@@ -27,6 +27,11 @@ public class SpawnManager : MonoSingleton<SpawnManager>
         PoolManager.InitializePool(transform);
     }
 
+    private void Start()
+    {
+        SpawnStart();
+    }
+
     public void SpawnStart()
     {
         StartCoroutine(SpawnCoroutine());
