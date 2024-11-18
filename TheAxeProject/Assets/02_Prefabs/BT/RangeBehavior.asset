@@ -22,31 +22,23 @@ MonoBehaviour:
       variableStartIndex: 
       JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(611.063232,-389.082031)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(-1.21228027,132.651947)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0.454589844,131.818359)"},"ID":2,"Name":"\ud50c\ub808\uc774\uc5b4
         \ud0d0\uc0c9 \uc2dc\ud038\uc2a4","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"FindTarget","NodeData":{"Offset":"(-149.54541,111.818359)"},"ID":3,"Name":"Find
-        Target","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":0},"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":1},"SharedLayerMaskwhatIsTarget":{"Type":"BehaviorDesigner.Runtime.SharedLayerMask","Name":null,"LayerMaskmValue":64}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(150.454651,121.818359)"},"ID":4,"Name":"\uc6d0\uac70\ub9ac
+        Target","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},"SharedLayerMaskwhatIsTarget":{"Type":"BehaviorDesigner.Runtime.SharedLayerMask","Name":null,"LayerMaskmValue":64}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(150.454651,121.818359)"},"ID":4,"Name":"\uc6d0\uac70\ub9ac
         ","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-129.54541,131.818359)"},"ID":5,"Name":"\ucd94\uc801
         \uc2dc\ud038\uc2a4","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-69.54541,161.818359)"},"ID":6,"Name":"Inverter","Instant":true,"Children":[{"Type":"MK.BT.RangeDected","NodeData":{"Offset":"(0.454589844,131.818359)"},"ID":7,"Name":"Range
-        Dected","Instant":true,"LayerMaskwhatIsTarget":64,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":2},"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":3},"StatSO_rangeStat":4}]},{"Type":"MK.BT.ChaseTarget","NodeData":{"Offset":"(70.45453,161.818359)"},"ID":8,"Name":"Chase
-        Target","Instant":true,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":5},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":6},"SinglerotateSpeed":30}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(150.45459,131.818359)"},"ID":9,"Name":"\uc6d0\uac70\ub9ac
-        \uacf5\uaca9","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"MK.BT.RangeAttack","NodeData":{"Offset":"(-1.10613441,169.860718)"},"ID":10,"Name":"Range
-        Attack","Instant":true,"PoolTypeSOattackLoadType":7,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":8},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":9},"Singleduration":1.2}]}]}]}]},"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":10},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":11}]}'
+        Dected","Instant":true,"LayerMaskwhatIsTarget":64,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},"StatSO_rangeStat":0}]},{"Type":"MK.BT.ChaseTarget","NodeData":{"Offset":"(70.45453,161.818359)"},"ID":8,"Name":"Chase
+        Target","Instant":true,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"SinglerotateSpeed":30}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(281.4069,131.818359)"},"ID":9,"Name":"\uc6d0\uac70\ub9ac
+        \uacf5\uaca9","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"MK.BT.AttackChecker","NodeData":{"Offset":"(-117.619263,185.238037)"},"ID":10,"Name":"Attack
+        Checker","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"BooleanisAttacked":false},{"Type":"MK.BT.RangeAttack","NodeData":{"Offset":"(-1.106142,193.670227)"},"ID":11,"Name":"Range
+        Attack","Instant":true,"PoolTypeSOattackLoadType":1,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"Singleduration":1.2,"Singlesize":3},{"Type":"MK.BT.SetAttackBoolParameter","NodeData":{"Offset":"(153.333267,185.238037)"},"ID":12,"Name":"Set
+        Attack Bool Parameter","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true}}]}]}]}]},"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
         startIndex: 
         dataPosition: 
         unityObjects:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
         - {fileID: 11400000, guid: 3aea5cb495ab5724face95563e7d5cc1, type: 2}
-        - {fileID: 0}
-        - {fileID: 0}
         - {fileID: 11400000, guid: 3ab95a894d3b49949a56d4d527945041, type: 2}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
         byteData: 
         byteDataArray: 
       Version: 1.7.10
