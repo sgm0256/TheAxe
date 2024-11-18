@@ -7,11 +7,10 @@ namespace Core.Entities
 {
     public class Entity : MonoBehaviour
     {
-        protected Dictionary<Type, IEntityComponent> _components;
+        protected Dictionary<Type, IEntityComponent> _components = new Dictionary<Type, IEntityComponent>();
         
         protected virtual void Awake()
         {
-            _components = new Dictionary<Type, IEntityComponent>();
             GetComponentsInChildren<IEntityComponent>(true).ToList()
                 .ForEach(component => _components.Add(component.GetType(), component));
 

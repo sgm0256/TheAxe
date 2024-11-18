@@ -53,7 +53,7 @@ public class AttackLoad : MonoBehaviour, IPoolable
         }
 
         _spriteRenderer.color = end;
-        SingletonPoolManager.Instnace.GetPoolManager(type).Push(this);
+        SingletonPoolManager.Instance.GetPoolManager(type).Push(this);
         ReadyToAttackEvent?.Invoke();
     }
     

@@ -10,12 +10,12 @@ namespace ObjectPooling
     {
         public List<PoolTypeSO> poolList = new();
         private Dictionary<PoolTypeSO, Pool> _pools;
-        [SerializeField] private Transform _rootTrm;
+        private Transform _rootTrm;
         [field: SerializeField] public PoolEnumType PoolEnumType { get; set; }
 
         public event Action<int> LoadCountEvent;
         public event Action<int, string> LoadMessageEvent;
-        public event Action LoadSuccessEvent; 
+        public event Action LoadSuccessEvent;
 
         public void InitializePool(Transform root)
         {
