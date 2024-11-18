@@ -29,10 +29,12 @@ public class SkillSelecter : MonoBehaviour
 
     private void CardSelect()
     {
-        if (Input.GetMouseButton(0) && curPocusCard != null)
+        if (Input.GetMouseButtonDown(0) && curPocusCard != null)
         {
             SkillCard card = curPocusCard.GetComponent<SkillCard>();
             manager.ApplySkill(card.GetData().skillType);
+
+            curPocusCard = null;
         }
     }
 
@@ -46,18 +48,23 @@ public class SkillSelecter : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         raycaster.Raycast(pointerData, results);
 
-        if (results.Count > 0) 
+        foreach (var result in results)
         {
-            RectTransform skillCard = results[0].gameObject.GetComponent<RectTransform>();
-            if (results[0].gameObject.CompareTag("Background"))
+            RectTransform skillCard = result.gameObject.GetComponent<RectTransform>();
+            if (result.gameObject.CompareTag("Background"))
             {
                 ResetCurrentCard();
+                return;
             }
-            else if (results[0].gameObject.CompareTag("SkillCard") && curPocusCard != skillCard)
+            else if (result.gameObject.CompareTag("SkillCard"))
             {
-                ResetCurrentCard();
-                curPocusCard = skillCard;
-                curPocusCard.DOAnchorPosY(0, 0.1f).SetUpdate(true);
+                if (curPocusCard != skillCard)
+                {
+                    ResetCurrentCard();
+                    curPocusCard = skillCard;
+                    curPocusCard.DOAnchorPosY(0, 0.1f).SetUpdate(true);
+                }
+                return;
             }
         }
     }

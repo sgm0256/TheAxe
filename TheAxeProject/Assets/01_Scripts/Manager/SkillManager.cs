@@ -50,12 +50,14 @@ public class SkillManager : MonoSingleton<SkillManager>
 
     public void SetSkillLevel(SkillType type, int level)
     {
+        Debug.Log($"set: {type},{level}");
         if (skillLevelDictionary.ContainsKey(type))
             skillLevelDictionary[type] = level;
     }
 
     public void AddSKill(SkillDataSO skillData)
     {
+        Debug.Log($"add: {skillData.name}");
         SkillList.Add(skillData);
     }
 }

@@ -19,6 +19,8 @@ public class BombSkill : Skill
 
     public override void UpgradeSkill()
     {
+        base.UpgradeSkill();
+
         switch (level)
         {
             case 2:

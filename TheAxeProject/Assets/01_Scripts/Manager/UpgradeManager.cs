@@ -70,7 +70,7 @@ public class UpgradeManager : MonoBehaviour
     private void InitCard()
     {
         for (int i = 0; i < 3; i++)
-            skillCards[i].Init(skillDataList[spawnIdxList[i]], this);
+            skillCards[i].Init(skillDataList[spawnIdxList[i]]);
     }
 
     private void OpenPanel()
@@ -92,10 +92,13 @@ public class UpgradeManager : MonoBehaviour
 
     public void ApplySkill(SkillType type)
     {
+        Debug.Log($"type: {type}");
+
         Axe axe = SkillManager.Instance.GetAxeOfSkillType(type);
         axe.GetSkill().UpgradeSkill();
 
         int level = axe.GetSkill().GetLevel();
+        Debug.Log($"level: {level}");
         if (level == 1)
             SkillManager.Instance.AddSKill(FindSkillData(axe.GetSkill().Type));
         if (level == 5)

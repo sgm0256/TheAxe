@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ce1a5c66f172c4db7513e736087387, type: 3}
   m_Name: LightningData
   m_EditorClassIdentifier: 
-  poolType: {fileID: 11400000, guid: 0e242d4daecbbe7438c2dbf5cbc992d6, type: 2}
   skillType: 1
+  desc: "\uC911\uC2EC\uC5D0 \uBC88\uAC1C\uB97C \uB0B4\uB9AC\uCCD0 {0}\uC758 \uD53C\uD574\uB97C
+    \uC8FC\uACE0,\n\uC8FC\uBCC0 {1}\uC758 \uBC94\uC704 \uB0B4\uC758 \uC801\uC5D0\uAC8C
+    \uC5F0\uC1C4 \uBC88\uAC1C\uB97C \uC77C\uC73C\uD0A8\uB2E4."
+  stat1: 0
+  stat2: 0
   color: {r: 1, g: 0.87058824, b: 0, a: 1}
