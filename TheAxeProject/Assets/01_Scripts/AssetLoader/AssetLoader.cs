@@ -20,9 +20,9 @@ public class AssetLoader : MonoSingleton<AssetLoader>
     private int _toLoadCount;
     private int _currentLoadedCount;
     
-    private void Awake()
+    protected override void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        base.Awake();
         _isLoadComplete = false;
 
         _currentLoadedCount = 0;

@@ -11,10 +11,11 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     public List<PoolTypeSO> enemyPool = new List<PoolTypeSO>();
     public List<Transform> SpawnPoint = new List<Transform>();
 
+    [SerializeField] private float _spawnTime = 2.5f;
+    
     private PoolManagerSO _poolManager;
     private bool _isStopSpawn = false;
-
-    [SerializeField] private float _spawnTime = 2.5f;
+    private bool _isStartSpawn = false;
 
     private void Start()
     {
@@ -40,11 +41,14 @@ public class SpawnManager : MonoSingleton<SpawnManager>
 
     private IEnumerator SpawnCoroutine()
     {
+        _isStartSpawn = true;
         while (_isStopSpawn == false)
         {
             Enemy enemy = _poolManager.Pop(enemyPool[Random.Range(0, enemyPool.Count)]) as Enemy;
             enemy.transform.position = SpawnPoint[Random.Range(0, SpawnPoint.Count)].position;
             yield return new WaitForSeconds(_spawnTime);
         }
+        
+        _isStartSpawn = false;
     }
 }
