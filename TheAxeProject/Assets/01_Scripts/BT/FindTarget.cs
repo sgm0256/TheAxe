@@ -8,25 +8,39 @@ public class FindTarget : Conditional
     public SharedEnemy enemy;
     public SharedTransform target;
     public SharedLayerMask whatIsTarget;
+    public SharedBool isFindTarget;
+    public SharedInt colliderCount;
 
-    public override void OnAwake()
+    private Collider2D[] col;
+    
+    public override void OnStart()
     {
-        // TODO : Enemy 변수 세팅 방식 변경
+        col = new Collider2D[colliderCount.Value];
+        
+        if (isFindTarget.Value || target.Value != null)
+        {
+            isFindTarget.Value = true;
+            return;
+        }
+        
         enemy.Value = transform.GetComponent<Enemy>();
         
-        var result = Physics2D.OverlapCircle(transform.position, float.MaxValue, whatIsTarget.Value);
+        col = Physics2D.OverlapCircleAll(transform.position, float.MaxValue, whatIsTarget.Value);
 
-        if (result != null)
+        if (col.Length > 0)
         {
-            target.Value = result.transform;
+            target.Value = col[0].transform;
+            isFindTarget.Value = true;
         }
+        isFindTarget.Value = true;
     }
 
     public override TaskStatus OnUpdate()
     {
-        if (target.Value != null)
+        if (target.Value != null) 
             return TaskStatus.Success;
         
+        isFindTarget.Value = false;
         return TaskStatus.Failure;
     }
 }

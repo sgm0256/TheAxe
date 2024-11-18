@@ -224,15 +224,13 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":0},{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":1}]}'
+      JSONSerialization: '{"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
         startIndex: 
         dataPosition: 
-        unityObjects:
-        - {fileID: 720407772481608247, guid: e7cd6d38946ef9743b8620daa6c2eb65, type: 3}
-        - {fileID: 9005556493709164370}
+        unityObjects: []
         byteData: 
         byteDataArray: 
       Version: 1.7.10
@@ -250,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c091f7c274f0048b5f1508b1e5f61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PoolType>k__BackingField: {fileID: 11400000, guid: 8517fafd2d4a1824aae8adcec7273612, type: 2}
 --- !u!50 &5802669698569335672
 Rigidbody2D:
   serializedVersion: 4

@@ -38,6 +38,8 @@ public class VisualAxe : MonoBehaviour, IPoolable
     {
         SkillData = data;
 
+        Debug.Log(data);
+        
         spriteRender.color = data.color;
     }
 

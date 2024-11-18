@@ -36,7 +36,7 @@ namespace BTVisual
 
         public void DeleteNode(Node node)
         {
-            nodes.Remove(node); //¸®½ºÆ®¿¡¼­ Á¦°ÅÇÏ°í
+            nodes.Remove(node); //ë¦¬ìŠ¤íŠ¸ì—ì„œ ì œê±°í•˜ê³ 
             AssetDatabase.RemoveObjectFromAsset(node);
             AssetDatabase.SaveAssets();
         }
@@ -104,7 +104,7 @@ namespace BTVisual
         public BehaviourTree Clone()
         {
             BehaviourTree tree = Instantiate(this);
-            tree.rootNode = tree.rootNode.Clone(); //ÀÚ½Ä±îÁö ÀüÆÄµÇ¸é¼­ Å¬·ĞµÇ¾î µé¾î¿Â´Ù.
+            tree.rootNode = tree.rootNode.Clone(); //ìì‹ê¹Œì§€ ì „íŒŒë˜ë©´ì„œ í´ë¡ ë˜ì–´ ë“¤ì–´ì˜¨ë‹¤.
 
             tree.nodes = new List<Node>();
             Traverse(tree.rootNode, node => tree.nodes.Add(node));

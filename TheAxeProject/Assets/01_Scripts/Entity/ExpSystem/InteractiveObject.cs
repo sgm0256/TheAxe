@@ -1,5 +1,6 @@
-using System;
 using Core.Entities;
+using DG.Tweening;
+using ObjectPooling;
 using UnityEngine;
 
 namespace Core.InteractiveObjects
@@ -9,17 +10,72 @@ namespace Core.InteractiveObjects
         Exp, Item, Coin
     }
     
-    public abstract class InteractiveObject : MonoBehaviour
+    [RequireComponent(typeof(Rigidbody2D))]
+    public abstract class InteractiveObject : MonoBehaviour, IPoolable
     {
-        [SerializeField] protected InteractiveOverride InfoOverride;
+        public GameObject GameObject { get => gameObject; }
         public InteractiveObjectInfoSO Info { get; private set; }
+        
+        [field: SerializeField] public PoolTypeSO PoolType { get; set; }
+        [SerializeField] protected InteractiveOverride InfoOverride;
+        [SerializeField] protected float _duration = 0.3f;
+        [SerializeField] protected float _speed = 3f;
+        [SerializeField] protected float _getDistance = 2f;
+        [SerializeField] protected float _speedWeighting = 3f;
+        
         protected Entity _entity;
+        protected Pool _myPool;
+        protected Rigidbody2D _myRigid;
+        protected bool _isPick = false;
+        protected bool _isMovement = false;
+        protected float _acceleration = 1f;
+        
         protected virtual void Awake()
-
         {
             Info = InfoOverride.CreateInfo();
+            _myRigid = GetComponent<Rigidbody2D>();
+        }
+        
+        protected virtual void FixedUpdate()
+        {
+            if (_isMovement)
+            {
+                Vector2 direction = _entity.transform.position - transform.position;
+                _myRigid.velocity = (_speed + _acceleration) * direction.normalized;
+                _acceleration += Time.deltaTime * _speedWeighting;
+            }
+        }
+        
+        public void SetUpPool(Pool pool)
+        {
+            _myPool = pool;
         }
 
-        public abstract void PickUpItem(Entity entity);
+        public virtual void ResetItem()
+        {
+            _isPick = false; 
+            _isMovement = false;
+        }
+        
+        public virtual void PickUpItem(Entity entity)
+        {
+            if (_isPick) return;
+            _isPick = true;
+
+            _entity = entity;
+
+            Vector2 direction = (_entity.transform.position - transform.position).normalized;
+            Vector2 targetPosition = (Vector2)transform.position - direction * _getDistance;
+
+            transform.DOMove(targetPosition, _duration)
+                .SetEase(Ease.Linear)
+                .OnComplete(() => _isMovement = true);
+        }
+
+        public void PushObject()
+        {
+            // TODO : Push
+            Destroy(gameObject);
+        }
     }
 }

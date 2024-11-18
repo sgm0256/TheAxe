@@ -1,6 +1,5 @@
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
-using Core.Entities;
 using Core.StatSystem;
 using UnityEngine;
 
@@ -16,14 +15,10 @@ namespace MK.BT
         private Collider2D[] _colliders;
         private EntityStat _stat;
         private float _radiusRange;
-
-        public override void OnAwake()
-        {
-            _stat = enemy.Value.GetCompo<EntityStat>();
-        }
-
+        
         public override void OnStart()
         {
+            _stat = enemy.Value.GetCompo<EntityStat>();
             _radiusRange = _stat.GetStat(_rangeStat).Value;
             _stat.GetStat(_rangeStat).OnValueChange += HandleValueChange;
         }
