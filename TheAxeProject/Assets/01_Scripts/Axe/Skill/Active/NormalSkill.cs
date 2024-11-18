@@ -7,7 +7,7 @@ public class NormalSkill : Skill
     {
         base.Awake();
 
-        Type = SkillType.Lightning;
+        Type = SkillType.Normal;
     }
 
     protected override void Impact()
@@ -17,7 +17,7 @@ public class NormalSkill : Skill
         //강력 스킬
     }
 
-    public override void UpgradeSkill(int level)
+    public override void UpgradeSkill()
     {
         switch (level)
         {

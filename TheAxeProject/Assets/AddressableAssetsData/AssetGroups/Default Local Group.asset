@@ -42,18 +42,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 04b6127546cbea44f9a51f4ebe9588d2
-    m_Address: Assets/02_Prefabs/Enemy/MeleeEnemy.prefab
+  - m_GUID: b67de95ce74033a42a7d9aee29160e17
+    m_Address: Assets/02_Prefabs/Axe/PoisonAxe.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b5926e2f64366c444ac562c3eb930578
-    m_Address: Assets/02_Prefabs/Enemy/RushEnemy.prefab
+  - m_GUID: b96761db9b5b1be4098b28d3251d04e2
+    m_Address: Assets/02_Prefabs/Axe/TornadoAxe.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 61aa797df54c8bf42820878652c84e86
-    m_Address: Assets/02_Prefabs/Enemy/RangeEnemy.prefab
+  - m_GUID: 60a53b6336dc03a41a74174263e49e14
+    m_Address: Assets/02_Prefabs/Axe/BombAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63223cb4ffbd81949bb1dccab473334e
+    m_Address: Assets/02_Prefabs/Axe/IceAxe.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

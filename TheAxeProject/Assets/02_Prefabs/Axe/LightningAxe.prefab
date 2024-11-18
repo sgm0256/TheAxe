@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  rotateSpeed: 1
+  rotateSpeed: 10
   attackAngle: 45
 --- !u!1 &4251472658110178434
 GameObject:

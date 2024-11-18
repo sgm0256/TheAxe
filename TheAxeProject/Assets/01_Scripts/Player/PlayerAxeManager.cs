@@ -9,7 +9,6 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
     [SerializeField] private PoolTypeSO visualAxePoolType;
     [SerializeField] private Transform axeContainer;
     [SerializeField] private int maxAxeCount = 3;
-    [SerializeField] private float rotationSpeed = 5f;
     private float spawnCoolTime = 1f;
     private bool isSpawning = false;
     private int orderIdx = 0;
