@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36132bdbb9dbcbf4babb625e94a447d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PoolType>k__BackingField: {fileID: 11400000, guid: 338e124f88e51af4db571e5e0207960a, type: 2}
 --- !u!50 &8202727292028059372
 Rigidbody2D:
   serializedVersion: 4

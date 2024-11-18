@@ -1,23 +1,6 @@
-using ObjectPooling;
-using UnityEngine;
-
 namespace MK.Enemy
 {
-    public class MeleeEnemy : Enemy, IPoolable
+    public class MeleeEnemy : Enemy
     {
-        [field: SerializeField] public PoolTypeSO PoolType { get; set; }
-        public GameObject GameObject { get => gameObject; }
-
-        private Pool _myPool;
-        
-        public void SetUpPool(Pool pool)
-        {
-            _myPool = pool;
-        }
-
-        public void ResetItem()
-        {
-            
-        }
     }
 }
