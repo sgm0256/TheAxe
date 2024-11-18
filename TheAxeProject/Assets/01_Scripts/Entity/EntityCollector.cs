@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Core.Entities
 {
+    [RequireComponent(typeof(Collider2D))]
     public class EntityCollector : MonoBehaviour, IEntityComponent
     {
         public event Action<InteractiveObjectInfoSO> GetObjectEvent; 
@@ -54,6 +55,7 @@ namespace Core.Entities
             if (other.TryGetComponent(out InteractiveObject obj))
             {
                 GetObjectEvent?.Invoke(obj.Info);
+                obj.PushObject();
             }
         }
 

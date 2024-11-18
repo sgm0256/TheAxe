@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a801f3c9fd93649966126e3ab8b8bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PoolType>k__BackingField: {fileID: 11400000, guid: 3bff6d6a45decfc4d85adca42b7e7021, type: 2}
   InfoOverride:
-    _info: {fileID: 11400000, guid: b855df4c748f3964bbab387babc953fc, type: 2}
+    _info: {fileID: 11400000, guid: 209d4c7a83caef843b91c2efc551055d, type: 2}
     _isUseOverride: 1
-    _overrideBaseValue: 30
-  <PoolType>k__BackingField: {fileID: 11400000, guid: 3133c302ecaa823478db8a6408630409, type: 2}
+    _overrideBaseValue: 10

@@ -99,15 +99,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857a2c06d8101a849af15ae57b3db8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PoolType>k__BackingField: {fileID: 11400000, guid: 585a948624ec030489119e209ae4cfb0, type: 2}
   InfoOverride:
     _info: {fileID: 11400000, guid: b855df4c748f3964bbab387babc953fc, type: 2}
     _isUseOverride: 1
-    _overrideBaseValue: 5
+    _overrideBaseValue: 3
   _duration: 0.2
   _speed: 5
   _getDistance: 1.5
   _speedWeighting: 20
-  <PoolType>k__BackingField: {fileID: 0}
 --- !u!58 &2541609685702608107
 CircleCollider2D:
   m_ObjectHideFlags: 0
