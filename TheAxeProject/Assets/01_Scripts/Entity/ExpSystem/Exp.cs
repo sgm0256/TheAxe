@@ -69,7 +69,7 @@ namespace Core.ExpSystem
         {
             if (other.TryGetComponent(out Entity entity))
             {
-                SingletonPoolManager.Instnace.GetPoolManager(PoolEnumType.InteractiveObject)?.Push(this);
+                SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.InteractiveObject)?.Push(this);
                 Destroy(gameObject);
             }
         }
