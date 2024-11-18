@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    [SerializeField] protected SkillDataSO skillData;
+
     public SkillType Type;
 
     protected Axe axe;
