@@ -17,7 +17,10 @@ public class UpgradeManager : MonoBehaviour
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+    }
 
+    private void Start()
+    {
         SkillManager.Instance.AddSKill(FindSkillData(SkillType.Normal));
     }
 
