@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class UpgradeManager : MonoBehaviour
 
     private CanvasGroup canvasGroup;
 
-    private bool isSelect = false;
+    public bool IsSelect = false;
 
     private void Awake()
     {
@@ -20,13 +21,20 @@ public class UpgradeManager : MonoBehaviour
         SkillManager.Instance.AddSKill(FindSkillData(SkillType.Normal));
     }
 
+    private void InitCard()
+    {
+        SkillCard[] _children = GetComponentsInChildren<SkillCard>();
+        for (int i = 0; i < 3; i++)
+            _children[i].Init(skillDataList[spawnIdxList[i]]);
+    }
+
     public void StartSelectSkill()
     {
         CardSpawn();
         SetSpawnCardList();
         OpenPanel();
 
-        isSelect = true;
+        IsSelect = true;
     }
 
     private void CardSpawn()
@@ -41,7 +49,7 @@ public class UpgradeManager : MonoBehaviour
     {
         List<int> availableIndices = new List<int>();
 
-        int listCnt = SkillManager.Instance.SkillList.Count;
+        int listCnt = skillDataList.Count;
         for (int i = 0; i < listCnt; i++)
             availableIndices.Add(i);
 
@@ -52,6 +60,8 @@ public class UpgradeManager : MonoBehaviour
 
             availableIndices.RemoveAt(randomIndex);
         }
+
+        InitCard();
     }
 
     private void OpenPanel()
@@ -59,6 +69,27 @@ public class UpgradeManager : MonoBehaviour
         canvasGroup.alpha = 1f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
+    }
+
+    private void CloseSelectSkill()
+    {
+        spawnIdxList.Clear();
+        IsSelect = false;
+
+        canvasGroup.alpha = 0;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+    }
+
+    public void ApplySkill(SkillType type)
+    {
+        Axe axe = SkillManager.Instance.GetAxeOfSkillType(type);
+        axe.GetSkill().UpgradeSkill();
+
+        if (SkillManager.Instance.GetSkillLevel(type) == 5)
+            skillDataList.Remove(FindSkillData(type));
+
+        CloseSelectSkill();
     }
 
     private SkillDataSO FindSkillData(SkillType skillType)

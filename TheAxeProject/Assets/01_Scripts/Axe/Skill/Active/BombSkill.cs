@@ -17,7 +17,7 @@ public class BombSkill : Skill
         //강력 스킬
     }
 
-    public override void UpgradeSkill(int level)
+    public override void UpgradeSkill()
     {
         switch (level)
         {

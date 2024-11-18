@@ -8,6 +8,7 @@ public class Skill : MonoBehaviour
     protected AxeMover mover;
 
     protected bool isUpgradedAxe = false;
+    protected int level = 0;
 
     public virtual void Awake()
     {
@@ -27,5 +28,9 @@ public class Skill : MonoBehaviour
         mover.AttackMove();
     }
 
-    public virtual void UpgradeSkill(int level) { }
+    public virtual void UpgradeSkill() 
+    {
+        level++;
+        SkillManager.Instance.SetSkillLevel(Type, level);
+    }
 }

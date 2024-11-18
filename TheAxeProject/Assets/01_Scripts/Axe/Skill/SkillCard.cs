@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillCard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private SkillDataSO skillData;
+
+    public void Init(SkillDataSO skillData)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public SkillDataSO GetData()
     {
-        
+        return skillData;
     }
 }
