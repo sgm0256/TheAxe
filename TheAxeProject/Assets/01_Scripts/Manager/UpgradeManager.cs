@@ -5,23 +5,29 @@ using Random = UnityEngine.Random;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] private SkillCard skillCardPrefab;
+    [SerializeField] private List<SkillDataSO> skillDataList;
 
-    [SerializeField] private List<SkillDataSO> skillDataList = new();
-
-    private List<int> spawnIdxList;
+    private List<int> spawnIdxList = new();
 
     private CanvasGroup canvasGroup;
 
+    [HideInInspector]
     public bool IsSelect = false;
 
     private void Awake()
     {
-        canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup = GetComponentInParent<CanvasGroup>();
     }
 
     private void Start()
     {
         SkillManager.Instance.AddSKill(FindSkillData(SkillType.Normal));
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+            StartSelectSkill();
     }
 
     private void InitCard()

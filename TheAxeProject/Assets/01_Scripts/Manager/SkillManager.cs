@@ -14,9 +14,9 @@ public enum SkillType
 
 public class SkillManager : MonoSingleton<SkillManager>
 {
-    [SerializeField] private List<GameObject> axeList;
+    [SerializeField] private List<GameObject> axeList = new();
 
-    public List<SkillDataSO> SkillList;
+    public List<SkillDataSO> SkillList = new();
 
     private Dictionary<SkillType, Axe> skillOfAxeDictionary = new();
     private Dictionary<SkillType, int> skillLevelDictionary = new();
