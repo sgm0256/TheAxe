@@ -1,56 +1,80 @@
 using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using Input = UnityEngine.Input;
 
 public class SkillSelecter : MonoBehaviour
 {
-    private UpgradeManager manager;
-    private SkillCard[] skillCards;
+    private GraphicRaycaster raycaster;
+    private EventSystem eventSystem;
+    private RectTransform curPocusCard;
 
-    private int selectCardIdx = 0;
-    private bool isGetCards = false;
+    private UpgradeManager manager;
 
     private void Awake()
     {
+        raycaster = transform.root.GetComponent<GraphicRaycaster>();
+        eventSystem = EventSystem.current;
+
         manager = GetComponent<UpgradeManager>();
     }
 
     private void Update()
     {
-        if (!manager.IsSelect) return;
-        if (!isGetCards)
+        CardPocus();
+        CardSelect();
+    }
+
+    private void CardSelect()
+    {
+        if (Input.GetMouseButtonDown(0) && curPocusCard != null)
         {
-            skillCards = GetComponentsInChildren<SkillCard>();
-            isGetCards = true;
-        }
+            SkillCard card = curPocusCard.GetComponent<SkillCard>();
+            manager.ApplySkill(card.GetData().skillType);
 
-        int input = 0;
-        if (Input.GetKeyDown(KeyCode.A))
-            input = -1;
-        else if (Input.GetKeyDown(KeyCode.D))
-            input = 1;
-
-        if (input != 0)
-            SkillSelectPocus(input);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SkillType type = skillCards[selectCardIdx].GetData().skillType;
-            manager.ApplySkill(type);
-            selectCardIdx = 0;
-
-            isGetCards = false;
+            curPocusCard = null;
         }
     }
 
-    private void SkillSelectPocus(int input)
+    private void CardPocus()
     {
-        int prev = selectCardIdx;
-        selectCardIdx = Mathf.Clamp(selectCardIdx + input, 0, 2);
+        PointerEventData pointerData = new PointerEventData(eventSystem)
+        {
+            position = Input.mousePosition
+        };
 
-        RectTransform rect = skillCards[prev].GetComponent<RectTransform>();
-        rect.DOAnchorPosY(-50, 0.1f).SetUpdate(true);
+        List<RaycastResult> results = new List<RaycastResult>();
+        raycaster.Raycast(pointerData, results);
 
-        rect = skillCards[selectCardIdx].GetComponent<RectTransform>();
-        rect.DOAnchorPosY(0, 0.1f).SetUpdate(true);
+        foreach (var result in results)
+        {
+            RectTransform skillCard = result.gameObject.GetComponent<RectTransform>();
+            if (result.gameObject.CompareTag("Background"))
+            {
+                ResetCurrentCard();
+                return;
+            }
+            else if (result.gameObject.CompareTag("SkillCard"))
+            {
+                if (curPocusCard != skillCard)
+                {
+                    ResetCurrentCard();
+                    curPocusCard = skillCard;
+                    curPocusCard.DOAnchorPosY(0, 0.1f).SetUpdate(true);
+                }
+                return;
+            }
+        }
+    }
+
+    void ResetCurrentCard()
+    {
+        if (curPocusCard != null)
+        {
+            curPocusCard.DOAnchorPosY(-50, 0.1f).SetUpdate(true);
+            curPocusCard = null;
+        }
     }
 }

@@ -19,6 +19,8 @@ public class IceSkill : Skill
 
     public override void UpgradeSkill()
     {
+        base.UpgradeSkill();
+
         switch (level)
         {
             case 2:

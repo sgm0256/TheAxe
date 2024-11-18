@@ -19,6 +19,8 @@ public class TornadoSkill : Skill
 
     public override void UpgradeSkill()
     {
+        base.UpgradeSkill();
+
         switch (level)
         {
             case 2:

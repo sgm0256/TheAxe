@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    [SerializeField] protected SkillDataSO skillData;
+
     public SkillType Type;
 
     protected Axe axe;
@@ -32,5 +34,10 @@ public class Skill : MonoBehaviour
     {
         level++;
         SkillManager.Instance.SetSkillLevel(Type, level);
+    }
+
+    public int GetLevel()
+    {
+        return level;
     }
 }
