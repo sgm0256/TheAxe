@@ -20,13 +20,9 @@ namespace MK.BT
         protected AttackLoad _attackLoad;
         protected Transform _attackTrm;
 
-        public override void OnAwake()
-        {
-            _mover = enemy.Value.GetCompo<EntityMover>();
-        }
-
         public override void OnStart()
         {
+            _mover = enemy.Value.GetCompo<EntityMover>();
             _mover.StopImmediately();
             
             _attackDirection = target.Value.position - transform.position;

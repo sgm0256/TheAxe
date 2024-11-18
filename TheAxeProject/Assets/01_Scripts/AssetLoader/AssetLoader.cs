@@ -1,14 +1,16 @@
 using System;
+using MKDir;
 using ObjectPooling;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AssetLoader : MonoBehaviour
+public class AssetLoader : MonoSingleton<AssetLoader>
 {
     public event Action AssetLoadedEvent;
     
-    [SerializeField] private string _nextScene = "GameScene";
+    public string _nextScene = "GameScene";
+    
     [SerializeField] private TextMeshProUGUI _subTitleText;
     [SerializeField] private SingletonPoolManager _poolManager;
     [SerializeField] private AssetDBSO _assetDB;
@@ -21,7 +23,6 @@ public class AssetLoader : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        _subTitleText.gameObject.SetActive(false);
         _isLoadComplete = false;
 
         _currentLoadedCount = 0;
@@ -37,7 +38,7 @@ public class AssetLoader : MonoBehaviour
         
         AssetLoadedEvent += () =>
         {
-            _subTitleText.gameObject.SetActive(true);
+            _subTitleText.text = "Please Press Any key";
             _isLoadComplete = true;
         };
     }

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +11,11 @@ public class SceneLoad : MonoBehaviour
         _loader.AssetLoadedEvent += HandleLoad;
     }
 
+    private void OnDestroy()
+    {
+        _loader.AssetLoadedEvent -= HandleLoad;
+    }
+
     private void HandleLoad()
     {
         _isPress = true;
@@ -25,7 +27,7 @@ public class SceneLoad : MonoBehaviour
         {
             if (Input.anyKey)
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(_loader._nextScene);
             }
         }
     }

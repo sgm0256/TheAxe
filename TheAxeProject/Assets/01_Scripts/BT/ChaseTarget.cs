@@ -14,7 +14,7 @@ namespace MK.BT
         
         public float rotateSpeed = 3f;
 
-        public override void OnAwake()
+        public override void OnStart()
         {
             _mover = enemy.Value.GetCompo<EntityMover>();
         }
