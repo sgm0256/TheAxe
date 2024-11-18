@@ -8,6 +8,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private List<SkillDataSO> skillDataList;
 
     private List<int> spawnIdxList = new();
+    private SkillCard[] skillCards;
 
     private CanvasGroup canvasGroup;
 
@@ -22,6 +23,15 @@ public class UpgradeManager : MonoBehaviour
     private void Start()
     {
         SkillManager.Instance.AddSKill(FindSkillData(SkillType.Normal));
+        CardSpawn();
+    }
+
+    private void CardSpawn()
+    {
+        for (int i = 0; i < 3; ++i)
+            Instantiate(skillCardPrefab, transform);
+
+        skillCards = GetComponentsInChildren<SkillCard>();
     }
 
     private void Update()
@@ -30,28 +40,12 @@ public class UpgradeManager : MonoBehaviour
             StartSelectSkill();
     }
 
-    private void InitCard()
-    {
-        SkillCard[] _children = GetComponentsInChildren<SkillCard>();
-        for (int i = 0; i < 3; i++)
-            _children[i].Init(skillDataList[spawnIdxList[i]]);
-    }
-
     public void StartSelectSkill()
     {
-        CardSpawn();
         SetSpawnCardList();
         OpenPanel();
 
         IsSelect = true;
-    }
-
-    private void CardSpawn()
-    {
-        for (int i = 0; i < 3; ++i)
-        {
-            Instantiate(skillCardPrefab, transform);
-        }
     }
 
     private void SetSpawnCardList()
@@ -71,6 +65,12 @@ public class UpgradeManager : MonoBehaviour
         }
 
         InitCard();
+    }
+
+    private void InitCard()
+    {
+        for (int i = 0; i < 3; i++)
+            skillCards[i].Init(skillDataList[spawnIdxList[i]], this);
     }
 
     private void OpenPanel()
@@ -95,7 +95,10 @@ public class UpgradeManager : MonoBehaviour
         Axe axe = SkillManager.Instance.GetAxeOfSkillType(type);
         axe.GetSkill().UpgradeSkill();
 
-        if (SkillManager.Instance.GetSkillLevel(type) == 5)
+        int level = axe.GetSkill().GetLevel();
+        if (level == 1)
+            SkillManager.Instance.AddSKill(FindSkillData(axe.GetSkill().Type));
+        if (level == 5)
             skillDataList.Remove(FindSkillData(type));
 
         CloseSelectSkill();

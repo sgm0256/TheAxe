@@ -4,9 +4,9 @@ public class SkillCard : MonoBehaviour
 {
     private SkillDataSO skillData;
 
-    public void Init(SkillDataSO data)
+    public void Init(SkillDataSO data, UpgradeManager manager)
     {
-        this.skillData = data;
+        skillData = data;
     }
 
     public SkillDataSO GetData()

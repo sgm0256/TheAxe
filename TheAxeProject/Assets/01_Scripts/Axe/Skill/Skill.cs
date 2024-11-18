@@ -33,4 +33,9 @@ public class Skill : MonoBehaviour
         level++;
         SkillManager.Instance.SetSkillLevel(Type, level);
     }
+
+    public int GetLevel()
+    {
+        return level;
+    }
 }
