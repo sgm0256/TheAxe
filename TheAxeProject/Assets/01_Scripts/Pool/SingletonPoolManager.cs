@@ -5,8 +5,7 @@ namespace ObjectPooling
 {
     public enum PoolEnumType
     {
-        AttackLoad,
-        Axe
+        AttackLoad, InteractiveObject, Axe, RanageAttack
     }
     
     public class SingletonPoolManager : MonoSingleton<SingletonPoolManager>
@@ -27,7 +26,7 @@ namespace ObjectPooling
 
         public PoolManagerSO GetPoolManager(PoolEnumType type)
         {
-            return _poolManagers[type];
+            return _poolManagers.GetValueOrDefault(type);
         }
     }
 }

@@ -7,18 +7,18 @@ using UnityEngine;
 
 namespace MK.BT
 {
-    public class ChargeAttack : Conditional
+    public abstract class ChargeAttack : Action
     {
         public PoolTypeSO attackLoadType;
         public SharedTransform target;
         public SharedEnemy enemy;
         public float duration = 1f;
 
-        private EntityMover _mover;
-        private Vector2 _attackDirection = Vector2.zero;
-        private bool _isCanAttack = false;
-        private AttackLoad _attackLoad;
-        private Transform _attackTrm;
+        protected EntityMover _mover;
+        protected Vector2 _attackDirection = Vector2.zero;
+        protected bool _isCanAttack = false;
+        protected AttackLoad _attackLoad;
+        protected Transform _attackTrm;
 
         public override void OnAwake()
         {
@@ -51,8 +51,8 @@ namespace MK.BT
 
             return TaskStatus.Running;
         }
-
-        private void HandleReadyToAttack()
+        
+        protected virtual void HandleReadyToAttack()
         {
             transform.DOMove(_attackTrm.position, duration).SetEase(Ease.InQuad).OnComplete(() => _isCanAttack = true );
         }

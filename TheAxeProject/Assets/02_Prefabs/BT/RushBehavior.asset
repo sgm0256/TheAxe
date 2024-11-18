@@ -20,33 +20,25 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(-3.08139038,125.578331)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,129.591827)"},"ID":2,"Name":"\ud50c\ub808\uc774\uc5b4
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(-3.08139038,5.578331)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(-3.08139038,125.578331)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,129.591827)"},"ID":2,"Name":"\ud50c\ub808\uc774\uc5b4
         \ud0d0\uc0c9 \uc2dc\ud038\uc2a4","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"FindTarget","NodeData":{"Offset":"(-150,110)"},"ID":3,"Name":"Find
-        Target","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":0},"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":1},"SharedLayerMaskwhatIsTarget":{"Type":"BehaviorDesigner.Runtime.SharedLayerMask","Name":null,"LayerMaskmValue":64}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(150,120)"},"ID":4,"Name":"\ub3cc\uc9c4
+        Target","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},"SharedLayerMaskwhatIsTarget":{"Type":"BehaviorDesigner.Runtime.SharedLayerMask","Name":null,"LayerMaskmValue":64}},{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(150,120)"},"ID":4,"Name":"\ub3cc\uc9c4
         \uacf5\uaca9","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-130,130)"},"ID":5,"Name":"\ucd94\uc801
         \uc2dc\ud038\uc2a4","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-66.17508,164.727188)"},"ID":6,"Name":"Inverter","Instant":true,"Children":[{"Type":"MK.BT.RangeDected","NodeData":{"Offset":"(2.47336769,134.273773)"},"ID":7,"Name":"Range
-        Dected","Instant":true,"LayerMaskwhatIsTarget":64,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":2},"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":3},"StatSO_rangeStat":4}]},{"Type":"MK.BT.ChaseTarget","NodeData":{"Offset":"(71.24735,160.000015)"},"ID":8,"Name":"Chase
-        Target","Instant":true,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":5},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":6},"SinglerotateSpeed":30}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(150,130)"},"ID":9,"Name":"\ub3cc\uc9c4
-        \uacf5\uaca9","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"MK.BT.ChargeAttack","NodeData":{"Offset":"(-74.54456,163.973557)"},"ID":10,"Name":"Charge
-        Attack","Instant":true,"PoolTypeSOattackLoadType":7,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":8},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":9},"Singleduration":0.5}]}]}]}]},"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true,"EnemymValue":10},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":11}]}'
+        Dected","Instant":true,"LayerMaskwhatIsTarget":64,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},"StatSO_rangeStat":0}]},{"Type":"MK.BT.ChaseTarget","NodeData":{"Offset":"(71.24735,160.000015)"},"ID":8,"Name":"Chase
+        Target","Instant":true,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"SinglerotateSpeed":30}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(278.636353,150.000031)"},"ID":9,"Name":"\ub3cc\uc9c4
+        \uacf5\uaca9","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"MK.BT.AttackChecker","NodeData":{"Offset":"(-166.30426,128.751511)"},"ID":10,"Name":"Attack
+        Checker","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"BooleanisAttacked":false},{"Type":"MK.BT.ChargeAttack","NodeData":{"Offset":"(4.69698524,128.636368)"},"ID":11,"Name":"Charge
+        Attack","Instant":true,"PoolTypeSOattackLoadType":1,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"Singleduration":0.5},{"Type":"MK.BT.SetAttackBoolParameter","NodeData":{"Offset":"(192.33197,133.978928)"},"ID":12,"Name":"Set
+        Attack Bool Parameter","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true}}]}]}]}]},"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
         startIndex: 
         dataPosition: 
         unityObjects:
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
         - {fileID: 11400000, guid: 3aea5cb495ab5724face95563e7d5cc1, type: 2}
-        - {fileID: 0}
-        - {fileID: 0}
         - {fileID: 11400000, guid: f67e70eae4e5fbd4eb08f689bd7f13d4, type: 2}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
-        - {fileID: 0}
         byteData: 
         byteDataArray: 
       Version: 1.7.10

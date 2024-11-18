@@ -9,8 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd8ae69447edfc44a820e90f6e0f1a0, type: 3}
-  m_Name: Exp
+  m_Script: {fileID: 11500000, guid: b3bce22936610ef4ea908105f0f751c0, type: 3}
+  m_Name: AttackSpeedStat
   m_EditorClassIdentifier: 
-  <Type>k__BackingField: 0
-  <BaseValue>k__BackingField: 1
+  statName: AttackSpeed
+  description: "\uACF5\uACA9 \uC18D\uB3C4"
+  _icon: {fileID: 0}
+  _displayName: ASPD
+  _baseValue: 1
+  _minValue: 0.01
+  _maxValue: 10
+  <IsPercent>k__BackingField: 0
