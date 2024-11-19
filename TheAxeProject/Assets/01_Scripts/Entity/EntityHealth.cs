@@ -42,8 +42,6 @@ namespace Core.Entities
 
         public void ApplyDamage(float damage, Entity dealer)
         {
-            Debug.Log($"damage: {damage}");
-
             _stat.IncreaseBaseValue(_stat.HpStat, damage);
             HitEvent?.Invoke();
             DeadCheck();

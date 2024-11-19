@@ -100,7 +100,7 @@ public class UpgradeManager : MonoBehaviour
         int level = axe.GetSkill().GetLevel();
         Debug.Log($"level: {level}");
         if (level == 1)
-            SkillManager.Instance.AddSKill(FindSkillData(axe.GetSkill().Type));
+            SkillManager.Instance.AddSKill(FindSkillData(axe.GetSkill().skillData.skillType));
         if (level == 5)
             skillDataList.Remove(FindSkillData(type));
 

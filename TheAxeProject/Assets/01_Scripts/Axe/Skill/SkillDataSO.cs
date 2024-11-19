@@ -5,12 +5,17 @@ using UnityEngine.UI;
 public class SkillDataSO : ScriptableObject
 {
     public SkillType skillType;
+
     [TextArea]
     public string desc;
     [TextArea]
     public string desc2;
+
     public float damage;
     public float range;
     public float special;
+
+    public int level;
+
     public Color color; //에셋 찾으면 텍스쳐로 교체
 }

@@ -3,13 +3,6 @@ using UnityEngine;
 
 public class NormalSkill : Skill
 {
-    public override void Awake()
-    {
-        base.Awake();
-
-        Type = SkillType.Normal;
-    }
-
     protected override void Impact()
     {
         base.Impact();
@@ -26,7 +19,7 @@ public class NormalSkill : Skill
     {
         base.UpgradeSkill();
 
-        switch (level)
+        switch (skillData.level)
         {
             case 2:
                 {

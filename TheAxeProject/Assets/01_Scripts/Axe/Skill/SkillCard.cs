@@ -17,7 +17,7 @@ public class SkillCard : MonoBehaviour
 
         iconImage.color = skillData.color;
 
-        int level = SkillManager.Instance.GetSkillLevel(skillData.skillType);
+        int level = skillData.level;
         levelText.text = "Lv." + (level + 1);
 
         descText.text = string.Format(skillData.desc, skillData.damage, skillData.range);

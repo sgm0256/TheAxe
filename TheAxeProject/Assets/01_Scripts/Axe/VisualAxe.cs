@@ -46,7 +46,7 @@ public class VisualAxe : MonoBehaviour, IPoolable
         if (isSpawn)
         {
             Vector3 pos = (Quaternion.Euler(0, 1, moveAngle) * transform.parent.up).normalized;
-            transform.DOLocalMove(pos, 0.2f);
+            transform.DOLocalMove(pos * 2, 0.2f);
         }
         else
         {
@@ -69,7 +69,7 @@ public class VisualAxe : MonoBehaviour, IPoolable
 
             float angle = Mathf.Lerp(curAngle, moveAngle, timer * 5f);
             Vector3 pos = (Quaternion.Euler(0, 0, angle) * transform.parent.up).normalized;
-            transform.localPosition = pos;
+            transform.localPosition = pos * 2;
 
             yield return null;
         }

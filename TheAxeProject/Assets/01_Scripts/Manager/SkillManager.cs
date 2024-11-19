@@ -19,7 +19,6 @@ public class SkillManager : MonoSingleton<SkillManager>
     public List<SkillDataSO> SkillList = new();
 
     private Dictionary<SkillType, Axe> skillOfAxeDictionary = new();
-    private Dictionary<SkillType, int> skillLevelDictionary = new();
 
     protected override void Awake()
     {
@@ -28,30 +27,14 @@ public class SkillManager : MonoSingleton<SkillManager>
         foreach (GameObject axePrefab in axeList)
         {
             Axe axe = Instantiate(axePrefab, Vector3.zero, Quaternion.identity, transform).GetComponent<Axe>();
-            SkillType type = axe.GetSkill().Type;
+            SkillType type = axe.GetSkill().skillData.skillType;
             skillOfAxeDictionary.Add(type, axe);
-        }
-
-        foreach (SkillType skillType in System.Enum.GetValues(typeof(SkillType)))
-        {
-            skillLevelDictionary.Add(skillType, 0);
         }
     }
 
     public Axe GetAxeOfSkillType(SkillType type)
     {
         return skillOfAxeDictionary.TryGetValue(type, out Axe axe) ? axe : null;
-    }
-
-    public int GetSkillLevel(SkillType type)
-    {
-        return skillLevelDictionary.TryGetValue(type, out int level) ? level : 0;
-    }
-
-    public void SetSkillLevel(SkillType type, int level)
-    {
-        if (skillLevelDictionary.ContainsKey(type))
-            skillLevelDictionary[type] = level;
     }
 
     public void AddSKill(SkillDataSO skillData)
