@@ -29,7 +29,7 @@ public class SpawnManager : MonoSingleton<SpawnManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             if (_isStopSpawn)
                 _isStopSpawn = false;

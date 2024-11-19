@@ -1,3 +1,5 @@
+using Core.Entities;
+using MK.Enemy;
 using UnityEngine;
 
 public class Skill : MonoBehaviour
@@ -36,8 +38,30 @@ public class Skill : MonoBehaviour
         SkillManager.Instance.SetSkillLevel(Type, level);
     }
 
+    protected virtual void FlightSkill() { }
+
     public int GetLevel()
     {
         return level;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log($"name: {collision.gameObject.name}, attack: {axe.isAttack}");
+        if (!axe.isAttack)
+            return;
+
+        if (collision.TryGetComponent(out Enemy enemy))
+        {
+            Debug.Log($"enemt: {enemy}");
+            if (isUpgradedAxe)
+            {
+                FlightSkill();
+            }
+            else
+            {
+                enemy.GetCompo<EntityHealth>().ApplyDamage(10f, axe);
+            }
+        }
     }
 }
