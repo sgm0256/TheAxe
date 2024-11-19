@@ -27,7 +27,7 @@ MonoBehaviour:
         Dected","Instant":true,"LayerMaskwhatIsTarget":64,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":1},"StatSO_rangeStat":2}]},{"Type":"MK.BT.ChaseTarget","NodeData":{"Offset":"(73.48844,110.000084)"},"ID":8,"Name":"Chase
         Target","Instant":true,"SharedTransformtarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":3},"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"SinglerotateSpeed":5}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(133.673584,140.798965)"},"ID":9,"Name":"\uacf5\uaca9
         \uc2dc\ud038\uc2a4","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"MK.BT.MeleeAttack","NodeData":{"Offset":"(0.4536972,118.334106)"},"ID":10,"Name":"Melee
-        Attack","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true}}]}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":4},{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"IsFindTarget","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedLayerMask","Name":"PlayerLayer","IsShared":true,"LayerMaskmValue":64}]}'
+        Attack","Instant":true,"SharedEnemyenemy":{"Type":"SharedEnemy","Name":"enemy","IsShared":true},"SharedLayerMasktargetLayer":{"Type":"BehaviorDesigner.Runtime.SharedLayerMask","Name":"PlayerLayer","IsShared":true,"LayerMaskmValue":64},"SharedFloatradius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"StatSOdamageStat":4,"SharedFloatdistacne":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2}}]}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true,"TransformmValue":5},{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"IsFindTarget","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedLayerMask","Name":"PlayerLayer","IsShared":true,"LayerMaskmValue":64}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -38,6 +38,7 @@ MonoBehaviour:
         - {fileID: 3986855167212321114, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
         - {fileID: 11400000, guid: 3aea5cb495ab5724face95563e7d5cc1, type: 2}
         - {fileID: 3986855167212321114, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+        - {fileID: 11400000, guid: 7491abeedf85e3b4386bdec9b4bac6d3, type: 2}
         - {fileID: 3986855167212321114, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
         byteData: 
         byteDataArray: 

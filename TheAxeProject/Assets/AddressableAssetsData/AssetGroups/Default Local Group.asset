@@ -62,6 +62,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d63822d65b9e31498fe688f0c35f116
+    m_Address: Assets/02_Prefabs/Axe/BombAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a3742cb11baaa74c95aff81aba644d0
+    m_Address: Assets/02_Prefabs/Axe/LightningAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 828beb5626c5fa641915bba947d5855d
+    m_Address: Assets/02_Prefabs/Axe/IceAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b00f7912deb935a4bacfe806aeaa8816
+    m_Address: Assets/02_Prefabs/Axe/BaseAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c2f57bef76f53e142990ab4eb4a99167, type: 2}
   m_SchemaSet:

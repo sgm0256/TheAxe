@@ -10,6 +10,7 @@ namespace MK.BT
         public override void OnStart()
         {
             base.OnStart();
+            _attackLoad.transform.position = target.Value.position;
             _attackLoad.transform.localScale = new Vector3(size, size, 1);
         }
         
