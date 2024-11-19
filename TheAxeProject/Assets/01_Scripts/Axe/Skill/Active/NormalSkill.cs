@@ -17,6 +17,11 @@ public class NormalSkill : Skill
         //강력 스킬
     }
 
+    protected override void FlightSkill()
+    {
+        
+    }
+
     public override void UpgradeSkill()
     {
         base.UpgradeSkill();
@@ -43,24 +48,6 @@ public class NormalSkill : Skill
                     //진화
                 }
                 break;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!axe.isAttack)
-            return;
-
-        if (collision.TryGetComponent(out Enemy enemy))
-        {
-            if (isUpgradedAxe)
-            {
-                //스킬 피해
-            }
-            else
-            {
-                //걍 피해
-            }
         }
     }
 }
