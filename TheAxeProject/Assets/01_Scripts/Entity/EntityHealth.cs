@@ -42,7 +42,7 @@ namespace Core.Entities
 
         public void ApplyDamage(float damage, Entity dealer)
         {
-            _stat.IncreaseBaseValue(_stat.HpStat, damage);
+            _stat.IncreaseBaseValue(_stat.HpStat, -damage);
             HitEvent?.Invoke();
             DeadCheck();
         }
