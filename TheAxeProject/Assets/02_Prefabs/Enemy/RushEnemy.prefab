@@ -224,7 +224,7 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true}]}'
+      JSONSerialization: '{"Variables":[{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"IsFindTarget","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedLayerMask","Name":"PlayerLayer","IsShared":true,"LayerMaskmValue":64}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 

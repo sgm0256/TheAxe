@@ -49,7 +49,7 @@ MonoBehaviour:
   _statOverrides:
   - _stat: {fileID: 11400000, guid: 25655f51c805fd84b8840a3e8613aa93, type: 2}
     _isUseOverride: 1
-    _overrideBaseValue: 7
+    _overrideBaseValue: 5.5
   - _stat: {fileID: 11400000, guid: 7491abeedf85e3b4386bdec9b4bac6d3, type: 2}
     _isUseOverride: 1
     _overrideBaseValue: 125
@@ -224,7 +224,7 @@ MonoBehaviour:
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},{"Type":"SharedEnemy","Name":"enemy","IsShared":true}]}'
+      JSONSerialization: '{"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"target","IsShared":true},{"Type":"SharedEnemy","Name":"enemy","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"IsFindTarget","IsShared":true,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedLayerMask","Name":"PlayerLayer","IsShared":true,"LayerMaskmValue":64}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -409,6 +409,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f5b79a5e5a5fb469f9d3da3ceb0597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  HitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8169806885584409231
 GameObject:
   m_ObjectHideFlags: 0
