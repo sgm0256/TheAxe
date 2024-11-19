@@ -27,23 +27,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3feac445bf0646f4d8d3eb2d232bf4cc
-    m_Address: Assets/02_Prefabs/Axe/NormalAxe.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b32dda65b3dc69240a915cf8e2b13115
     m_Address: Assets/02_Prefabs/Axe/VisualAxe.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b67de95ce74033a42a7d9aee29160e17
-    m_Address: Assets/02_Prefabs/Axe/PoisonAxe.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b96761db9b5b1be4098b28d3251d04e2
-    m_Address: Assets/02_Prefabs/Axe/TornadoAxe.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
