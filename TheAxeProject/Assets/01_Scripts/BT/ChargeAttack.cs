@@ -19,24 +19,35 @@ namespace MK.BT
         protected bool _isCanAttack = false;
         protected AttackLoad _attackLoad;
         protected Transform _attackTrm;
+        protected float _angle;
 
         public override void OnStart()
         {
             _mover = enemy.Value.GetCompo<EntityMover>();
             _mover.StopImmediately();
             
-            _attackDirection = target.Value.position - transform.position;
-            float angle = Mathf.Atan2(_attackDirection.y, _attackDirection.x) * Mathf.Rad2Deg;
-            Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-            transform.rotation = angleAxis;
+            SetAttackDirection();
+            CreateAttackLoad();
             
-            _attackLoad = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.AttackLoad).Pop(attackLoadType) as AttackLoad;
-            _attackTrm = _attackLoad.AttackPoint;
-            
-            _attackLoad.transform.position = transform.position;
-            _attackLoad.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
             _attackLoad.ChargeAttackLoad();
             
+            _attackLoad.transform.position = transform.position;
+            _attackLoad.transform.rotation = Quaternion.Euler(0, 0, _angle - 90f);
+            
+        }
+
+        protected void SetAttackDirection()
+        {
+            _attackDirection = target.Value.position - transform.position;
+            _angle = Mathf.Atan2(_attackDirection.y, _attackDirection.x) * Mathf.Rad2Deg;
+            Quaternion angleAxis = Quaternion.AngleAxis(_angle - 90f, Vector3.forward);
+            transform.rotation = angleAxis;
+        }
+
+        protected void CreateAttackLoad()
+        {
+            _attackLoad = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.AttackLoad).Pop(attackLoadType) as AttackLoad;
+            _attackTrm = _attackLoad.AttackPoint;
             _attackLoad.ReadyToAttackEvent += HandleReadyToAttack;
         }
 

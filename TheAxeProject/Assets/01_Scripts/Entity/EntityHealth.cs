@@ -6,8 +6,8 @@ namespace Core.Entities
 {
     public class EntityHealth : MonoBehaviour, IEntityComponent
     {
-        public UnityEvent DeadEvent;
-        public UnityEvent HitEvent;
+        public UnityEvent OnDeadEvent;
+        public UnityEvent OnHitEvent;
         
         private Entity _entity;
         private EntityStat _stat;
@@ -42,8 +42,8 @@ namespace Core.Entities
 
         public void ApplyDamage(float damage, Entity dealer)
         {
-            _stat.IncreaseBaseValue(_stat.HpStat, damage);
-            HitEvent?.Invoke();
+            _stat.IncreaseBaseValue(_stat.HpStat, -damage);
+            OnHitEvent?.Invoke();
             DeadCheck();
         }
 
@@ -51,9 +51,8 @@ namespace Core.Entities
         {
             if (_currentHp <= 0)
             {
-                DeadEvent?.Invoke();
+                OnDeadEvent?.Invoke();
                 // TODO : Pool로 바꾸기
-                Destroy(gameObject);
             }
         }
     }
