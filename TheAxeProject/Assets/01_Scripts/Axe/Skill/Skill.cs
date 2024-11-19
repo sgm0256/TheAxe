@@ -47,13 +47,11 @@ public class Skill : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"name: {collision.gameObject.name}, attack: {axe.isAttack}");
         if (!axe.isAttack)
             return;
 
         if (collision.TryGetComponent(out Enemy enemy))
         {
-            Debug.Log($"enemt: {enemy}");
             if (isUpgradedAxe)
             {
                 FlightSkill();
