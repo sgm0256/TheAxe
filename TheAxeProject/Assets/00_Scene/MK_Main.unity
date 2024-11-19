@@ -1398,6 +1398,9 @@ MonoBehaviour:
   - {fileID: 2041861820}
   - {fileID: 1679381738}
   _spawnTime: 2.5
+  _spawnDecreaseTime: 0.3
+  _waveCooldown: 15
+  _waveIncreaseTime: 3
 --- !u!4 &1352808980
 Transform:
   m_ObjectHideFlags: 0
@@ -2080,6 +2083,14 @@ PrefabInstance:
     - target: {fileID: 3986855167212321114, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533387654720213793, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187770216302442198, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9192258756489589532, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: m_Name
