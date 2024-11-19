@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: RushEnemy
   assetRef:
-    m_AssetGUID: b5926e2f64366c444ac562c3eb930578
+    m_AssetGUID: 903651178a7a64445bfeea52877033ee
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

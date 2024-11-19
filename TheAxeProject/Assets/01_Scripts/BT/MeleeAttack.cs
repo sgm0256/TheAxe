@@ -12,10 +12,10 @@
         public SharedLayerMask targetLayer;
         public SharedFloat radius;
         public StatSO damageStat;
-        public SharedFloat distacne;
 
         private EntityStat _stat;
         private float _currentDamage;
+        private float _attackRange;
 
         // TODO : Add Attack
 
@@ -26,7 +26,7 @@
             _stat = enemy.Value.GetCompo<EntityStat>();
             _currentDamage = _stat.GetStat(damageStat).Value;
             
-            var result = Physics2D.CircleCast(transform.position, radius.Value, transform.forward, distacne.Value, targetLayer.Value);
+            var result = Physics2D.CircleCast(transform.position, radius.Value, transform.forward, _attackRange, targetLayer.Value);
 
             if (result)
             {
@@ -34,7 +34,6 @@
                 {
                     EntityHealth health = player.GetCompo<EntityHealth>();
                     health.ApplyDamage(_currentDamage, enemy.Value);
-                    Debug.Log("공격 함");
                 }
             }
         }

@@ -24,6 +24,16 @@ namespace ObjectPooling
             }
         }
 
+        public IPoolable Pop(PoolEnumType poolManagerType, PoolTypeSO type)
+        {
+            return GetPoolManager(poolManagerType).Pop(type);
+        }
+        
+        public void Push(PoolEnumType poolManagerType, IPoolable item)
+        {
+            GetPoolManager(poolManagerType).Push(item);
+        }
+
         public PoolManagerSO GetPoolManager(PoolEnumType type)
         {
             return _poolManagers.GetValueOrDefault(type);

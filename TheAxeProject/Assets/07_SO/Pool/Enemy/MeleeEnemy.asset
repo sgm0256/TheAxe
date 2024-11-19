@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: MeleeEnemy
   assetRef:
-    m_AssetGUID: 04b6127546cbea44f9a51f4ebe9588d2
+    m_AssetGUID: 3d54a709aec66aa4a84792cb2dc01999
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
