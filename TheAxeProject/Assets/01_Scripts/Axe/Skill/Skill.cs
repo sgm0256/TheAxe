@@ -58,7 +58,7 @@ public class Skill : MonoBehaviour
             }
             else
             {
-                enemy.GetCompo<EntityHealth>().ApplyDamage(10f, axe);
+                enemy.GetCompo<EntityHealth>().ApplyDamage(350f, axe);
             }
         }
     }

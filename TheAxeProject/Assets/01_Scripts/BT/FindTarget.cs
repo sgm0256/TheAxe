@@ -20,7 +20,6 @@ public class FindTarget : Conditional
         if (isFindTarget.Value || target.Value != null)
         {
             isFindTarget.Value = true;
-            return;
         }
         
         enemy.Value = transform.GetComponent<Enemy>();
@@ -32,7 +31,7 @@ public class FindTarget : Conditional
             target.Value = col[0].transform;
             isFindTarget.Value = true;
         }
-        isFindTarget.Value = true;
+        isFindTarget.Value = false;
     }
 
     public override TaskStatus OnUpdate()

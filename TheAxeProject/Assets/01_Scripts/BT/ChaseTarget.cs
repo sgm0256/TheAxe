@@ -28,13 +28,13 @@ namespace MK.BT
             
             Vector2 direction = target.Value.position - transform.position;
             
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-            Quaternion rotation = Quaternion.Slerp(transform.rotation, angleAxis, rotateSpeed * Time.deltaTime);
+            //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            //Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.right);
+            //Quaternion rotation = Quaternion.Slerp(transform.rotation, angleAxis, rotateSpeed * Time.deltaTime);
 
             _mover.SetMovement(direction);
             
-            transform.rotation = rotation;
+            //transform.rotation = rotation;
 
             return TaskStatus.Running;
         }

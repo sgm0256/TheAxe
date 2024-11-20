@@ -74,8 +74,8 @@ namespace Core.InteractiveObjects
 
         public void PopObject(Transform transform)
         {
-            Transform obj = SingletonPoolManager.Instance.Pop(PoolEnumType.InteractiveObject, PoolType) as Transform;
-            obj = transform;
+            InteractiveObject obj = SingletonPoolManager.Instance.Pop(PoolEnumType.InteractiveObject, PoolType) as InteractiveObject;
+            obj.transform.position = transform.position;
         }
         
         public void PushObject()
