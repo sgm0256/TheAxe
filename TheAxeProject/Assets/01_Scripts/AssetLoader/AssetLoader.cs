@@ -4,6 +4,7 @@ using ObjectPooling;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class AssetLoader : MonoSingleton<AssetLoader>
 {
@@ -12,9 +13,10 @@ public class AssetLoader : MonoSingleton<AssetLoader>
     public string _nextScene = "GameScene";
     
     [SerializeField] private TextMeshProUGUI _subTitleText;
+    [SerializeField] private TextMeshProUGUI _loadingText;
     [SerializeField] private SingletonPoolManager _poolManager;
     [SerializeField] private AssetDBSO _assetDB;
-    [SerializeField] private TextMeshProUGUI _loadingText;
+    [SerializeField] private TextMeshProUGUI _loadingCountText;
 
     private bool _isLoadComplete;
     private int _toLoadCount;
@@ -38,7 +40,8 @@ public class AssetLoader : MonoSingleton<AssetLoader>
         
         AssetLoadedEvent += () =>
         {
-            _subTitleText.text = "Please Press Any key";
+            _loadingText.gameObject.SetActive(false);
+            _subTitleText.gameObject.SetActive(true);
             _isLoadComplete = true;
         };
     }
@@ -81,6 +84,6 @@ public class AssetLoader : MonoSingleton<AssetLoader>
 
     private void UpdateLoadText(string text)
     {
-        _loadingText.text = $"Loading : {text} - {_currentLoadedCount} / {_toLoadCount}";
+        _loadingCountText.text = $"Loading : {text} - {_currentLoadedCount} / {_toLoadCount}";
     }
 }

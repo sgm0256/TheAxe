@@ -20,9 +20,11 @@ namespace MK.BT
         protected AttackLoad _attackLoad;
         protected Transform _attackTrm;
         protected float _angle;
+        private Collider2D _collider;
 
         public override void OnStart()
         {
+            _collider = enemy.Value.GetComponent<Collider2D>();
             _mover = enemy.Value.GetCompo<EntityMover>();
             _mover.StopImmediately();
             
@@ -59,7 +61,12 @@ namespace MK.BT
         
         protected virtual void HandleReadyToAttack()
         {
-            transform.DOMove(_attackTrm.position, duration).SetEase(Ease.InQuad).OnComplete(() => _isCanAttack = true );
+            _collider.isTrigger = true;
+            transform.DOMove(_attackTrm.position, duration).SetEase(Ease.InQuad).OnComplete(() =>
+            {
+                _collider.isTrigger = false;
+                _isCanAttack = true;
+            });
         }
 
         public override void OnEnd()

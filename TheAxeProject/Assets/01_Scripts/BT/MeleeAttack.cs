@@ -37,13 +37,6 @@
                 }
             }
         }
-
-        public override void OnDrawGizmos()
-        {
-            base.OnDrawGizmos();
-            Gizmos.color = Color.cyan;
-            //Gizmos.DrawWireSphere();
-        }
     }
 }
 

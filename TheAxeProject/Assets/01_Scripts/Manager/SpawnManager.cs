@@ -10,8 +10,6 @@ public class SpawnManager : MonoSingleton<SpawnManager>
 {
     // TODO : 15분 게임으로 만들기
     // TODO : UI 작업
-    // TODO : 적 비주얼 찾기
-    // TODO : 시간 지날 때 마다 적 스탯 강화
     public List<PoolTypeSO> enemyPool = new List<PoolTypeSO>();
     public List<Transform> SpawnPoint = new List<Transform>();
 

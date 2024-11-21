@@ -8,7 +8,7 @@ namespace ObjectPooling
     public class PoolManagerSO : ScriptableObject
     {
         public List<PoolTypeSO> poolList = new();
-        private Dictionary<PoolTypeSO, Pool> _pools;
+        public Dictionary<PoolTypeSO, Pool> _pools;
         private Transform _rootTrm;
         [field: SerializeField] public PoolEnumType PoolEnumType { get; set; }
 

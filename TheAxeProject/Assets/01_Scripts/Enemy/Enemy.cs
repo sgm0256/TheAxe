@@ -1,4 +1,5 @@
 using Core.Entities;
+using Core.StatSystem;
 using ObjectPooling;
 using UnityEngine;
 
@@ -9,8 +10,9 @@ namespace MK.Enemy
         [field: SerializeField] public PoolTypeSO PoolType { get; set; }
         public GameObject GameObject { get => gameObject; }
 
-        private Pool _myPool;
-        private EntityHealth _health;
+        protected Pool _myPool;
+        protected EntityHealth _health;
+        protected EntityStat _stat;
         
         public void SetUpPool(Pool pool)
         {
@@ -26,7 +28,19 @@ namespace MK.Enemy
         {
             base.Awake();
             _health = GetCompo<EntityHealth>();
+            _stat = GetCompo<EntityStat>();
             _health.OnDeadEvent.AddListener(EnemyPoolPush);
+            GameManager.Instance.OnStatUpEvent += HandleStatUp;
+        }
+
+        protected virtual void HandleStatUp()
+        {
+            _stat.IncreaseBaseValue(_stat.HpStat, GameManager.Instance.StatUpValue);
+        }
+
+        protected void OnDestroy()
+        {
+            GameManager.Instance.OnStatUpEvent -= HandleStatUp;
         }
 
         public void EnemyPoolPush()
