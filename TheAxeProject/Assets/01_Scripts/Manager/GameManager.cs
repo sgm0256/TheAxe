@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using MKDir;
 using ObjectPooling;
-using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -15,22 +15,32 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Player player;
     [SerializeField] private PoolManagerSO _enemyPoolManager;
     [SerializeField] private float _upgradeTime = 60f;
-    [SerializeField] private float _hpIncreaseValue = 3f;
     
-    private bool _isGameStart = false;
-    private float _time = 0;
+    public bool IsGameStart { get; set; } = false;
+    public float CurrentGameTime { get => _durationTime; }
+    public int CurrentGameMinute { get; private set; }
+
+    private float _gameTime;
+    private float _durationTime = 0;
 
     private void Update()
     {
-        if (_isGameStart)
+        if (IsGameStart)
         {
-            _time += Time.deltaTime;
+            _durationTime += Time.deltaTime;
 
-            if (_time >= _upgradeTime)
+            if (_durationTime >= _upgradeTime)
             {
                 StatUP();
-                _time = 0;
+                _durationTime = 0;
             }
+        }
+
+        _gameTime += Time.deltaTime;
+        if (_gameTime >= 60f)
+        {
+            CurrentGameMinute++;
+            _gameTime = 0f;
         }
     }
 
@@ -46,10 +56,11 @@ public class GameManager : MonoSingleton<GameManager>
 
     private IEnumerator StartGame()
     {
-        while (_isGameStart)
+        while (IsGameStart)
         {
-            // TODO : 1분 마다 스폰 올리기  
+            // 스폰 업그레이드 쿨타임
             yield return new WaitForSeconds(_upgradeTime);
+            SpawnManager.Instance.IsWave = true;
         }
     }
 }

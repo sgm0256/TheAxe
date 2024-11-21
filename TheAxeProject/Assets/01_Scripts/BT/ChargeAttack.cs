@@ -15,6 +15,7 @@ namespace MK.BT
         public float duration = 1f;
 
         protected EntityMover _mover;
+        protected EntityHealth _health;
         protected Vector2 _attackDirection = Vector2.zero;
         protected bool _isCanAttack = false;
         protected AttackLoad _attackLoad;
@@ -25,6 +26,7 @@ namespace MK.BT
         public override void OnStart()
         {
             _collider = enemy.Value.GetComponent<Collider2D>();
+            _health = enemy.Value.GetCompo<EntityHealth>();
             _mover = enemy.Value.GetCompo<EntityMover>();
             _mover.StopImmediately();
             
@@ -48,6 +50,7 @@ namespace MK.BT
         {
             _attackLoad = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.AttackLoad).Pop(attackLoadType) as AttackLoad;
             _attackTrm = _attackLoad.AttackPoint;
+            _health.OnDeadEvent.AddListener(_attackLoad.HandleEntityDead);
             _attackLoad.ReadyToAttackEvent += HandleReadyToAttack;
         }
 
@@ -71,6 +74,7 @@ namespace MK.BT
 
         public override void OnEnd()
         {
+            _health.OnDeadEvent.RemoveListener(_attackLoad.HandleEntityDead);
             _attackLoad.ReadyToAttackEvent -= HandleReadyToAttack;
             _isCanAttack = false;
             base.OnEnd();

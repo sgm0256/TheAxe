@@ -8,15 +8,15 @@ using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoSingleton<SpawnManager>
 {
-    // TODO : 15분 게임으로 만들기
-    // TODO : UI 작업
     public List<PoolTypeSO> enemyPool = new List<PoolTypeSO>();
     public List<Transform> SpawnPoint = new List<Transform>();
 
-    [SerializeField] private float _spawnTime = 2f;
+    [SerializeField] private float _spawnTime = 2.5f;
     [SerializeField] private float _spawnDecreaseTime = 0.3f;
-    [SerializeField] private float _waveCooldown = 15f;
-    [SerializeField] private float _waveIncreaseTime = 3f;
+    [SerializeField] private float _waveCooldown = 60f;
+    [SerializeField] private int _waveCount = 10;
+
+    public bool IsWave { get; set; } = true;
     
     private PoolManagerSO _poolManager;
     private bool _isStopSpawn = false;
@@ -45,7 +45,7 @@ public class SpawnManager : MonoSingleton<SpawnManager>
             if (_time <= 0)
             {
                 _spawnTime -= _spawnDecreaseTime;
-                _time = _waveCooldown + _waveIncreaseTime;
+                _time = _waveCooldown;
             }
         }
         
@@ -63,8 +63,23 @@ public class SpawnManager : MonoSingleton<SpawnManager>
         _isStartSpawn = true;
         while (_isStopSpawn == false)
         {
-            Enemy enemy = _poolManager.Pop(enemyPool[Random.Range(0, enemyPool.Count)]) as Enemy;
-            enemy.transform.position = SpawnPoint[Random.Range(0, SpawnPoint.Count)].position;
+            if (IsWave)
+            {
+                Vector2 spawnPoints = SpawnPoint[Random.Range(0, SpawnPoint.Count)].position;
+                for (int i = 0; i < _waveCount; ++i)
+                {
+                    Enemy enemy = _poolManager.Pop(enemyPool[Random.Range(0, enemyPool.Count)]) as Enemy;
+                    enemy.transform.position = spawnPoints;
+                }
+
+                IsWave = false;
+            }
+            else
+            {
+                Enemy enemy = _poolManager.Pop(enemyPool[Random.Range(0, enemyPool.Count)]) as Enemy;
+                enemy.transform.position = SpawnPoint[Random.Range(0, SpawnPoint.Count)].position;
+                
+            }
             yield return new WaitForSeconds(_spawnTime);
         }
         

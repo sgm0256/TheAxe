@@ -72,6 +72,11 @@ public class AttackLoad : MonoBehaviour, IPoolable
         _gauge.localScale = new Vector3(1, 1, 1);
         ReadyToAttackEvent?.Invoke();
     }
+
+    public void HandleEntityDead()
+    {
+        SingletonPoolManager.Instance.GetPoolManager(type).Push(this);
+    }
     
     public void SetUpPool(Pool pool)    
     {

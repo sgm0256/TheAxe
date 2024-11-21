@@ -4,7 +4,6 @@ using ObjectPooling;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class AssetLoader : MonoSingleton<AssetLoader>
 {
@@ -59,6 +58,8 @@ public class AssetLoader : MonoSingleton<AssetLoader>
     {
         if (_isLoadComplete && Input.anyKey)
         {
+            GameManager.Instance.StartGameCoroutine();
+            GameManager.Instance.IsGameStart = true;
             SceneManager.LoadScene(_nextScene);
             _isLoadComplete = false;
         }
