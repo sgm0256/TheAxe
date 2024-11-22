@@ -1,5 +1,6 @@
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
+using Core.Entities;
 using Core.StatSystem;
 using UnityEngine;
 
@@ -13,12 +14,14 @@ namespace MK.BT
         public StatSO _rangeStat;
         
         private Collider2D[] _colliders;
+        private EntityMover _mover;
         private EntityStat _stat;
         private float _radiusRange;
         
         public override void OnStart()
         {
             _stat = enemy.Value.GetCompo<EntityStat>();
+            _mover = enemy.Value.GetCompo<EntityMover>();
             _radiusRange = _stat.GetStat(_rangeStat).Value;
             _stat.GetStat(_rangeStat).OnValueChange += HandleValueChange;
         }
@@ -34,6 +37,7 @@ namespace MK.BT
             if (_colliders.Length > 0)
             {
                 target.Value = _colliders[0].transform;
+                _mover.StopImmediately();
                 return TaskStatus.Success;
             }
             

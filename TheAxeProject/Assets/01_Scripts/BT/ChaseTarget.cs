@@ -27,13 +27,6 @@ namespace MK.BT
             }
             
             Vector2 direction = target.Value.position - transform.position;
-            
-            // TODO : 회전을 direction을 이용하여 
-            // TODO : 그냥 x 좌표를 구해서 왼쪽 오른쪽 판단
-            
-            //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            //Quaternion angleAxis = Quaternion.AngleAxis(angle - 90f, Vector3.right);
-            //Quaternion rotation = Quaternion.Slerp(transform.rotation, angleAxis, rotateSpeed * Time.deltaTime);
 
             _mover.SetMovement(direction);
             

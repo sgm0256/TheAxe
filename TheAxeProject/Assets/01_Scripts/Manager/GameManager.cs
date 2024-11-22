@@ -17,7 +17,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private float _upgradeTime = 60f;
     
     public bool IsGameStart { get; set; } = false;
-    public float CurrentGameTime { get => _durationTime; }
+    public float CurrentGameTime { get => _gameTime; }
     public int CurrentGameMinute { get; private set; }
 
     private float _gameTime;
