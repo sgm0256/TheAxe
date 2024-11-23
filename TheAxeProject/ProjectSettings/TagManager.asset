@@ -40,11 +40,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Ground
     uniqueID: 3193225419
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: AttackLoad
     uniqueID: 2042761671
@@ -57,6 +57,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2012559277
+    locked: 0
+  - name: Axe
+    uniqueID: 1996471861
     locked: 0
   - name: UI
     uniqueID: 2479011133

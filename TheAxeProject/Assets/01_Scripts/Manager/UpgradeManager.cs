@@ -40,6 +40,8 @@ public class UpgradeManager : MonoBehaviour
 
     public void StartSelectSkill()
     {
+        Time.timeScale = 0;
+
         SetSpawnCardList();
         CardSpawn();
         InitCard();
@@ -126,6 +128,8 @@ public class UpgradeManager : MonoBehaviour
 
         foreach(Card data in Cards)
             Destroy(data.gameObject);
+
+        Time.timeScale = 1f;
     }
 
     private SkillDataSO FindSkillData(SkillType skillType)

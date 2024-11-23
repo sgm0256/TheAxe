@@ -8,7 +8,7 @@ namespace Core.Entities
     public class EntityLevel : MonoBehaviour, IEntityComponent, IAfterInitable
     {
         public UnityEvent OnGetExpEvent;
-        public event Action<int> LevelUpEvent;
+        public UnityEvent<int> LevelUpEvent;
 
         [SerializeField] private float _levelUpNeedExp = 5f;
         

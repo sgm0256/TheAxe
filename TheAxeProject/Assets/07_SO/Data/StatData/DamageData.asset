@@ -15,6 +15,6 @@ MonoBehaviour:
   statType: 2
   stat: {fileID: 11400000, guid: 5bf1c22d1e337e9448c915c9e4e9199d, type: 2}
   color: {r: 0, g: 0, b: 0, a: 1}
-  desc: "\uB3C4\uB07C\uC758 \uACF5\uACA9\uB825\uB97C {0:N2}(\uC73C)\uB85C \uD5A5\uC0C1\uC2DC\uD0B5\uB2C8\uB2E4."
+  desc: "\uB3C4\uB07C\uC758 \uACF5\uACA9\uB825\uB97C {0}(\uC73C)\uB85C \uD5A5\uC0C1\uC2DC\uD0B5\uB2C8\uB2E4."
   increase: 10
-  level: 0
+  level: 2

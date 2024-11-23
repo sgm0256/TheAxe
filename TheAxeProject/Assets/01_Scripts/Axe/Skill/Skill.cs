@@ -50,7 +50,7 @@ public class Skill : MonoBehaviour
             }
             else
             {
-                float damage = skillData.damage;
+                float damage = GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(damageStat).Value;
                 enemy.GetCompo<EntityHealth>().ApplyDamage(damage, axe);
             }
         }

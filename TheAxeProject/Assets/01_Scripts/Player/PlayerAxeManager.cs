@@ -30,7 +30,12 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
 
     private void Start()
     {
-        GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(axeCntStat).OnValueChange += (stat, cur, prev) => maxAxeCount = (int)stat.Value;
+        EntityStat stat = entity.GetCompo<EntityStat>();
+        stat.GetStat(axeCntStat).OnValueChange += (stat, cur, prev) =>
+        {
+            maxAxeCount = (int)stat.Value;
+            spawnCoolTime -= 0.15f;
+        };
     }
 
     private void Update()

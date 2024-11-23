@@ -22,7 +22,7 @@ public class VisualAxe : MonoBehaviour, IPoolable
         spriteRender = GetComponent<SpriteRenderer>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(sizeStat).OnValueChange += (stat, current, previous) => transform.localScale = Vector3.one * stat.Value;
     }
@@ -38,13 +38,11 @@ public class VisualAxe : MonoBehaviour, IPoolable
 
     public void SetUpPool(Pool pool)
     {
-
     }
 
     public void Init(SkillDataSO data)
     {
         SkillData = data;
-
         spriteRender.color = data.color;
     }
 

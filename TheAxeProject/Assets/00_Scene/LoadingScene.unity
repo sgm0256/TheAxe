@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c66e6a18db514e4d87403f6a7725048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScene: MK_Main
+  _nextScene: Game
   _subTitleText: {fileID: 595007374}
   _loadingText: {fileID: 2102152818}
   _poolManager: {fileID: 2114916502}

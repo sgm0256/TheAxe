@@ -122,6 +122,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &31227573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 31227574}
+  - component: {fileID: 31227575}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &31227574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31227573}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1027431804}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &31227575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31227573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5442e0a0c26e824fa611de8e9e1a6e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <StatUpValue>k__BackingField: 30
+  player: {fileID: 566058482781774224}
+  _enemyPoolManager: {fileID: 11400000, guid: 23e131253fbfa444fab202b56a3f3367, type: 2}
+  _upgradeTime: 60
 --- !u!1 &97176184
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +291,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9eff2e9eacdbe44b9c30f49e94a568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillDataList: []
+  SkillDataList:
+  - {fileID: 11400000, guid: 1365a2683e952ef4086b6f9791ebc620, type: 2}
+  - {fileID: 11400000, guid: ed94cf06c6de67e4da2fa942d58a9f78, type: 2}
+  - {fileID: 11400000, guid: 4a1ff37f1661e514e9828facd1290b8d, type: 2}
+  - {fileID: 11400000, guid: 1a581c594bc38444c9bbe37f1b3906f1, type: 2}
+  - {fileID: 11400000, guid: a3b173395d9edd4448e3cad0bf45b5bc, type: 2}
+  - {fileID: 11400000, guid: edc4ee1f3b6766d41a450cd6faa128ea, type: 2}
   UseSkillList: []
 --- !u!1 &267904669
 GameObject:
@@ -317,7 +371,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1101741877
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -21643,9 +21697,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd36fb4338594ed4aa102b53d4f0f325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statCardPrefab: {fileID: 0}
+  statCardPrefab: {fileID: 9121053888177544597, guid: 55804e283b4636944a47a384027add65, type: 3}
   skillCardPrefab: {fileID: 1471329505017521716, guid: 67d72a456f651f545a6bb20a985d8409, type: 3}
-  DataList: []
+  DataList:
+  - {fileID: 11400000, guid: 1365a2683e952ef4086b6f9791ebc620, type: 2}
+  - {fileID: 11400000, guid: ed94cf06c6de67e4da2fa942d58a9f78, type: 2}
+  - {fileID: 11400000, guid: 4a1ff37f1661e514e9828facd1290b8d, type: 2}
+  - {fileID: 11400000, guid: 1a581c594bc38444c9bbe37f1b3906f1, type: 2}
+  - {fileID: 11400000, guid: a3b173395d9edd4448e3cad0bf45b5bc, type: 2}
+  - {fileID: 11400000, guid: edc4ee1f3b6766d41a450cd6faa128ea, type: 2}
+  - {fileID: 11400000, guid: 4804fee793f81dc4f991ade520c1d8c2, type: 2}
+  - {fileID: 11400000, guid: f0313d2c7b8d99b4ea1ab7e9b1dbc1c5, type: 2}
+  - {fileID: 11400000, guid: c5e2a939743aa1a4db2a0a0f89b4c373, type: 2}
+  - {fileID: 11400000, guid: 9bd130d8c92372b44a9ad8f548a24fff, type: 2}
   IsSelect: 0
 --- !u!1 &1027431803
 GameObject:
@@ -21678,6 +21742,7 @@ Transform:
   m_Children:
   - {fileID: 267270210}
   - {fileID: 1352808980}
+  - {fileID: 31227574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1034692033
@@ -22780,6 +22845,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 943233524}
+    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSelectSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3986855167212321114, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -22837,6 +22930,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+--- !u!114 &566058482781774224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5210290994666203083, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+  m_PrefabInstance: {fileID: 566058482781774223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947b65c860ec9d04bbd8ef7960d8903d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

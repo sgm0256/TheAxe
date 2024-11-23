@@ -1,5 +1,6 @@
 using ObjectPooling;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public enum SkillType
 {
@@ -85,8 +86,8 @@ public class SkillDataSO : DataSO
     public override void ResetInfo()
     {
         level = 0;
-        damage = 0;
-        range = 0;
-        special = 0;
+        damage = baseDamage;
+        range = baseRange;
+        special = baseSpecial;
     }
 }

@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Core.Entities
 {
     public class Entity : MonoBehaviour
     {
-        protected Dictionary<Type, IEntityComponent> _components = new Dictionary<Type, IEntityComponent>();
+        public Dictionary<Type, IEntityComponent> _components = new Dictionary<Type, IEntityComponent>();
         
         protected virtual void Awake()
         {
