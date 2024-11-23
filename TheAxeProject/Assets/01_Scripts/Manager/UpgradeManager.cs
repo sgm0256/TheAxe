@@ -1,19 +1,23 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class UpgradeManager : MonoBehaviour
 {
+    [SerializeField] private StatCard statCardPrefab;
     [SerializeField] private SkillCard skillCardPrefab;
-    [SerializeField] private List<SkillDataSO> skillDataList;
+    [SerializeField] private List<DataSO> DataList;
 
     private List<int> spawnIdxList = new();
-    private SkillCard[] skillCards;
+    private Card[] Cards;
 
     private CanvasGroup canvasGroup;
 
     [HideInInspector]
     public bool IsSelect = false;
+
+    private int cardCnt => DataList.Count < 3 ? DataList.Count : 3;
 
     private void Awake()
     {
@@ -23,15 +27,9 @@ public class UpgradeManager : MonoBehaviour
     private void Start()
     {
         SkillManager.Instance.AddSKill(FindSkillData(SkillType.Normal));
-        CardSpawn();
-    }
 
-    private void CardSpawn()
-    {
-        for (int i = 0; i < 3; ++i)
-            Instantiate(skillCardPrefab, transform);
-
-        skillCards = GetComponentsInChildren<SkillCard>();
+        foreach (DataSO data in DataList)
+            data.ResetInfo();
     }
 
     private void Update()
@@ -43,6 +41,8 @@ public class UpgradeManager : MonoBehaviour
     public void StartSelectSkill()
     {
         SetSpawnCardList();
+        CardSpawn();
+        InitCard();
         OpenPanel();
 
         IsSelect = true;
@@ -52,25 +52,34 @@ public class UpgradeManager : MonoBehaviour
     {
         List<int> availableIndices = new List<int>();
 
-        int listCnt = skillDataList.Count;
+        int listCnt = DataList.Count;
         for (int i = 0; i < listCnt; i++)
             availableIndices.Add(i);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < cardCnt; i++)
         {
             int randomIndex = Random.Range(0, listCnt - i);
             spawnIdxList.Add(availableIndices[randomIndex]);
 
             availableIndices.RemoveAt(randomIndex);
         }
+    }
 
-        InitCard();
+    private void CardSpawn()
+    {
+        for (int i = 0; i < cardCnt; ++i)
+            if (DataList[spawnIdxList[i]].GetType() == typeof(SkillDataSO))
+                Instantiate(skillCardPrefab, transform);
+            else if (DataList[spawnIdxList[i]].GetType() == typeof(StatDataSO))
+                Instantiate(statCardPrefab, transform);
+
+        Cards = GetComponentsInChildren<Card>();
     }
 
     private void InitCard()
     {
-        for (int i = 0; i < 3; i++)
-            skillCards[i].Init(skillDataList[spawnIdxList[i]]);
+        for (int i = 0; i < cardCnt; i++)
+            Cards[i].Init(DataList[spawnIdxList[i]]);
     }
 
     private void OpenPanel()
@@ -78,6 +87,32 @@ public class UpgradeManager : MonoBehaviour
         canvasGroup.alpha = 1f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
+    }
+
+    public void ApplySkill(SkillType type)
+    {
+        SkillDataSO data = FindSkillData(type);
+        data.Upgrade();
+
+        int level = data.level;
+        if (level == 1)
+            SkillManager.Instance.AddSKill(FindSkillData(data.skillType));
+        if (level == 5)
+            DataList.Remove(FindSkillData(type));
+
+        CloseSelectSkill();
+    }
+
+    public void UpgradeStat(StatType type)
+    {
+        StatDataSO data = FindStatData(type);
+        data.Upgrade();
+
+        int level = data.level;
+        if (level == 5)
+            DataList.Remove(FindStatData(type));
+
+        CloseSelectSkill();
     }
 
     private void CloseSelectSkill()
@@ -88,30 +123,32 @@ public class UpgradeManager : MonoBehaviour
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
-    }
 
-    public void ApplySkill(SkillType type)
-    {
-        Debug.Log($"type: {type}");
-
-        Axe axe = SkillManager.Instance.GetAxeOfSkillType(type);
-        axe.GetSkill().UpgradeSkill();
-
-        int level = axe.GetSkill().GetLevel();
-        Debug.Log($"level: {level}");
-        if (level == 1)
-            SkillManager.Instance.AddSKill(FindSkillData(axe.GetSkill().skillData.skillType));
-        if (level == 5)
-            skillDataList.Remove(FindSkillData(type));
-
-        CloseSelectSkill();
+        foreach(Card data in Cards)
+            Destroy(data.gameObject);
     }
 
     private SkillDataSO FindSkillData(SkillType skillType)
     {
-        foreach (SkillDataSO skillData in skillDataList)
-            if (skillData.skillType == skillType)
-                return skillData;
+        foreach (DataSO data in DataList)
+            if (data.GetType() == typeof(SkillDataSO))
+            {
+                SkillDataSO skillData = (SkillDataSO)data;
+                if (skillData.skillType == skillType)
+                    return skillData;
+            }
+        return null;
+    }
+
+    private StatDataSO FindStatData(StatType statType)
+    {
+        foreach (DataSO data in DataList)
+            if (data.GetType() == typeof(StatDataSO))
+            {
+                StatDataSO statData = (StatDataSO)data;
+                if (statData.statType == statType)
+                    return statData;
+            }
         return null;
     }
 }

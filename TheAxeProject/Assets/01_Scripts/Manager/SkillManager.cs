@@ -2,43 +2,32 @@ using MKDir;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SkillType
-{
-    Normal,
-    Lightning,
-    Ice,
-    Tornado,
-    Bomb,
-    Poison
-}
-
 public class SkillManager : MonoSingleton<SkillManager>
 {
-    [SerializeField] private List<GameObject> axeList = new();
+    [SerializeField] private List<SkillDataSO> SkillDataList = new();
 
-    public List<SkillDataSO> SkillList = new();
+    public List<SkillDataSO> UseSkillList = new();
 
-    private Dictionary<SkillType, Axe> skillOfAxeDictionary = new();
+    private Dictionary<SkillType, SkillDataSO> skillOfDataDictionary = new();
 
     protected override void Awake()
     {
         base.Awake();
 
-        foreach (GameObject axePrefab in axeList)
+        foreach (SkillDataSO dataSO in SkillDataList)
         {
-            Axe axe = Instantiate(axePrefab, Vector3.zero, Quaternion.identity, transform).GetComponent<Axe>();
-            SkillType type = axe.GetSkill().skillData.skillType;
-            skillOfAxeDictionary.Add(type, axe);
+            SkillType type = dataSO.skillType;
+            skillOfDataDictionary.Add(type, dataSO);
         }
     }
 
-    public Axe GetAxeOfSkillType(SkillType type)
+    public SkillDataSO GetDataOfSkillType(SkillType type)
     {
-        return skillOfAxeDictionary.TryGetValue(type, out Axe axe) ? axe : null;
+        return skillOfDataDictionary.TryGetValue(type, out SkillDataSO dataSO) ? dataSO : null;
     }
 
     public void AddSKill(SkillDataSO skillData)
     {
-        SkillList.Add(skillData);
+        UseSkillList.Add(skillData);
     }
 }

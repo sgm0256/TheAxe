@@ -31,8 +31,10 @@ public class SkillSelecter : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && curPocusCard != null)
         {
-            SkillCard card = curPocusCard.GetComponent<SkillCard>();
-            manager.ApplySkill(card.GetData().skillType);
+            if(curPocusCard.TryGetComponent(out SkillCard skillCard))
+                manager.ApplySkill(skillCard.GetData().skillType);
+            else if(curPocusCard.TryGetComponent(out StatCard statCard))
+                manager.UpgradeStat(statCard.GetData().statType);
 
             curPocusCard = null;
         }

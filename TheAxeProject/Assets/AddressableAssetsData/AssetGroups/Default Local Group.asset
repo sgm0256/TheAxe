@@ -67,6 +67,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a6e0697863a4074b9d53621551dc781
+    m_Address: Assets/02_Prefabs/Axe/NormalAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e7145877b37c364ab8af980bb26a7cb
+    m_Address: Assets/02_Prefabs/Axe/PoisonAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5739a256f155c174999fb84146f8edbf
+    m_Address: Assets/02_Prefabs/Axe/TornadoAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c2f57bef76f53e142990ab4eb4a99167, type: 2}
   m_SchemaSet:

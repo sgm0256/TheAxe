@@ -10,37 +10,8 @@ public class BombSkill : Skill
         //강력 스킬
     }
 
-    protected override void FlightSkill()
+    protected override void FlightSkill(GameObject obj)
     {
 
-    }
-
-    public override void UpgradeSkill()
-    {
-        base.UpgradeSkill();
-
-        switch (skillData.level)
-        {
-            case 2:
-                {
-                    //스텟 증가
-                }
-                break;
-            case 3:
-                {
-                    isUpgradedAxe = true;
-                }
-                break;
-            case 4:
-                {
-                    //스텟 증가 2
-                }
-                break;
-            case 5:
-                {
-                    //진화
-                }
-                break;
-        }
     }
 }

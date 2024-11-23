@@ -1,10 +1,13 @@
+using Core.StatSystem;
 using DG.Tweening;
 using ObjectPooling;
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class VisualAxe : MonoBehaviour, IPoolable
 {
+    [SerializeField] private StatSO sizeStat;
     [SerializeField] private PoolTypeSO poolType;
 
     public PoolTypeSO PoolType => poolType;
@@ -18,6 +21,11 @@ public class VisualAxe : MonoBehaviour, IPoolable
     private void Awake()
     {
         spriteRender = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(sizeStat).OnValueChange += (stat, current, previous) => transform.localScale = Vector3.one * stat.Value;
     }
 
     public void ResetItem()
@@ -46,7 +54,7 @@ public class VisualAxe : MonoBehaviour, IPoolable
         if (isSpawn)
         {
             Vector3 pos = (Quaternion.Euler(0, 1, moveAngle) * transform.parent.up).normalized;
-            transform.DOLocalMove(pos * 2, 0.2f);
+            transform.DOLocalMove(pos * transform.localScale.x * 2, 0.2f);
         }
         else
         {
@@ -69,7 +77,7 @@ public class VisualAxe : MonoBehaviour, IPoolable
 
             float angle = Mathf.Lerp(curAngle, moveAngle, timer * 5f);
             Vector3 pos = (Quaternion.Euler(0, 0, angle) * transform.parent.up).normalized;
-            transform.localPosition = pos * 2;
+            transform.localPosition = pos * transform.localScale.x * 2;
 
             yield return null;
         }

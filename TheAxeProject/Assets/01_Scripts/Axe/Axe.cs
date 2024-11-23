@@ -1,9 +1,12 @@
 using Core.Entities;
+using Core.StatSystem;
+using ObjectPooling;
 using System;
 using UnityEngine;
 
-public class Axe : Entity
+public class Axe : Entity, IPoolable
 {
+    [SerializeField] private StatSO sizeStat;
     [SerializeField] private InputReaderSO _inputCompo;
 
     public Action OnAxeImpact;
@@ -12,6 +15,10 @@ public class Axe : Entity
 
     [HideInInspector]
     public bool isAttack = false;
+
+    public PoolTypeSO PoolType => skillCompo.skillData.poolType;
+
+    public GameObject GameObject => gameObject;
 
     protected override void Awake()
     {
@@ -30,19 +37,23 @@ public class Axe : Entity
         transform.parent = null;
         transform.position = startPos;
         transform.rotation = Quaternion.identity;
+        transform.localScale = Vector3.one * GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(sizeStat).Value;
 
         skillCompo.StartSkill();
-    }
-
-    public void EndAttack()
-    {
-        isAttack = false;
-        visualTrm.gameObject.SetActive(false);
-        transform.SetParent(SkillManager.Instance.transform);
     }
 
     public Skill GetSkill()
     {
         return skillCompo;
+    }
+
+    public void SetUpPool(Pool pool)
+    {
+        
+    }
+
+    public void ResetItem()
+    {
+        isAttack = false;
     }
 }
