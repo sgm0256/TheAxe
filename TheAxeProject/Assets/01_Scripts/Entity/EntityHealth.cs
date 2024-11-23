@@ -58,6 +58,7 @@ namespace Core.Entities
             if (_currentHp <= 0)
             {
                 _isDead = true;
+                GameManager.Instance.CurrentEnemyKillCount++;
                 OnDeadEvent?.Invoke();
             }
         }

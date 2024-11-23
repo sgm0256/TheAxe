@@ -90,15 +90,15 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5bf1c22d1e337e9448c915c9e4e9199d, type: 2}
     - target: {fileID: 7386644020172961172, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7386644020172961172, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7386644020172961172, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7386644020172961172, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139,7 +139,7 @@ PrefabInstance:
       addedObject: {fileID: 5346508863541419591}
     - targetCorrespondingSourceObject: {fileID: 6548747121612554125, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7445769897218187514}
+      addedObject: {fileID: 4186946175066198327}
   m_SourcePrefab: {fileID: 100100000, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
 --- !u!1 &367203358121600031 stripped
 GameObject:
@@ -233,8 +233,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.73, y: 2}
+  m_Offset: {x: 0.02130866, y: 0.09099853}
+  m_Size: {x: 1.4622889, y: 1.7518294}
   m_Direction: 0
 --- !u!1 &1201749529014241916 stripped
 GameObject:
@@ -267,7 +267,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6548747121612554125, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
   m_PrefabInstance: {fileID: 2156239455032667671}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &7445769897218187514
+--- !u!70 &4186946175066198327
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,9 +296,9 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.83, y: 2.1}
+  m_Offset: {x: 0.0006271601, y: 0.08272594}
+  m_Size: {x: 1.6525583, y: 1.9338261}
   m_Direction: 0

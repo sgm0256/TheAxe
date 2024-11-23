@@ -3,7 +3,6 @@ using System.Collections;
 using MKDir;
 using ObjectPooling;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -17,11 +16,19 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private float _upgradeTime = 60f;
     
     public bool IsGameStart { get; set; } = false;
-    public float CurrentGameTime { get => _gameTime; }
-    public int CurrentGameMinute { get; private set; }
+    public float CurrentGameTime => _gameTime;
+    public int CurrentGameMinute => _gameMinute;
 
-    private float _gameTime;
-    private float _durationTime = 0;
+    public int CurrentEnemyKillCount
+    {
+        get => _enemyKillCount;
+        set => _enemyKillCount = value;
+    }
+
+    private float _gameTime = 0f;
+    private float _durationTime = 0f;
+    private int _gameMinute = 0;
+    private int _enemyKillCount = 0;
 
     private void Update()
     {
@@ -39,7 +46,7 @@ public class GameManager : MonoSingleton<GameManager>
         _gameTime += Time.deltaTime;
         if (_gameTime >= 60f)
         {
-            CurrentGameMinute++;
+            _gameMinute++;
             _gameTime = 0f;
         }
     }
