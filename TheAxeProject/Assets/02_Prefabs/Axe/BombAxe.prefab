@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2037607866524613697, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037607866524613697, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -90,4 +94,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillData: {fileID: 11400000, guid: 1365a2683e952ef4086b6f9791ebc620, type: 2}
-  Type: 4
+  damageStat: {fileID: 0}

@@ -1,4 +1,5 @@
 using Core.Entities;
+using Core.StatSystem;
 using ObjectPooling;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,19 +9,28 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
 {
     [SerializeField] private PoolTypeSO visualAxePoolType;
     [SerializeField] private Transform axeContainer;
-    [SerializeField] private int maxAxeCount = 3;
-    [SerializeField] private float spawnCoolTime = 1f;
+    [SerializeField] private StatSO axeCntStat;
+    private float spawnCoolTime = 1f;
     private bool isSpawning = false;
     private int orderIdx = 0;
+    private int maxAxeCount = 5;
 
     private InputReaderSO input;
+    private Entity entity;
 
     private List<VisualAxe> axeList = new();
 
     public void Initialize(Entity entity)
     {
+        this.entity = entity;
+
         input = entity.GetCompo<InputReaderSO>();
         input.FireEvent += Attack;
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(axeCntStat).OnValueChange += (stat, cur, prev) => maxAxeCount = (int)stat.Value;
     }
 
     private void Update()
@@ -40,8 +50,8 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         yield return new WaitForSeconds(spawnCoolTime);
         //yield return null;
 
-        SkillDataSO data = SkillManager.Instance.SkillList[orderIdx++];
-        if (orderIdx > SkillManager.Instance.SkillList.Count - 1)
+        SkillDataSO data = SkillManager.Instance.UseSkillList[orderIdx++];
+        if (orderIdx > SkillManager.Instance.UseSkillList.Count - 1)
             orderIdx = 0;
 
         VisualAxe axe = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe)
@@ -79,7 +89,7 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         axeList.Remove(visualAxe);
         SortAxe(false);
 
-        Axe axe = SkillManager.Instance.GetAxeOfSkillType(visualAxe.SkillData.skillType);
+        Axe axe = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Pop(visualAxe.SkillData.poolType) as Axe;
         axe.Attack(visualAxe.transform.position);
 
         SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(visualAxe);

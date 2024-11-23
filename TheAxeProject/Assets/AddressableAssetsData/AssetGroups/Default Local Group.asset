@@ -27,11 +27,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3feac445bf0646f4d8d3eb2d232bf4cc
-    m_Address: Assets/02_Prefabs/Axe/NormalAxe.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b32dda65b3dc69240a915cf8e2b13115
     m_Address: Assets/02_Prefabs/Axe/VisualAxe.prefab
     m_ReadOnly: 0
@@ -84,6 +79,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f8792407f2769a64890608d25ad14201
     m_Address: Assets/02_Prefabs/InteractiveObject/Exp.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a6e0697863a4074b9d53621551dc781
+    m_Address: Assets/02_Prefabs/Axe/NormalAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e7145877b37c364ab8af980bb26a7cb
+    m_Address: Assets/02_Prefabs/Axe/PoisonAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5739a256f155c174999fb84146f8edbf
+    m_Address: Assets/02_Prefabs/Axe/TornadoAxe.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

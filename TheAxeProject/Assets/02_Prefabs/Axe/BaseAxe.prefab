@@ -27,8 +27,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2037607866524613697}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eff6e2bbaaaae44d805ce2b7b17a734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  rotateSpeed: 10
+  moveSpeed: 3
+  rotateSpeed: 20
   attackAngle: 45
 --- !u!1 &6669058643365359539
 GameObject:
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2329119762890927226}
-  - component: {fileID: 4342452960960707129}
+  - component: {fileID: 6215166670723113646}
   m_Layer: 0
   m_Name: Skill
   m_TagString: Untagged
@@ -163,7 +163,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2037607866524613697}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &4342452960960707129
+--- !u!60 &6215166670723113646
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,7 +192,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -207,9 +207,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: 0, y: 0.28926}
+      - {x: -0.25, y: -0.1444}
+      - {x: 0.25, y: -0.1444}
   m_UseDelaunayMesh: 0
 --- !u!1 &8745237258284552185
 GameObject:
@@ -238,7 +238,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4689656986472304336}
@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a36a766f52053d4ca1f669fd13d9d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sizeStat: {fileID: 11400000, guid: ccc9267df56aa65488f8a3c07299e028, type: 2}
   _inputCompo: {fileID: 11400000, guid: bc8cabd3904b03e4ba6fc4a4761b04a1, type: 2}
   visualTrm: {fileID: 4689656986472304336}
   isAttack: 0

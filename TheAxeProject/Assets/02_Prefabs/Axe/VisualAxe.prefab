@@ -97,4 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad7420c86bdc9564b8fc8dc571871cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sizeStat: {fileID: 11400000, guid: ccc9267df56aa65488f8a3c07299e028, type: 2}
   poolType: {fileID: 11400000, guid: 3133c302ecaa823478db8a6408630409, type: 2}

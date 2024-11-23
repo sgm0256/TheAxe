@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10baa84e00fbcf344a1991efb8286eed, type: 3}
+  m_Name: AxePoolManager
+  m_EditorClassIdentifier: 
+  poolList:
+  - {fileID: 11400000, guid: 3133c302ecaa823478db8a6408630409, type: 2}
+  - {fileID: 11400000, guid: 2b30bfd16deef0d418b97cd5f76a94ed, type: 2}
+  - {fileID: 11400000, guid: 371f8fb9f4e8de44cbfd9ebd031b9ed7, type: 2}
+  - {fileID: 11400000, guid: deaa342a902e5b549bff4cd1e57ace8e, type: 2}
+  - {fileID: 11400000, guid: 13342a0a09a75ed4aadf6ece3bf8beb0, type: 2}
+  - {fileID: 11400000, guid: 54eb848f9d105f94285c41e30a6207e3, type: 2}
+  - {fileID: 11400000, guid: 4d0f35cfc1924b540a569608c8d3314c, type: 2}
+  <PoolEnumType>k__BackingField: 2

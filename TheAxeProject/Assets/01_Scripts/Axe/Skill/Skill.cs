@@ -1,18 +1,16 @@
 using Core.Entities;
+using Core.StatSystem;
 using MK.Enemy;
+using ObjectPooling;
 using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    [SerializeField] protected SkillDataSO skillData;
-
-    public SkillType Type;
+    public SkillDataSO skillData;
+    public StatSO damageStat;
 
     protected Axe axe;
     protected AxeMover mover;
-
-    protected bool isUpgradedAxe = false;
-    protected int level = 0;
 
     public virtual void Awake()
     {
@@ -24,7 +22,7 @@ public class Skill : MonoBehaviour
 
     protected virtual void Impact()
     {
-        axe.EndAttack();
+        SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(axe);
     }
 
     public virtual void StartSkill()
@@ -32,17 +30,11 @@ public class Skill : MonoBehaviour
         mover.AttackMove();
     }
 
-    public virtual void UpgradeSkill() 
-    {
-        level++;
-        SkillManager.Instance.SetSkillLevel(Type, level);
-    }
-
-    protected virtual void FlightSkill() { }
+    protected virtual void FlightSkill(GameObject obj) { }
 
     public int GetLevel()
     {
-        return level;
+        return skillData.level;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,13 +44,14 @@ public class Skill : MonoBehaviour
 
         if (collision.TryGetComponent(out Enemy enemy))
         {
-            if (isUpgradedAxe)
+            if (skillData.isFlight)
             {
-                FlightSkill();
+                FlightSkill(collision.gameObject);
             }
             else
             {
-                enemy.GetCompo<EntityHealth>().ApplyDamage(350f, axe);
+                float damage = skillData.damage;
+                enemy.GetCompo<EntityHealth>().ApplyDamage(damage, axe);
             }
         }
     }

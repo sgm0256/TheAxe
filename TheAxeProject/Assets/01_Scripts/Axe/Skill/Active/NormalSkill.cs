@@ -1,53 +1,30 @@
+using Core.Entities;
+using Core.StatSystem;
 using MK.Enemy;
 using UnityEngine;
 
 public class NormalSkill : Skill
 {
-    public override void Awake()
-    {
-        base.Awake();
-
-        Type = SkillType.Normal;
-    }
-
     protected override void Impact()
     {
         base.Impact();
 
-        //강력 스킬
-    }
-
-    protected override void FlightSkill()
-    {
         
     }
 
-    public override void UpgradeSkill()
+    protected override void FlightSkill(GameObject obj)
     {
-        base.UpgradeSkill();
+        float damage = GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(damageStat).Value;
+        damage += skillData.damage;
 
-        switch (level)
-        {
-            case 2:
-                {
-                    //스텟 증가
-                }
-                break;
-            case 3:
-                {
-                    isUpgradedAxe = true;
-                }
-                break;
-            case 4:
-                {
-                    //스텟 증가 2
-                }
-                break;
-            case 5:
-                {
-                    //진화
-                }
-                break;
-        }
+        Enemy enemy = obj.GetComponent<Enemy>();
+        enemy.GetCompo<EntityHealth>().ApplyDamage(damage, axe);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+
+        //Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
