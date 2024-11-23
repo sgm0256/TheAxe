@@ -9,7 +9,7 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IEntityC
     public Vector2 Movement { get; private set; }
     public Vector2 MousePos { get; private set; }
 
-    public event Action FireEvent;
+    public event Action<bool> FireEvent;
 
     private Controls _controls;
 
@@ -32,7 +32,9 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IEntityC
     public void OnFire(InputAction.CallbackContext context)
     {
         if (context.performed)
-            FireEvent?.Invoke();
+            FireEvent?.Invoke(true);
+        else if(context.canceled)
+            FireEvent?.Invoke(false);
     }
 
     public void OnAim(InputAction.CallbackContext context)

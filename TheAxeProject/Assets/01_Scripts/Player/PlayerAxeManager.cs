@@ -1,3 +1,4 @@
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityTransform;
 using Core.Entities;
 using Core.StatSystem;
 using ObjectPooling;
@@ -11,7 +12,10 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
     [SerializeField] private Transform axeContainer;
     [SerializeField] private StatSO axeCntStat;
     private float spawnCoolTime = 1f;
+    private float attackCoolTime = 0.05f;
     private bool isSpawning = false;
+    private bool isAttacking = false;
+    private bool isAttackHold = false;
     private int orderIdx = 0;
     private int maxAxeCount = 5;
 
@@ -25,17 +29,15 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         this.entity = entity;
 
         input = entity.GetCompo<InputReaderSO>();
-        input.FireEvent += Attack;
+        input.FireEvent += (isAttack) => isAttackHold = isAttack;
     }
 
     private void Start()
     {
         EntityStat stat = entity.GetCompo<EntityStat>();
-        stat.GetStat(axeCntStat).OnValueChange += (stat, cur, prev) =>
-        {
-            maxAxeCount = (int)stat.Value;
-            spawnCoolTime -= 0.15f;
-        };
+        stat.GetStat(axeCntStat).OnValueChange += (stat, cur, prev) => maxAxeCount = (int)stat.Value;
+
+        entity.GetCompo<EntityLevel>().LevelUpEvent += (level) => spawnCoolTime -= 0.1f;
     }
 
     private void Update()
@@ -48,25 +50,35 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
                 StartCoroutine(CreateAxe());
             }
         }
+        if(isAttackHold && axeList.Count > 0 && !isAttacking)
+        {
+            isAttacking = true;
+            StartCoroutine(Attack());
+        }
+
+        Rotate();
+    }
+
+    private void Rotate()
+    {
+        axeContainer.Rotate(0, 0, Time.deltaTime * 100);
     }
 
     private IEnumerator CreateAxe()
     {
-        yield return new WaitForSeconds(spawnCoolTime);
-        //yield return null;
-
         SkillDataSO data = SkillManager.Instance.UseSkillList[orderIdx++];
         if (orderIdx > SkillManager.Instance.UseSkillList.Count - 1)
             orderIdx = 0;
 
         VisualAxe axe = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe)
             .Pop(visualAxePoolType) as VisualAxe;
-        axe.transform.SetParent(transform, false);
+        axe.transform.SetParent(axeContainer, false);
         axe.Init(data);
 
         axeList.Add(axe);
         SortAxe(true);
 
+        yield return new WaitForSeconds(spawnCoolTime);
         isSpawning = false;
     }
 
@@ -85,18 +97,32 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         }
     }
 
-    private void Attack()
+    private IEnumerator Attack()
     {
-        if (axeList.Count == 0)
-            return;
+        Vector3 mousePos = input.MousePos;
 
-        VisualAxe visualAxe = axeList[0];
-        axeList.Remove(visualAxe);
+        float maxdistance = 0;
+        VisualAxe attackAxe = null;
+        foreach(VisualAxe visualAxe in axeList)
+        {
+            float distance = Vector3.Distance(mousePos, visualAxe.transform.position);
+
+            if(distance > maxdistance)
+            {
+                maxdistance = distance;
+                attackAxe = visualAxe;
+            }
+        }
+
+        axeList.Remove(attackAxe);
         SortAxe(false);
 
-        Axe axe = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Pop(visualAxe.SkillData.poolType) as Axe;
-        axe.Attack(visualAxe.transform.position);
+        Axe axe = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Pop(attackAxe.SkillData.poolType) as Axe;
+        axe.Attack(attackAxe.transform.position);
 
-        SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(visualAxe);
+        SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(attackAxe);
+
+        yield return new WaitForSeconds(attackCoolTime);
+        isAttacking = false;
     }
 }

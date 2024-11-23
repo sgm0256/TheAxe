@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: {fileID: 11400000, guid: 54eb848f9d105f94285c41e30a6207e3, type: 2}
   skillType: 5
-  color: {r: 0.02745098, g: 1, b: 0, a: 1}
+  sprite: {fileID: -1400561200, guid: 4a64fae7a3b44634fafa8a8be4cd0d69, type: 3}
   desc: "\uC911\uC2EC\uC5D0 \uB3C5\uC744 \uBD80\uC5B4{0}\uC758 \uD53C\uD574\uB97C
     \uC8FC\uACE0,\n\uC8FC\uBCC0 {1}\uC758 \uBC94\uC704\uC5D0 \uC9C0\uC18D\uC801\uC778
     \uD53C\uD574\uB97C \uC8FC\uB294 \uC7A5\uD310\uC744 \uD3BC\uCE5C\uB2E4."

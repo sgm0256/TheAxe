@@ -13,18 +13,28 @@ public class VisualAxe : MonoBehaviour, IPoolable
     public GameObject GameObject => gameObject;
     public SkillDataSO SkillData { get; private set; }
 
+    private Player player;
     private SpriteRenderer spriteRender;
     private IEnumerator coroutine = null;
 
 
     private void Awake()
     {
-        spriteRender = GetComponent<SpriteRenderer>();
+        spriteRender = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnEnable()
     {
-        GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(sizeStat).OnValueChange += (stat, current, previous) => transform.localScale = Vector3.one * stat.Value;
+        if (player == null)
+            player = GameManager.Instance.Player;
+
+        player.GetCompo<EntityStat>().GetStat(sizeStat).OnValueChange += (stat, current, previous) => transform.localScale = Vector3.one * stat.Value;
+    }
+
+    private void Update()
+    {
+        Vector3 dir = player.transform.position - transform.position;
+        transform.up = -dir.normalized;
     }
 
     public void ResetItem()
@@ -33,25 +43,25 @@ public class VisualAxe : MonoBehaviour, IPoolable
         transform.DOKill();
 
         transform.localPosition = Vector3.zero;
-        transform.rotation = Quaternion.identity;
     }
 
     public void SetUpPool(Pool pool)
     {
+        
     }
 
     public void Init(SkillDataSO data)
     {
         SkillData = data;
-        spriteRender.color = data.color;
+        spriteRender.sprite = data.sprite;
     }
 
     public void Sort(float moveAngle, bool isSpawn)
     {
         if (isSpawn)
         {
-            Vector3 pos = (Quaternion.Euler(0, 1, moveAngle) * transform.parent.up).normalized;
-            transform.DOLocalMove(pos * transform.localScale.x * 2, 0.2f);
+            Vector3 pos = (Quaternion.Euler(0, 1, moveAngle) * transform.root.up).normalized;
+            transform.DOLocalMove(pos * transform.localScale.x, 0.2f);
         }
         else
         {
@@ -73,8 +83,8 @@ public class VisualAxe : MonoBehaviour, IPoolable
             timer += Time.deltaTime;
 
             float angle = Mathf.Lerp(curAngle, moveAngle, timer * 5f);
-            Vector3 pos = (Quaternion.Euler(0, 0, angle) * transform.parent.up).normalized;
-            transform.localPosition = pos * transform.localScale.x * 2;
+            Vector3 pos = (Quaternion.Euler(0, 0, angle) * transform.root.up).normalized;
+            transform.localPosition = pos * transform.localScale.x;
 
             yield return null;
         }

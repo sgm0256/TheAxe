@@ -8,17 +8,12 @@ public class NormalSkill : Skill
     protected override void Impact()
     {
         base.Impact();
-
-        
     }
 
     protected override void FlightSkill(GameObject obj)
     {
-        float damage = GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(damageStat).Value;
-        damage += skillData.damage;
-
         Enemy enemy = obj.GetComponent<Enemy>();
-        enemy.GetCompo<EntityHealth>().ApplyDamage(damage, axe);
+        enemy.GetCompo<EntityHealth>().ApplyDamage(damage + skillData.damage, axe);
     }
 
     private void OnDrawGizmos()

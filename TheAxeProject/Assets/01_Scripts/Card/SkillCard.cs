@@ -15,13 +15,13 @@ public class SkillCard : Card
     {
         skillData = (SkillDataSO)data;
 
-        iconImage.color = skillData.color;
+        iconImage.sprite = skillData.sprite;
 
         int level = skillData.level;
         levelText.text = "Lv." + (level + 1);
 
         if (level == 0)
-            descText.text = string.Format(skillData.desc, skillData.baseDamage, skillData.baseRange);
+            descText.text = string.Format(skillData.desc, skillData.damage, skillData.baseRange);
         else
             descText.text = string.Format(skillData.desc, skillData.damage + skillData.damageIncrease, skillData.range + skillData.rangeIncrease);
 

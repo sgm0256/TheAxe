@@ -16,7 +16,7 @@ MonoBehaviour:
   description: "\uD06C\uAE30"
   _icon: {fileID: 0}
   _displayName: SZ
-  _baseValue: 0.5
-  _minValue: 0.5
-  _maxValue: 0.75
+  _baseValue: 1
+  _minValue: 1
+  _maxValue: 1.25
   <IsPercent>k__BackingField: 0
