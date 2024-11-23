@@ -15,7 +15,7 @@ public class SkillCard : Card
     {
         skillData = (SkillDataSO)data;
 
-        iconImage.color = skillData.color;
+        iconImage.sprite = skillData.sprite;
 
         int level = skillData.level;
         levelText.text = "Lv." + (level + 1);

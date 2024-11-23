@@ -1156,7 +1156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5442e0a0c26e824fa611de8e9e1a6e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <StatUpValue>k__BackingField: 30
   player: {fileID: 5210290993513649101}
+  _enemyPoolManager: {fileID: 0}
+  _upgradeTime: 60
 --- !u!1 &524365545888337593
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class SkillDataSO : DataSO
 {
     public PoolTypeSO poolType;
     public SkillType skillType;
-    public Color color; //에셋 찾으면 텍스쳐로 교체
+    public Sprite sprite;
 
     [TextArea]
     public string desc;

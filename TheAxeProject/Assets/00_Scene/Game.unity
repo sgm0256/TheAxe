@@ -22845,34 +22845,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
-      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
-      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
-      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 943233524}
-    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
-      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
-      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartSelectSkill
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
-      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UpgradeManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232884962115593707, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
-      propertyPath: LevelUpEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3986855167212321114, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -22913,17 +22885,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6533387654720213793, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9187770216302442198, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9192258756489589532, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192258756489589532, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

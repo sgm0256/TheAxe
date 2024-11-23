@@ -37,7 +37,7 @@ public class Axe : Entity, IPoolable
         visualTrm.localScale = Vector3.one * GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(sizeStat).Value;
         transform.parent = null;
         transform.position = startPos;
-        transform.rotation = Quaternion.identity;
+        transform.rotation = Quaternion.Euler(0, 0, 45);
 
         skillCompo.StartSkill();
     }
