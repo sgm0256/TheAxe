@@ -18,5 +18,5 @@ MonoBehaviour:
   _displayName: SZ
   _baseValue: 0.5
   _minValue: 0.5
-  _maxValue: 0.8
+  _maxValue: 0.75
   <IsPercent>k__BackingField: 0

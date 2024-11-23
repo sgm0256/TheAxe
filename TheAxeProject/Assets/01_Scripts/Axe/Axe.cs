@@ -34,10 +34,12 @@ public class Axe : Entity, IPoolable
     {
         isAttack = true;
         visualTrm.gameObject.SetActive(true);
+        float size = GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(sizeStat).Value;
+        Debug.Log(size);
+        visualTrm.localScale = Vector3.one * size;
         transform.parent = null;
         transform.position = startPos;
         transform.rotation = Quaternion.identity;
-        transform.localScale = Vector3.one * GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(sizeStat).Value;
 
         skillCompo.StartSkill();
     }
