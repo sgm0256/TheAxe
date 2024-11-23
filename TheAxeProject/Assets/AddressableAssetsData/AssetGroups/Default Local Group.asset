@@ -32,18 +32,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 04b6127546cbea44f9a51f4ebe9588d2
-    m_Address: Assets/02_Prefabs/Enemy/MeleeEnemy.prefab
+  - m_GUID: b67de95ce74033a42a7d9aee29160e17
+    m_Address: Assets/02_Prefabs/Axe/PoisonAxe.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b5926e2f64366c444ac562c3eb930578
+  - m_GUID: b96761db9b5b1be4098b28d3251d04e2
+    m_Address: Assets/02_Prefabs/Axe/TornadoAxe.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6714723f517949246ba1f305bfc0edfd
+    m_Address: Assets/02_Prefabs/Enemy/RangeEnemy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 903651178a7a64445bfeea52877033ee
     m_Address: Assets/02_Prefabs/Enemy/RushEnemy.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 61aa797df54c8bf42820878652c84e86
-    m_Address: Assets/02_Prefabs/Enemy/RangeEnemy.prefab
+  - m_GUID: 3d54a709aec66aa4a84792cb2dc01999
+    m_Address: Assets/02_Prefabs/Enemy/MeleeEnemy.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -67,18 +77,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1a6e0697863a4074b9d53621551dc781
-    m_Address: Assets/02_Prefabs/Axe/NormalAxe.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8e7145877b37c364ab8af980bb26a7cb
-    m_Address: Assets/02_Prefabs/Axe/PoisonAxe.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5739a256f155c174999fb84146f8edbf
-    m_Address: Assets/02_Prefabs/Axe/TornadoAxe.prefab
+  - m_GUID: f8792407f2769a64890608d25ad14201
+    m_Address: Assets/02_Prefabs/InteractiveObject/Exp.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

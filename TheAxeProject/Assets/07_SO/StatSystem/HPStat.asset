@@ -17,6 +17,6 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _displayName: HP
   _baseValue: 1
-  _minValue: 1
-  _maxValue: 100
+  _minValue: 0
+  _maxValue: 1000
   <IsPercent>k__BackingField: 0

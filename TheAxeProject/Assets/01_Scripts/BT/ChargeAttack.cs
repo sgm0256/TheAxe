@@ -40,8 +40,6 @@ namespace MK.BT
         {
             _attackDirection = target.Value.position - transform.position;
             _angle = Mathf.Atan2(_attackDirection.y, _attackDirection.x) * Mathf.Rad2Deg;
-            Quaternion angleAxis = Quaternion.AngleAxis(_angle - 90f, Vector3.forward);
-            transform.rotation = angleAxis;
         }
 
         protected void CreateAttackLoad()

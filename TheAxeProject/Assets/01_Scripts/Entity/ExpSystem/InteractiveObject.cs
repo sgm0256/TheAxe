@@ -72,10 +72,16 @@ namespace Core.InteractiveObjects
                 .OnComplete(() => _isMovement = true);
         }
 
+        public void PopObject(Transform transform)
+        {
+            InteractiveObject obj = SingletonPoolManager.Instance.Pop(PoolEnumType.InteractiveObject, PoolType) as InteractiveObject;
+            obj.transform.position = transform.position;
+        }
+        
         public void PushObject()
         {
-            // TODO : Push
-            Destroy(gameObject);
+            SingletonPoolManager.Instance.Push(PoolEnumType.InteractiveObject, this);
+
         }
     }
 }

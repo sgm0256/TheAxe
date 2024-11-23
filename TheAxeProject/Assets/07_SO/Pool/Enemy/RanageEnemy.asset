@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: RanageEnemy
   assetRef:
-    m_AssetGUID: 61aa797df54c8bf42820878652c84e86
+    m_AssetGUID: 6714723f517949246ba1f305bfc0edfd
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

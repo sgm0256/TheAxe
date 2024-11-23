@@ -182,13 +182,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f5b79a5e5a5fb469f9d3da3ceb0597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeadEvent:
+  OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  HitEvent:
+  OnHitEvent:
     m_PersistentCalls:
       m_Calls: []
-  _currentHp: 0
 --- !u!1 &1963970868112670840
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23f0821ebf0232438bf0e2626bdbff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnGetExpEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _levelUpNeedExp: 7
 --- !u!1 &7206719598088424282
 GameObject:
@@ -524,7 +526,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualAxePoolType: {fileID: 11400000, guid: 3133c302ecaa823478db8a6408630409, type: 2}
   axeContainer: {fileID: 4651744837349897708}
-  maxAxeCount: 5
+  maxAxeCount: 15
+  spawnCoolTime: 0.3
 --- !u!58 &6533387654720213793
 CircleCollider2D:
   m_ObjectHideFlags: 0

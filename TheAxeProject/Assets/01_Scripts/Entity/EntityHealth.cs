@@ -1,3 +1,4 @@
+using System;
 using Core.StatSystem;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +13,7 @@ namespace Core.Entities
         private Entity _entity;
         private EntityStat _stat;
         private float _currentHp;
+        private bool _isDead = false;
         
         public void Initialize(Entity entity)
         {
@@ -25,14 +27,16 @@ namespace Core.Entities
             _stat.HpStat.OnValueChange += HandleHPChange;
         }
 
+        private void OnEnable()
+        {
+            _isDead = false;
+        }
+
         private void OnDestroy()
         {
             _stat.HpStat.OnValueChange -= HandleHPChange;
-        }
-
-        private void Update()
-        {
-            DeadCheck();
+            OnDeadEvent.RemoveAllListeners();
+            OnHitEvent.RemoveAllListeners();
         }
 
         private void HandleHPChange(StatSO stat, float current, float previous)
@@ -42,17 +46,19 @@ namespace Core.Entities
 
         public void ApplyDamage(float damage, Entity dealer)
         {
-            _stat.IncreaseBaseValue(_stat.HpStat, -damage);
+            _stat.HpStat.BaseValue -= damage;
             OnHitEvent?.Invoke();
             DeadCheck();
         }
 
         private void DeadCheck()
         {
+            if (_isDead) return;
+            
             if (_currentHp <= 0)
             {
+                _isDead = true;
                 OnDeadEvent?.Invoke();
-                // TODO : Pool로 바꾸기
             }
         }
     }
