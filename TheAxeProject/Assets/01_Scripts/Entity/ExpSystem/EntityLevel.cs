@@ -1,16 +1,17 @@
 using System;
 using Core.InteractiveObjects;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Core.Entities
 {
     public class EntityLevel : MonoBehaviour, IEntityComponent, IAfterInitable
     {
-        public UnityEvent OnGetExpEvent;
-        public UnityEvent<int> LevelUpEvent;
+        public event Action OnGetExpEvent;
+        public event Action<int> LevelUpEvent;
 
-        [SerializeField] private float _levelUpNeedExp = 5f;
+        public int LevelUpNeedValue => _levelUpNeedExp;
+
+        [SerializeField] private int _levelUpNeedExp = 10;
         
         private Entity _entity;
         private EntityCollector _collector;

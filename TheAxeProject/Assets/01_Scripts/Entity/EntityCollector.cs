@@ -8,23 +8,18 @@ namespace Core.Entities
     public class EntityCollector : MonoBehaviour, IEntityComponent
     {
         public event Action<InteractiveObjectInfoSO> GetObjectEvent; 
-        
-        // TODO : 콜렉팅 하고 먹을 수 있게 바꾸기 
         private Entity _entity;
         
         [SerializeField] private LayerMask _whatIsItem;
         [SerializeField] private int _maxColliderCount = 10;
         
         private Collider2D[] _colliderArr;
-        // TODO : Collider는 어떻게 처리 할 지 생각해ㅐ 봐야 함
-        private CircleCollider2D _myColl;
 
         [field: SerializeField] public float GetCollectRadius { get; private set; } = 5f;
         
         public void Initialize(Entity entity)
         {
             _entity = entity;
-            _myColl = GetComponent<CircleCollider2D>();
             _colliderArr = new Collider2D[_maxColliderCount];
         }
 

@@ -59,8 +59,8 @@ public class AssetLoader : MonoSingleton<AssetLoader>
         if (_isLoadComplete && Input.anyKey)
         {
             GameManager.Instance.StartGameCoroutine();
-            GameManager.Instance.IsGameStart = true;
             SceneManager.LoadScene(_nextScene);
+            GameManager.Instance.IsGameStart = true;
             _isLoadComplete = false;
         }
     }
