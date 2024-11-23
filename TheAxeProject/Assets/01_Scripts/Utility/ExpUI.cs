@@ -14,7 +14,7 @@ public class ExpUI : MonoBehaviour
     
     private EntityLevel _level;
     private Color _oringinColor;
-    private int _currentExp = 0;
+    private float _currentExp = 0;
     private int _currentLevelUpNeedValue = 0;
     private int _currentLevel = 0;
     private bool _isRainbowGauage = false;
@@ -26,6 +26,7 @@ public class ExpUI : MonoBehaviour
         
         _gauage.fillAmount = 0;
         _levelText.text = $"LV 0";
+        _currentLevelUpNeedValue = _level.LevelUpNeedValue;
         
         _level.LevelUpEvent                     += HandleLevelUp;
         _level.OnGetExpEvent                    += HandleGetExp;
@@ -36,26 +37,26 @@ public class ExpUI : MonoBehaviour
 
     private void OnDestroy()
     {
-        //_level.LevelUpEvent                     -= HandleLevelUp;
-        //_level.OnGetExpEvent                    -= HandleGetExp;
         _upgradeManager.OnStartSelectSkillEvent -= HandleStartSelect;
         _upgradeManager.OnSelectSkillEvent      -= HandleSelectSkill;
     }
 
-    private void HandleGetExp()
+    private void HandleGetExp(float exp)
     {
-        _currentExp++;
-        _gauage.fillAmount = _currentLevelUpNeedValue / _currentExp;
+        _currentExp += exp;
+        _gauage.fillAmount = _currentExp / _currentLevelUpNeedValue;
     }
 
     private void HandleLevelUp(int level)
     {
         _currentLevel = level;
+        _currentExp = 0;
         _currentLevelUpNeedValue = _level.LevelUpNeedValue;
     }
     
     private void HandleStartSelect()
     {
+        _gauage.fillAmount = 1;
         _isRainbowGauage = true;
     }
     
@@ -71,7 +72,7 @@ public class ExpUI : MonoBehaviour
     {
         if (_isRainbowGauage)
         {
-            _hue = (_hue + _colorChangeSpeed * Time.deltaTime) % 1f;
+            _hue = (_hue + _colorChangeSpeed * Time.unscaledDeltaTime) % 1f;
 
             Color rainbowColor = Color.HSVToRGB(_hue, 1f, 1f);
 

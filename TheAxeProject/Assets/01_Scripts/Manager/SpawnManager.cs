@@ -84,7 +84,7 @@ public class SpawnManager : MonoSingleton<SpawnManager>
 
     private void EnemyWave()
     {
-        //Vector2 spawnPoints = SpawnPoint[Random.Range(0, SpawnPoint.Count)].position;
+        // Vector2 spawnPoints = SpawnPoint[Random.Range(0, SpawnPoint.Count)].position;
         for (int i = 0; i < _waveCount; ++i)
         {
             Enemy enemy = _poolManager.Pop(RandomEnemyType()) as Enemy;

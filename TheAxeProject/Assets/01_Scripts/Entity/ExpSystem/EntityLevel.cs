@@ -6,7 +6,7 @@ namespace Core.Entities
 {
     public class EntityLevel : MonoBehaviour, IEntityComponent, IAfterInitable
     {
-        public event Action OnGetExpEvent;
+        public event Action<float> OnGetExpEvent;
         public event Action<int> LevelUpEvent;
 
         public int LevelUpNeedValue => _levelUpNeedExp;
@@ -48,7 +48,7 @@ namespace Core.Entities
         private void ExpUp(float exp)
         {
             _expValue += exp;
-            OnGetExpEvent?.Invoke();
+            OnGetExpEvent?.Invoke(exp);
 
             if (_expValue >= _levelUpNeedExp)
             {

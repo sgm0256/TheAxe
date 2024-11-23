@@ -21446,7 +21446,7 @@ MonoBehaviour:
   _gauage: {fileID: 732162798}
   _levelText: {fileID: 933181637}
   _upgradeManager: {fileID: 943233524}
-  _colorChangeSpeed: 3
+  _colorChangeSpeed: 0.7
   _playerManager: {fileID: 11400000, guid: 89d4f0de6ee893b41a455a62d7026402, type: 2}
 --- !u!1 &734750266
 GameObject:
