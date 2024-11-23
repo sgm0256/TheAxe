@@ -12,6 +12,7 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
     [SerializeField] private StatSO axeCntStat;
     private float spawnCoolTime = 1f;
     private bool isSpawning = false;
+    private bool isAttackHold = false;
     private int orderIdx = 0;
     private int maxAxeCount = 5;
 
@@ -25,7 +26,7 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         this.entity = entity;
 
         input = entity.GetCompo<InputReaderSO>();
-        input.FireEvent += Attack;
+        input.FireEvent += (isAttack) => isAttackHold = isAttack;
     }
 
     private void Start()
@@ -47,6 +48,10 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
                 isSpawning = true;
                 StartCoroutine(CreateAxe());
             }
+        }
+        if(isAttackHold)
+        {
+            Attack();
         }
     }
 

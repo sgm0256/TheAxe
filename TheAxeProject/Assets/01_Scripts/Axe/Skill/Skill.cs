@@ -12,6 +12,8 @@ public class Skill : MonoBehaviour
     protected Axe axe;
     protected AxeMover mover;
 
+    protected float damage => GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(damageStat).Value;
+
     public virtual void Awake()
     {
         axe = GetComponentInParent<Axe>();
@@ -50,7 +52,6 @@ public class Skill : MonoBehaviour
             }
             else
             {
-                float damage = GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(damageStat).Value;
                 enemy.GetCompo<EntityHealth>().ApplyDamage(damage, axe);
             }
         }

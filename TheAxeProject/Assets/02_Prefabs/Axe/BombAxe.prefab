@@ -94,4 +94,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillData: {fileID: 11400000, guid: 1365a2683e952ef4086b6f9791ebc620, type: 2}
-  damageStat: {fileID: 0}
+  damageStat: {fileID: 11400000, guid: 5bf1c22d1e337e9448c915c9e4e9199d, type: 2}
