@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8745237258284552185, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
       propertyPath: m_Name
-      value: IceAxe 1
+      value: LightningAxe
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9197629247080674770, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
@@ -91,4 +91,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillData: {fileID: 11400000, guid: 4a1ff37f1661e514e9828facd1290b8d, type: 2}
-  Type: 1
+  damageStat: {fileID: 11400000, guid: 5bf1c22d1e337e9448c915c9e4e9199d, type: 2}

@@ -265,7 +265,7 @@ MonoBehaviour:
     _overrideBaseValue: 1
   - _stat: {fileID: 11400000, guid: 5bf1c22d1e337e9448c915c9e4e9199d, type: 2}
     _isUseOverride: 1
-    _overrideBaseValue: 10
+    _overrideBaseValue: 70
   - _stat: {fileID: 11400000, guid: 3ee3942f01a70c34ca31e12d548a8982, type: 2}
     _isUseOverride: 0
     _overrideBaseValue: 1

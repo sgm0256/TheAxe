@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 5.5, z: 1}
+  m_LocalScale: {x: 1, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6695977435283355814}
@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d2ad38c045a0a42950bbbb0dfa12de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   _gauge: {fileID: 6695977435283355814}
-  _duration: 0.5
+  _duration: 0.9
   _spriteRenderer: {fileID: 2473325911753902745}
   <AttackPoint>k__BackingField: {fileID: 8014526938244155984}
-  _attackLoadGenerator: {fileID: 4413784641464094218, guid: ab933640df9ef9e46b8a61e001928746, type: 3}
   _poolType: {fileID: 11400000, guid: f67e70eae4e5fbd4eb08f689bd7f13d4, type: 2}
 --- !u!1 &3982792429480372119
 GameObject:
