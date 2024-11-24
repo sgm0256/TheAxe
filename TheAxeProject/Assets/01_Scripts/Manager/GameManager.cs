@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     public event Action OnStatUpEvent;
+    public event Action OnGameClearEvent; 
     
     public Player Player => player;
     [field: SerializeField] public float StatUpValue { get; private set; } = 30f;
@@ -16,6 +17,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private float _upgradeTime = 60f;
     
     public bool IsGameStart { get; set; } = false;
+    public bool IsGameClear { get; set; } = false;
     public float CurrentGameTime => _gameTime;
     public int CurrentGameMinute => _gameMinute;
 
@@ -48,6 +50,12 @@ public class GameManager : MonoSingleton<GameManager>
         {
             _gameMinute++;
             _gameTime = 0f;
+        }
+
+        if (_gameMinute >= 15 && IsGameClear == false)
+        {
+            IsGameClear = true;
+            OnGameClearEvent?.Invoke();
         }
     }
 

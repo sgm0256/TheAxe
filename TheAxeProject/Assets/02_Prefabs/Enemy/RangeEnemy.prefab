@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 289465993043654607, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: _statOverrides.Array.data[3]._overrideBaseValue
-      value: 3.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 289465993043654607, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: _statOverrides.Array.data[4]._overrideBaseValue
@@ -90,15 +90,15 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5bf1c22d1e337e9448c915c9e4e9199d, type: 2}
     - target: {fileID: 7386644020172961172, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7386644020172961172, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7386644020172961172, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7386644020172961172, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -233,8 +233,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02130866, y: 0.09099853}
-  m_Size: {x: 1.4622889, y: 1.7518294}
+  m_Offset: {x: 0.0271537, y: 0.155294}
+  m_Size: {x: 0.877785, y: 1.2725362}
   m_Direction: 0
 --- !u!1 &1201749529014241916 stripped
 GameObject:
@@ -299,6 +299,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0006271601, y: 0.08272594}
-  m_Size: {x: 1.6525583, y: 1.9338261}
+  m_Offset: {x: 0.030076206, y: 0.15237153}
+  m_Size: {x: 0.96546066, y: 1.3368316}
   m_Direction: 0

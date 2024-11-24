@@ -27,6 +27,9 @@ namespace Core.Entities
             _stat = entity.GetCompo<EntityStat>();
 
             _collider = entity.GetComponent<Collider2D>();
+            _collider.enabled = true;
+
+            GameManager.Instance.OnGameClearEvent += HandleClear;
         }
         
         public void AfterInit()
@@ -38,6 +41,12 @@ namespace Core.Entities
         private void OnDestroy()
         {
             _stat.MoveSpeedStat.OnValueChange -= HandleMoveSpeedChange;
+            GameManager.Instance.OnGameClearEvent -= HandleClear;
+        }
+        
+        private void HandleClear()
+        {
+            _collider.enabled = false;
         }
 
         private void HandleMoveSpeedChange(StatSO stat, float current, float previous)

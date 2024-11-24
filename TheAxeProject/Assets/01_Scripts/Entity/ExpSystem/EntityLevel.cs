@@ -1,16 +1,17 @@
 using System;
 using Core.InteractiveObjects;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Core.Entities
 {
     public class EntityLevel : MonoBehaviour, IEntityComponent, IAfterInitable
     {
-        public UnityEvent OnGetExpEvent;
+        public event Action<float> OnGetExpEvent;
         public event Action<int> LevelUpEvent;
 
-        [SerializeField] private float _levelUpNeedExp = 5f;
+        public int LevelUpNeedValue => _levelUpNeedExp;
+
+        [SerializeField] private int _levelUpNeedExp = 10;
         
         private Entity _entity;
         private EntityCollector _collector;
@@ -47,7 +48,7 @@ namespace Core.Entities
         private void ExpUp(float exp)
         {
             _expValue += exp;
-            OnGetExpEvent?.Invoke();
+            OnGetExpEvent?.Invoke(exp);
 
             if (_expValue >= _levelUpNeedExp)
             {

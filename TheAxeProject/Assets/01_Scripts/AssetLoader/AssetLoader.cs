@@ -45,6 +45,14 @@ public class AssetLoader : MonoSingleton<AssetLoader>
         };
     }
 
+    private void Start()
+    {
+        if (_isLoadComplete)
+        {
+            SceneManager.LoadScene(_nextScene);
+        }
+    }
+
     private void OnDestroy()
     {
         foreach (PoolManagerSO poolManager in _poolManager.poolManagerList)
@@ -59,8 +67,8 @@ public class AssetLoader : MonoSingleton<AssetLoader>
         if (_isLoadComplete && Input.anyKey)
         {
             GameManager.Instance.StartGameCoroutine();
-            GameManager.Instance.IsGameStart = true;
             SceneManager.LoadScene(_nextScene);
+            GameManager.Instance.IsGameStart = true;
             _isLoadComplete = false;
         }
     }

@@ -317,7 +317,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1101741877
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -21861,7 +21861,7 @@ Camera:
   far clip plane: 100
   field of view: 60
   orthographic: 1
-  orthographic size: 8.5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -22204,10 +22204,10 @@ MonoBehaviour:
   - {fileID: 796164580}
   - {fileID: 734750267}
   - {fileID: 290966872}
-  _spawnTime: 2.5
-  _spawnDecreaseTime: 0.3
-  _waveCooldown: 15
-  _waveCount: 10
+  _spawnTime: 3
+  _spawnDecreaseTime: 0.2
+  _waveCooldown: 60
+  _waveCount: 30
 --- !u!4 &1352808980
 Transform:
   m_ObjectHideFlags: 0
@@ -22624,7 +22624,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2121225549}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 8.5
+    OrthographicSize: 10
     NearClipPlane: 0.3
     FarClipPlane: 100
     Dutch: 0

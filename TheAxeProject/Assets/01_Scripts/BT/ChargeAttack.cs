@@ -51,6 +51,7 @@ namespace MK.BT
             _attackLoad = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.AttackLoad).Pop(attackLoadType) as AttackLoad;
             _attackTrm = _attackLoad.AttackPoint;
             _health.OnDeadEvent.AddListener(_attackLoad.HandleEntityDead);
+            _collider.isTrigger = true;
             _attackLoad.ReadyToAttackEvent += HandleReadyToAttack;
         }
 
@@ -64,7 +65,6 @@ namespace MK.BT
         
         protected virtual void HandleReadyToAttack()
         {
-            _collider.isTrigger = true;
             transform.DOMove(_attackTrm.position, duration).SetEase(Ease.InQuad).OnComplete(() =>
             {
                 _collider.isTrigger = false;

@@ -1,11 +1,14 @@
-using Core.Entities;
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Core.Entities;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class UpgradeManager : MonoBehaviour
 {
+    public event Action OnSelectSkillEvent;
+    public event Action OnStartSelectSkillEvent;
+    
     [SerializeField] private StatCard statCardPrefab;
     [SerializeField] private SkillCard skillCardPrefab;
     [SerializeField] private List<DataSO> DataList;
@@ -44,6 +47,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void StartSelectSkill()
     {
+        OnStartSelectSkillEvent?.Invoke();
         Time.timeScale = 0;
 
         SetSpawnCardList();
@@ -134,6 +138,7 @@ public class UpgradeManager : MonoBehaviour
             Destroy(data.gameObject);
 
         Time.timeScale = 1f;
+        OnSelectSkillEvent?.Invoke();
     }
 
     private SkillDataSO FindSkillData(SkillType skillType)

@@ -10,7 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 289465993043654607, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: _statOverrides.Array.data[0]._overrideBaseValue
-      value: 3
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 289465993043654607, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
+      propertyPath: _statOverrides.Array.data[2]._overrideBaseValue
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 289465993043654607, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
+      propertyPath: _statOverrides.Array.data[3]._overrideBaseValue
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 289465993043654607, guid: d8df04d5e08166b428fbbe2e8d4b936d, type: 3}
       propertyPath: _statOverrides.Array.data[4]._overrideBaseValue

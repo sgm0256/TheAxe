@@ -49,11 +49,11 @@ TagManager:
   - name: AttackLoad
     uniqueID: 2042761671
     locked: 0
-  - name: Enemy
-    uniqueID: 306361887
-    locked: 0
   - name: Item
     uniqueID: 3774215
+    locked: 0
+  - name: Enemy
+    uniqueID: 306361887
     locked: 0
   - name: Player
     uniqueID: 2012559277
