@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    [SerializeField] protected float radius = 0.5f;
+    [SerializeField] protected LayerMask whatIsEnemy;
     [SerializeField] protected PoolTypeSO effectPoolType;
 
     public SkillDataSO skillData;
@@ -13,6 +15,7 @@ public class Skill : MonoBehaviour
 
     protected Axe axe;
     protected AxeMover mover;
+    protected EntityStat stat;
 
     protected float damage => GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(damageStat).Value;
 
@@ -24,6 +27,12 @@ public class Skill : MonoBehaviour
         axe.OnAxeImpact += Impact;
 
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        if (stat == null)
+            stat = GameManager.Instance.Player.GetCompo<EntityStat>();
     }
 
     protected virtual void Impact(Vector3 lastDir)
@@ -59,5 +68,14 @@ public class Skill : MonoBehaviour
                 enemy.GetCompo<EntityHealth>().ApplyDamage(damage, axe);
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, radius);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, skillData.baseRange / 2);
     }
 }

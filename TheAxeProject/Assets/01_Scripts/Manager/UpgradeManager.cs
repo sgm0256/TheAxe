@@ -30,6 +30,7 @@ public class UpgradeManager : MonoBehaviour
         GameManager.Instance.Player.GetCompo<EntityLevel>().LevelUpEvent += (level) => StartSelectSkill();
 
         SkillManager.Instance.AddSKill(FindSkillData(SkillType.Normal));
+        FindSkillData(SkillType.Normal).Upgrade();
 
         foreach (DataSO data in DataList)
             data.ResetInfo();

@@ -77,7 +77,9 @@ public class SkillDataSO : DataSO
                 break;
             case 5:
                 {
-                    //ÁøÈ­
+                    damage += damageIncrease;
+                    range += rangeIncrease;
+                    special += specialIncrease;
                 }
                 break;
         }

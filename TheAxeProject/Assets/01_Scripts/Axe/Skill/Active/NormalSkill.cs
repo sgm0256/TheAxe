@@ -2,16 +2,12 @@ using Core.Entities;
 using Core.StatSystem;
 using MK.Enemy;
 using ObjectPooling;
-using System.Linq;
 using UnityEngine;
 
 public class NormalSkill : Skill
 {
-    [SerializeField] private LayerMask whatIsEnemy;
-    [SerializeField] private float radius = 0.5f;
     [SerializeField] private float knockbackpower = 10f;
 
-    EntityStat stat;
 
     protected override void Impact(Vector3 lastDir)
     {
@@ -21,6 +17,7 @@ public class NormalSkill : Skill
         Transform effectTrm = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Effect).Pop(effectPoolType).GameObject.transform;
         effectTrm.position = transform.position;
         effectTrm.up = lastDir;
+        effectTrm.localScale = Vector3.one * (1 + (skillData.level * 0.2f));
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, skillData.range / 2, whatIsEnemy);
 

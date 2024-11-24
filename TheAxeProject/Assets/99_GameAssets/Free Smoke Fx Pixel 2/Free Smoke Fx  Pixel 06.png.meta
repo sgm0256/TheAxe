@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 12
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -3562,7 +3562,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_165
+      name: Bomb_1
       rect:
         serializedVersion: 2
         x: 0
@@ -3583,7 +3583,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_166
+      name: Bomb_2
       rect:
         serializedVersion: 2
         x: 64
@@ -3604,7 +3604,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_167
+      name: Bomb_3
       rect:
         serializedVersion: 2
         x: 128
@@ -3625,7 +3625,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_168
+      name: Bomb_4
       rect:
         serializedVersion: 2
         x: 192
@@ -3646,7 +3646,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_169
+      name: Bomb_5
       rect:
         serializedVersion: 2
         x: 256
@@ -3667,7 +3667,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_170
+      name: Bomb_6
       rect:
         serializedVersion: 2
         x: 320
@@ -3688,7 +3688,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_171
+      name: Bomb_7
       rect:
         serializedVersion: 2
         x: 384
@@ -3709,7 +3709,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_172
+      name: Bomb_8
       rect:
         serializedVersion: 2
         x: 448
@@ -3730,7 +3730,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_173
+      name: Bomb_9
       rect:
         serializedVersion: 2
         x: 512
@@ -3751,7 +3751,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_174
+      name: Bomb_10
       rect:
         serializedVersion: 2
         x: 576
@@ -3772,7 +3772,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Free Smoke Fx  Pixel 06_175
+      name: Bomb_11
       rect:
         serializedVersion: 2
         x: 640
@@ -5420,6 +5420,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Bomb_1: -1799262336
+      Bomb_10: -48991759
+      Bomb_11: -540665648
+      Bomb_2: 91267542
+      Bomb_3: 36599419
+      Bomb_4: 1609466392
+      Bomb_5: 257686940
+      Bomb_6: 1819178232
+      Bomb_7: -993077972
+      Bomb_8: 1140195722
+      Bomb_9: 744105956
       Free Smoke Fx  Pixel 06_0: -1145255608
       Free Smoke Fx  Pixel 06_1: 1893736910
       Free Smoke Fx  Pixel 06_10: -645784630
@@ -5483,18 +5494,7 @@ TextureImporter:
       Free Smoke Fx  Pixel 06_152: -1596837845
       Free Smoke Fx  Pixel 06_153: -1516883846
       Free Smoke Fx  Pixel 06_16: 487928858
-      Free Smoke Fx  Pixel 06_165: -1799262336
-      Free Smoke Fx  Pixel 06_166: 91267542
-      Free Smoke Fx  Pixel 06_167: 36599419
-      Free Smoke Fx  Pixel 06_168: 1609466392
-      Free Smoke Fx  Pixel 06_169: 257686940
       Free Smoke Fx  Pixel 06_17: -114610677
-      Free Smoke Fx  Pixel 06_170: 1819178232
-      Free Smoke Fx  Pixel 06_171: -993077972
-      Free Smoke Fx  Pixel 06_172: 1140195722
-      Free Smoke Fx  Pixel 06_173: 744105956
-      Free Smoke Fx  Pixel 06_174: -48991759
-      Free Smoke Fx  Pixel 06_175: -540665648
       Free Smoke Fx  Pixel 06_176: 933144684
       Free Smoke Fx  Pixel 06_177: 1077182669
       Free Smoke Fx  Pixel 06_178: 958640647

@@ -92,6 +92,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76fd09b48d5cfdc42a6277a2b3299ce2
+    m_Address: Assets/02_Prefabs/Axe/Effect/BombEffect.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c2f57bef76f53e142990ab4eb4a99167, type: 2}
   m_SchemaSet:
