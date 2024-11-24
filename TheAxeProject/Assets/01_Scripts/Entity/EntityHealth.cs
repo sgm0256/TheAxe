@@ -31,6 +31,7 @@ namespace Core.Entities
         private void OnEnable()
         {
             _isDead = false;
+            _currentHp = _stat.HpStat.Value;
         }
 
         private void OnDestroy()
@@ -47,16 +48,11 @@ namespace Core.Entities
 
         public void ApplyDamage(float damage, Entity dealer)
         {
-            _stat.HpStat.BaseValue -= damage;
+            _currentHp -= damage;
             OnHitEvent?.Invoke();
             DeadCheck();
         }
         
-        public void TestLog()
-        {
-            Debug.Log("지금 플레이어 맞음");
-        }
-
         private void DeadCheck()
         {
             if (_isDead) return;

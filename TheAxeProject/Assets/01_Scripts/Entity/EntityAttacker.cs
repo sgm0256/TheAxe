@@ -67,7 +67,6 @@ namespace Core.Entities
                 {
                     EntityHealth health = player.GetCompo<EntityHealth>();
                     health.ApplyDamage(_currentDamage, _entity);
-                    Debug.Log("지금 공격함");
                 }
                 
                 OnAttackEvent?.Invoke();

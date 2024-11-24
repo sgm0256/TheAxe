@@ -1,3 +1,4 @@
+using System;
 using Core.Entities;
 using DG.Tweening;
 using ObjectPooling;
@@ -34,8 +35,19 @@ namespace Core.InteractiveObjects
         {
             Info = InfoOverride.CreateInfo();
             _myRigid = GetComponent<Rigidbody2D>();
+            SingletonPoolManager.Instance.OnAllPushEvent += HandleAllPush;
         }
-        
+
+        private void OnDestroy()
+        {
+            SingletonPoolManager.Instance.OnAllPushEvent -= HandleAllPush;
+        }
+
+        private void HandleAllPush()
+        {
+            SingletonPoolManager.Instance.Push(PoolEnumType.InteractiveObject, this);
+        }
+
         protected virtual void FixedUpdate()
         {
             if (_isMovement)
