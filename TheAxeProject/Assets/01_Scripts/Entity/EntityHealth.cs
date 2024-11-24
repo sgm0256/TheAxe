@@ -9,6 +9,7 @@ namespace Core.Entities
     {
         public UnityEvent OnDeadEvent;
         public UnityEvent OnHitEvent;
+        public bool IsDead => _isDead;
         
         private Entity _entity;
         private EntityStat _stat;

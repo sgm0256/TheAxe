@@ -5,7 +5,7 @@ namespace ObjectPooling
 {
     public enum PoolEnumType
     {
-        AttackLoad, InteractiveObject, Axe, RanageAttack, Enemy
+        AttackLoad, InteractiveObject, Axe, RanageAttack, Enemy, Environment
     }
     
     public class SingletonPoolManager : MonoSingleton<SingletonPoolManager>

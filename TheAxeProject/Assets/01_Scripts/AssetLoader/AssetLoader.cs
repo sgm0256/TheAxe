@@ -45,6 +45,14 @@ public class AssetLoader : MonoSingleton<AssetLoader>
         };
     }
 
+    private void Start()
+    {
+        if (_isLoadComplete)
+        {
+            SceneManager.LoadScene(_nextScene);
+        }
+    }
+
     private void OnDestroy()
     {
         foreach (PoolManagerSO poolManager in _poolManager.poolManagerList)
