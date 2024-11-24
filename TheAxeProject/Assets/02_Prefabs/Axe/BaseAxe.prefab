@@ -258,4 +258,5 @@ MonoBehaviour:
   sizeStat: {fileID: 11400000, guid: ccc9267df56aa65488f8a3c07299e028, type: 2}
   _inputCompo: {fileID: 11400000, guid: bc8cabd3904b03e4ba6fc4a4761b04a1, type: 2}
   visualTrm: {fileID: 4689656986472304336}
+  effectPlayer: {fileID: 0}
   isAttack: 0

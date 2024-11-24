@@ -1,5 +1,6 @@
 using Core.Entities;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AxeMover : MonoBehaviour, IEntityComponent
@@ -11,6 +12,11 @@ public class AxeMover : MonoBehaviour, IEntityComponent
     private float gravity = 9.8f;
 
     private Axe axe;
+
+    private void Update()
+    {
+        axe.visualTrm.rotation = Quaternion.Euler(0, 0, axe.visualTrm.rotation.eulerAngles.z + (rotateSpeed * -dir));
+    }
 
     public void Initialize(Entity entity)
     {
@@ -43,22 +49,16 @@ public class AxeMover : MonoBehaviour, IEntityComponent
         float angleToTarget = Mathf.Atan2(targetPoint.y - axeTrm.position.y, targetPoint.x - axeTrm.position.x) * Mathf.Rad2Deg;
         axeTrm.rotation = Quaternion.Euler(0, 0, angleToTarget);
 
+        Vector3 lastDir = new();
         float elapse_time = 0;
         while (elapse_time < flightDuration)
         {
-            Rotate();
-
+            lastDir = ((Vector3)targetPoint - transform.position).normalized;
             axeTrm.Translate(new Vector3(Vx, dir * (Vy - (gravity * elapse_time)), 0) * Time.deltaTime * moveSpeed);
 
             elapse_time += Time.deltaTime * moveSpeed;
             yield return null;
         }
-
-        axe.OnAxeImpact?.Invoke();
-    }
-
-    private void Rotate()
-    {
-        axe.visualTrm.rotation = Quaternion.Euler(0, 0, axe.visualTrm.rotation.eulerAngles.z + (rotateSpeed * -dir));
+        axe.OnAxeImpact?.Invoke(lastDir);
     }
 }

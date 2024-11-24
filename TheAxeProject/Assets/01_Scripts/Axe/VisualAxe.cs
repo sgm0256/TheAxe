@@ -21,6 +21,8 @@ public class VisualAxe : MonoBehaviour, IPoolable
     private void Awake()
     {
         spriteRender = GetComponentInChildren<SpriteRenderer>();
+
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()

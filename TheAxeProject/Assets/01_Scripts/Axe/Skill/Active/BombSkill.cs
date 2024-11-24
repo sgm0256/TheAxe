@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class BombSkill : Skill
 {
-    protected override void Impact()
+    protected override void Impact(Vector3 lastDir)
     {
-        base.Impact();
+        base.Impact(lastDir);
 
         //강력 스킬
     }

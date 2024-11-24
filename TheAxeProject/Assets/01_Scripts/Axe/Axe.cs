@@ -9,7 +9,7 @@ public class Axe : Entity, IPoolable
     [SerializeField] private StatSO sizeStat;
     [SerializeField] private InputReaderSO _inputCompo;
 
-    public Action OnAxeImpact;
+    public Action<Vector3> OnAxeImpact;
     public Transform visualTrm;
     private Skill skillCompo;
 
@@ -25,7 +25,6 @@ public class Axe : Entity, IPoolable
         base.Awake();
         _components.Add(_inputCompo.GetType(), _inputCompo);
 
-        visualTrm = transform.Find("Visual");
         visualTrm.gameObject.SetActive(false);
         skillCompo = GetComponentInChildren<Skill>();
     }

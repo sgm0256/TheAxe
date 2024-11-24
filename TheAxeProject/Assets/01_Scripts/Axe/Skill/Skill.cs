@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    [SerializeField] protected PoolTypeSO effectPoolType;
+
     public SkillDataSO skillData;
     public StatSO damageStat;
 
@@ -20,9 +22,11 @@ public class Skill : MonoBehaviour
         mover = axe.GetCompo<AxeMover>();
 
         axe.OnAxeImpact += Impact;
+
+        gameObject.SetActive(false);
     }
 
-    protected virtual void Impact()
+    protected virtual void Impact(Vector3 lastDir)
     {
         SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(axe);
     }
