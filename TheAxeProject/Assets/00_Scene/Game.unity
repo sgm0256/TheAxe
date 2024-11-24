@@ -23362,7 +23362,15 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: OnHitEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: OnHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
@@ -23370,20 +23378,40 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: OnHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 566058482781774225}
+    - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1517827317}
     - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: OnHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: OnHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TestLog
       objectReference: {fileID: 0}
     - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GameOver
       objectReference: {fileID: 0}
     - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: OnHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Core.Entities.EntityHealth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameEnd, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: OnHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -23451,6 +23479,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 947b65c860ec9d04bbd8ef7960d8903d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &566058482781774225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+  m_PrefabInstance: {fileID: 566058482781774223}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f5b79a5e5a5fb469f9d3da3ceb0597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

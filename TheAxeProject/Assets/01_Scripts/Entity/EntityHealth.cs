@@ -51,6 +51,11 @@ namespace Core.Entities
             OnHitEvent?.Invoke();
             DeadCheck();
         }
+        
+        public void TestLog()
+        {
+            Debug.Log("지금 플레이어 맞음");
+        }
 
         private void DeadCheck()
         {
