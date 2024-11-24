@@ -9,7 +9,7 @@ public class BombSkill : Skill
     protected override void Impact(Vector3 lastDir)
     {
         if (stat == null)
-            stat = GameManager.Instance.Player.GetCompo<EntityStat>();
+            stat = playerSO.Player.GetCompo<EntityStat>();
 
         Transform effectTrm = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Effect).Pop(effectPoolType).GameObject.transform;
         effectTrm.position = transform.position;
