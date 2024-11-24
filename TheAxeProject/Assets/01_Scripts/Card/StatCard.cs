@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StatCard : Card
 {
+    [SerializeField] private PlayerManagerSO playerSO;
     [SerializeField] private Image iconImage;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI descText;
@@ -19,7 +20,7 @@ public class StatCard : Card
 
         levelText.text = "Lv." + (statData.level + 1);
 
-        descText.text = string.Format(statData.desc, GameManager.Instance.Player.GetCompo<EntityStat>()
+        descText.text = string.Format(statData.desc, playerSO.Player.GetCompo<EntityStat>()
             .GetStat(statData.stat).Value + statData.increase);
     }
 

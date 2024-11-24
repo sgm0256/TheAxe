@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e88f9b22aa11da42ad822f802bd4be9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 89d4f0de6ee893b41a455a62d7026402, type: 2}
   iconImage: {fileID: 8723904345714505096}
   levelText: {fileID: 7170886874453991412}
   descText: {fileID: 5613763985343583685}

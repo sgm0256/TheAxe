@@ -98,5 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ea9a667ab424d4d8ef3fe9e72b7426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 89d4f0de6ee893b41a455a62d7026402, type: 2}
+  radius: 0.5
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 0
+  effectPoolType: {fileID: 0}
   skillData: {fileID: 11400000, guid: 4a1ff37f1661e514e9828facd1290b8d, type: 2}
   damageStat: {fileID: 11400000, guid: 5bf1c22d1e337e9448c915c9e4e9199d, type: 2}

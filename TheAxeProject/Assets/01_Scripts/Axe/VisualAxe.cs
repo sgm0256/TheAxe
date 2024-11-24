@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class VisualAxe : MonoBehaviour, IPoolable
 {
+    [SerializeField] private PlayerManagerSO playerSO;
     [SerializeField] private StatSO sizeStat;
     [SerializeField] private PoolTypeSO poolType;
 
@@ -13,7 +14,6 @@ public class VisualAxe : MonoBehaviour, IPoolable
     public GameObject GameObject => gameObject;
     public SkillDataSO SkillData { get; private set; }
 
-    private Player player;
     private SpriteRenderer spriteRender;
     private IEnumerator coroutine = null;
 
@@ -27,15 +27,12 @@ public class VisualAxe : MonoBehaviour, IPoolable
 
     private void OnEnable()
     {
-        if (player == null)
-            player = GameManager.Instance.Player;
-
-        player.GetCompo<EntityStat>().GetStat(sizeStat).OnValueChange += (stat, current, previous) => transform.localScale = Vector3.one * stat.Value;
+        playerSO.Player.GetCompo<EntityStat>().GetStat(sizeStat).OnValueChange += (stat, current, previous) => transform.localScale = Vector3.one * stat.Value;
     }
 
     private void Update()
     {
-        Vector3 dir = player.transform.position - transform.position;
+        Vector3 dir = playerSO.Player.transform.position - transform.position;
         transform.up = -dir.normalized;
     }
 

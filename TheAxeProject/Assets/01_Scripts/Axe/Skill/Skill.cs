@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    [SerializeField] protected PlayerManagerSO playerSO;
     [SerializeField] protected float radius = 0.5f;
     [SerializeField] protected LayerMask whatIsEnemy;
     [SerializeField] protected PoolTypeSO effectPoolType;
@@ -17,7 +18,7 @@ public class Skill : MonoBehaviour
     protected AxeMover mover;
     protected EntityStat stat;
 
-    protected float damage => GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(damageStat).Value;
+    protected float damage => playerSO.Player.GetCompo<EntityStat>().GetStat(damageStat).Value;
 
     public virtual void Awake()
     {
@@ -32,7 +33,7 @@ public class Skill : MonoBehaviour
     private void OnEnable()
     {
         if (stat == null)
-            stat = GameManager.Instance.Player.GetCompo<EntityStat>();
+            stat = playerSO.Player.GetCompo<EntityStat>();
     }
 
     protected virtual void Impact(Vector3 lastDir)

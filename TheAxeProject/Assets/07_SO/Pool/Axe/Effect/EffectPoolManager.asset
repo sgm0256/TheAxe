@@ -15,4 +15,4 @@ MonoBehaviour:
   poolList:
   - {fileID: 11400000, guid: ec8ecd03d9fdd33419897ea93b874cc1, type: 2}
   - {fileID: 11400000, guid: c4dc0d531662b4948a1167c6964542c9, type: 2}
-  <PoolEnumType>k__BackingField: 5
+  <PoolEnumType>k__BackingField: 6

@@ -8,7 +8,8 @@ public class UpgradeManager : MonoBehaviour
 {
     public event Action OnSelectSkillEvent;
     public event Action OnStartSelectSkillEvent;
-    
+
+    [SerializeField] private PlayerManagerSO playerSO;
     [SerializeField] private StatCard statCardPrefab;
     [SerializeField] private SkillCard skillCardPrefab;
     [SerializeField] private List<DataSO> DataList;
@@ -30,7 +31,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.Player.GetCompo<EntityLevel>().LevelUpEvent += (level) => StartSelectSkill();
+        playerSO.Player.GetCompo<EntityLevel>().LevelUpEvent += (level) => StartSelectSkill();
 
         SkillManager.Instance.AddSKill(FindSkillData(SkillType.Normal));
         FindSkillData(SkillType.Normal).Upgrade();

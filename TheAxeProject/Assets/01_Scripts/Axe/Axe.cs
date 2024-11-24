@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Axe : Entity, IPoolable
 {
+    [SerializeField] private PlayerManagerSO playerSO;
     [SerializeField] private StatSO sizeStat;
     [SerializeField] private InputReaderSO _inputCompo;
 
@@ -33,7 +34,7 @@ public class Axe : Entity, IPoolable
     {
         isAttack = true;
         visualTrm.gameObject.SetActive(true);
-        visualTrm.localScale = Vector3.one * GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(sizeStat).Value;
+        visualTrm.localScale = Vector3.one * playerSO.Player.GetCompo<EntityStat>().GetStat(sizeStat).Value;
         transform.parent = null;
         transform.position = startPos;
         transform.rotation = Quaternion.Euler(0, 0, 45);

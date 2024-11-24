@@ -255,8 +255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a36a766f52053d4ca1f669fd13d9d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 89d4f0de6ee893b41a455a62d7026402, type: 2}
   sizeStat: {fileID: 11400000, guid: ccc9267df56aa65488f8a3c07299e028, type: 2}
   _inputCompo: {fileID: 11400000, guid: bc8cabd3904b03e4ba6fc4a4761b04a1, type: 2}
   visualTrm: {fileID: 4689656986472304336}
-  effectPlayer: {fileID: 0}
   isAttack: 0
