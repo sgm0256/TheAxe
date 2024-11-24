@@ -12,7 +12,7 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
     [SerializeField] private Transform axeContainer;
     [SerializeField] private StatSO axeCntStat;
     private float spawnCoolTime = 1f;
-    private float attackCoolTime = 0.05f;
+    private float attackCoolTime = 0.1f;
     private bool isSpawning = false;
     private bool isAttacking = false;
     private bool isAttackHold = false;

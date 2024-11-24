@@ -21,13 +21,13 @@ MonoBehaviour:
   desc2: "\uB0A0\uC544\uAC00\uBA74\uC11C \uB9DE\uCE5C \uC801\uC5D0\uAC8C {0}\uCD08
     \uB3D9\uC548 \uB3C5\uC744 \uBD80\uC5EC\uD55C\uB2E4."
   isFlight: 0
-  damage: 0
-  baseDamage: 40
+  damage: 40
+  baseDamage: 20
   damageIncrease: 10
-  range: 0
+  range: 30
   baseRange: 30
   rangeIncrease: 5
-  special: 0
-  baseSpecial: 6
+  special: 6
+  baseSpecial: 5
   specialIncrease: 2
   level: 0

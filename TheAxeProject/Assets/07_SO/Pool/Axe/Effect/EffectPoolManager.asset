@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10baa84e00fbcf344a1991efb8286eed, type: 3}
+  m_Name: EffectPoolManager
+  m_EditorClassIdentifier: 
+  poolList:
+  - {fileID: 11400000, guid: ec8ecd03d9fdd33419897ea93b874cc1, type: 2}
+  - {fileID: 11400000, guid: c4dc0d531662b4948a1167c6964542c9, type: 2}
+  <PoolEnumType>k__BackingField: 6

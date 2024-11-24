@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2345e80d526c74da1bb36f7d7db5ff, type: 3}
   m_Name: SizeData
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 89d4f0de6ee893b41a455a62d7026402, type: 2}
   statType: 1
   stat: {fileID: 11400000, guid: ccc9267df56aa65488f8a3c07299e028, type: 2}
   color: {r: 0, g: 0, b: 0, a: 1}
   desc: "\uB3C4\uB07C\uC758 \uD06C\uAE30\uB97C {0:N2}(\uC73C)\uB85C \uD5A5\uC0C1\uC2DC\uD0B5\uB2C8\uB2E4."
-  increase: 0.05
+  increase: 0.1
   level: 0

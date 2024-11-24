@@ -12,6 +12,7 @@ public enum StatType
 [CreateAssetMenu(menuName = "SO/Data/StatData")]
 public class StatDataSO : DataSO
 {
+    [SerializeField] private PlayerManagerSO playerSO;
     public StatType statType;
     public StatSO stat;
     public Color color; //에셋 찾으면 텍스쳐로 교체
@@ -26,7 +27,7 @@ public class StatDataSO : DataSO
     public void Upgrade()
     {
         level++;
-        GameManager.Instance.Player.GetCompo<EntityStat>().GetStat(stat).BaseValue += increase;
+        playerSO.Player.GetCompo<EntityStat>().GetStat(stat).BaseValue += increase;
     }
 
     public override void ResetInfo()

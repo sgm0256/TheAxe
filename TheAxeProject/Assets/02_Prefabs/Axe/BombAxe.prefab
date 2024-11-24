@@ -13,6 +13,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2037607866524613697, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037607866524613697, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037607866524613697, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -51,6 +59,10 @@ PrefabInstance:
     - target: {fileID: 2037607866524613697, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037607866524613697, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2201253758175374407, guid: b00f7912deb935a4bacfe806aeaa8816, type: 3}
       propertyPath: m_Size.y
@@ -101,5 +113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639b9997a37a1eb4a8307ede1c003188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 89d4f0de6ee893b41a455a62d7026402, type: 2}
+  radius: 1
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 128
+  effectPoolType: {fileID: 11400000, guid: c4dc0d531662b4948a1167c6964542c9, type: 2}
   skillData: {fileID: 11400000, guid: 1365a2683e952ef4086b6f9791ebc620, type: 2}
   damageStat: {fileID: 11400000, guid: 5bf1c22d1e337e9448c915c9e4e9199d, type: 2}

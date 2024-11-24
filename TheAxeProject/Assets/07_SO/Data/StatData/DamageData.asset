@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2345e80d526c74da1bb36f7d7db5ff, type: 3}
   m_Name: DamageData
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 89d4f0de6ee893b41a455a62d7026402, type: 2}
   statType: 2
   stat: {fileID: 11400000, guid: 5bf1c22d1e337e9448c915c9e4e9199d, type: 2}
   color: {r: 0, g: 0, b: 0, a: 1}

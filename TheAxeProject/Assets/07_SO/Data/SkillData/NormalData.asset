@@ -17,17 +17,17 @@ MonoBehaviour:
   sprite: {fileID: 1239915374, guid: 4a64fae7a3b44634fafa8a8be4cd0d69, type: 3}
   desc: "\uC911\uC2EC\uC5D0 \uB3C4\uB07C\uB97C \uB0B4\uB9AC\uAF42\uC544 {0}\uC758
     \uD53C\uD574\uB97C \uC8FC\uACE0,\n\uC8FC\uBCC0 {1}\uC758 \uBC94\uC704\uC5D0 \uC788\uB294
-    \uC801\uC744 \uB4A4\uB85C \uBC00\uCE5C\uB2E4."
+    \uC801\uC5D0\uAC8C \uCD94\uAC00 \uD53C\uD574\uB97C \uC900\uB2E4."
   desc2: "\uB0A0\uC544\uAC00\uBA74\uC11C \uB9DE\uC740 \uC801\uC5D0\uAC8C {0}\uC758
-    \uD53C\uD574\uB97C \uC900\uB2E4."
-  isFlight: 0
-  damage: 0
-  baseDamage: 55
-  damageIncrease: 10
-  range: 0
-  baseRange: 10
-  rangeIncrease: 5
-  special: 0
-  baseSpecial: 20
+    \uD53C\uD574\uB97C \uCD94\uAC00\uB85C \uC900\uB2E4."
+  isFlight: 1
+  damage: 28
+  baseDamage: 28
+  damageIncrease: 5
+  range: 3.5
+  baseRange: 3.5
+  rangeIncrease: 0.5
+  special: 15
+  baseSpecial: 15
   specialIncrease: 5
-  level: 0
+  level: 1
