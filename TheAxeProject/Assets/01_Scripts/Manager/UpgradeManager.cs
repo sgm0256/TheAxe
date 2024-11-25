@@ -35,6 +35,8 @@ public class UpgradeManager : MonoBehaviour
 
         SkillManager.Instance.AddSKill(FindSkillData(SkillType.Normal));
         FindSkillData(SkillType.Normal).Upgrade();
+        SkillManager.Instance.AddSKill(FindSkillData(SkillType.Bomb));
+        FindSkillData(SkillType.Bomb).Upgrade();
 
         foreach (DataSO data in DataList)
             data.ResetInfo();

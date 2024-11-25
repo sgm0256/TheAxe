@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class BombSkill : Skill
 {
+    [SerializeField] private ParticleSystem flameParticle;
+
     protected override void Impact(Vector3 lastDir)
     {
         if (stat == null)
@@ -33,6 +35,9 @@ public class BombSkill : Skill
 
     protected override void FlightSkill(GameObject obj)
     {
+        if(flameParticle.isStopped)
+            flameParticle.Play();
+
 
     }
 }

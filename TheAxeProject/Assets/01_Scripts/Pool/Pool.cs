@@ -40,13 +40,12 @@ namespace ObjectPooling
 
             LoadCompleteEvent?.Invoke(); //로딩성공 메시지
         }
-        
+
         public IPoolable Pop()
         {
             IPoolable item;
             if (_pool.Count == 0)
             {
-
                 GameObject gameObj = GameObject.Instantiate(_poolType.assetRef.Asset, _parent) as GameObject;
                 item = gameObj.GetComponent<IPoolable>();
                 item.SetUpPool(this);

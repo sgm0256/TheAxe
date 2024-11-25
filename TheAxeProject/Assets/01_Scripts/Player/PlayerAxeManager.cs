@@ -5,6 +5,7 @@ using ObjectPooling;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerAxeManager : MonoBehaviour, IEntityComponent
 {
@@ -50,7 +51,8 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
                 StartCoroutine(CreateAxe());
             }
         }
-        if(isAttackHold && axeList.Count > 0 && !isAttacking)
+
+        if (isAttackHold && axeList.Count > 0 && !isAttacking)
         {
             isAttacking = true;
             StartCoroutine(Attack());
