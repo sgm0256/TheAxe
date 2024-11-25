@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 namespace ObjectPooling
@@ -15,7 +14,6 @@ namespace ObjectPooling
 
         public event Action<int> LoadCountEvent;
         public event Action<int, string> LoadMessageEvent;
-        public event Action LoadSuccessEvent;
 
         public void InitializePool(Transform root)
         {
@@ -33,7 +31,6 @@ namespace ObjectPooling
 
                 _pools.Add(poolType, pool);
             }
-            LoadSuccessEvent?.Invoke();
         }
 
         public IPoolable Pop(PoolTypeSO type)
@@ -42,6 +39,7 @@ namespace ObjectPooling
             {
                 return pool.Pop();
             }
+            
             return null;
         }
 

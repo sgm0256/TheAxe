@@ -16,8 +16,6 @@ public class AssetLoader : MonoSingleton<AssetLoader>
     [SerializeField] private SingletonPoolManager _poolManager;
     [SerializeField] private AssetDBSO _assetDB;
     [SerializeField] private TextMeshProUGUI _loadingCountText;
-
-    public bool IsLoadComplete => _isLoadComplete;
     
     private bool _isLoadComplete;
     private int _toLoadCount;
@@ -25,32 +23,26 @@ public class AssetLoader : MonoSingleton<AssetLoader>
     
     protected override void Awake()
     {
-        if (_isLoadComplete)
+        base.Awake();
+
+        _currentLoadedCount = 0;
+        _assetDB.LoadCountEvent += AddLoadCount;
+        _assetDB.LoadMessageEvent += LoadComplete;
+        _assetDB.Initialize();
+
+        foreach (PoolManagerSO poolManager in _poolManager.poolManagerList)
         {
-            SceneManager.LoadScene(_nextScene);
+            poolManager.LoadCountEvent   += AddLoadCount;
+            poolManager.LoadMessageEvent += LoadComplete;
+            poolManager.InitializePool(this.transform);
         }
-        else
-        {
-            base.Awake();
-
-            _currentLoadedCount = 0;
-            _assetDB.LoadCountEvent += AddLoadCount;
-            _assetDB.LoadMessageEvent += LoadComplete;
-            _assetDB.Initialize();
-
-            foreach (PoolManagerSO poolManager in _poolManager.poolManagerList)
-            {
-                poolManager.LoadCountEvent   += AddLoadCount;
-                poolManager.LoadMessageEvent += LoadComplete;
-            }
         
-            AssetLoadedEvent += () =>
-            {
-                _loadingText.gameObject.SetActive(false);
-                _subTitleText.gameObject.SetActive(true);
-                _isLoadComplete = true;
-            };
-        }
+        AssetLoadedEvent += () =>
+        {
+            _loadingText.gameObject.SetActive(false);
+            _subTitleText.gameObject.SetActive(true);
+            _isLoadComplete = true;
+        };
     }
 
     private void Start()

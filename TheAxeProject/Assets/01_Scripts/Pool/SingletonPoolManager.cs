@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using MKDir;
-using UnityEngine.SceneManagement;
 
 namespace ObjectPooling
 {
@@ -19,18 +18,10 @@ namespace ObjectPooling
 
         protected override void Awake()
         {
-            if (AssetLoader.Instance.IsLoadComplete)
+            base.Awake();
+            foreach (PoolManagerSO poolManager in poolManagerList)
             {
-                SceneManager.LoadScene("Game");
-            }
-            else
-            {
-                base.Awake();
-                foreach (PoolManagerSO poolManager in poolManagerList)
-                {
-                    poolManager.InitializePool(this.transform);
-                    _poolManagers.Add(poolManager.PoolEnumType, poolManager);
-                }
+                _poolManagers.Add(poolManager.PoolEnumType, poolManager);
             }
         }
 

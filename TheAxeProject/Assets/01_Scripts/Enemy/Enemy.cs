@@ -21,7 +21,7 @@ namespace MK.Enemy
 
         public void ResetItem()
         {
-            
+            _health.SetHealth();
         }
 
         protected override void Awake()

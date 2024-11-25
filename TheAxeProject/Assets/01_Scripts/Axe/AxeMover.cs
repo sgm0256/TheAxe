@@ -1,6 +1,5 @@
 using Core.Entities;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AxeMover : MonoBehaviour, IEntityComponent

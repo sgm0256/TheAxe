@@ -28,19 +28,21 @@ namespace Core.Entities
         {
             _currentHp = _stat.HpStat.Value;
             _stat.HpStat.OnValueChange += HandleHPChange;
-        }
-
-        private void OnEnable()
-        {
             _isDead = false;
             _currentHp = _stat.HpStat.Value;
         }
-
+        
         private void OnDestroy()
         {
             _stat.HpStat.OnValueChange -= HandleHPChange;
             OnDeadEvent.RemoveAllListeners();
             OnHitEvent.RemoveAllListeners();
+        }
+
+        public void SetHealth()
+        {
+            _isDead = false;
+            _currentHp = _stat.HpStat.Value;
         }
 
         private void HandleHPChange(StatSO stat, float current, float previous)
