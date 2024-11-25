@@ -90,6 +90,7 @@ namespace Core.Entities
         private void MoveCharacter()
         {
             _rbCompo.velocity = _moveSpeed * SpeedMultiplier * _movementVec;
+            Debug.Log(_movementVec);
             
             _renderer.FlipController(_rbCompo.velocity.x);
         }
