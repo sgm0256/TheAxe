@@ -39,7 +39,7 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         EntityStat stat = entity.GetCompo<EntityStat>();
         stat.GetStat(axeCntStat).OnValueChange += (stat, cur, prev) => maxAxeCount = (int)stat.Value;
 
-        entity.GetCompo<EntityLevel>().LevelUpEvent += (level) => spawnCoolTime -= 0.1f;
+        entity.GetCompo<EntityLevel>().LevelUpEvent += (level) => spawnCoolTime -= 0.05f;
     }
 
     private void Update()
