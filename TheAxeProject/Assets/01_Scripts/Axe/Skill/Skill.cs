@@ -25,7 +25,7 @@ public class Skill : MonoBehaviour
         axe = GetComponentInParent<Axe>();
         mover = axe.GetCompo<AxeMover>();
 
-        //axe.OnAxeImpact += Impact;
+        axe.OnAxeImpact += Impact;
 
         transform.root.gameObject.SetActive(false);
     }
