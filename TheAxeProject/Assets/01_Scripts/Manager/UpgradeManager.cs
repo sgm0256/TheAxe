@@ -9,6 +9,7 @@ public class UpgradeManager : MonoBehaviour
     public event Action OnSelectSkillEvent;
     public event Action OnStartSelectSkillEvent;
 
+    [SerializeField] private InputReaderSO input;
     [SerializeField] private PlayerManagerSO playerSO;
     [SerializeField] private StatCard statCardPrefab;
     [SerializeField] private SkillCard skillCardPrefab;
@@ -97,6 +98,8 @@ public class UpgradeManager : MonoBehaviour
 
     private void OpenPanel()
     {
+        GameManager.Instance.OnUIEvent?.Invoke(true);
+
         canvasGroup.alpha = 1f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
@@ -130,6 +133,8 @@ public class UpgradeManager : MonoBehaviour
 
     private void CloseSelectSkill()
     {
+        GameManager.Instance.OnUIEvent?.Invoke(false);
+
         spawnIdxList.Clear();
         IsSelect = false;
 

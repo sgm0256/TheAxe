@@ -7,7 +7,8 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     public event Action OnStatUpEvent;
-    public event Action OnGameClearEvent; 
+    public event Action OnGameClearEvent;
+    public Action<bool> OnUIEvent;
     
     public Player Player => player;
     [field: SerializeField] public float StatUpValue { get; private set; } = 30f;

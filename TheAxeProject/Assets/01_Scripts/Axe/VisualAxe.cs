@@ -57,6 +57,9 @@ public class VisualAxe : MonoBehaviour, IPoolable
 
     public void Sort(float moveAngle, bool isSpawn)
     {
+        if (gameObject.activeSelf == false)
+            return;
+
         if (isSpawn)
         {
             Vector3 pos = (Quaternion.Euler(0, 1, moveAngle) * transform.root.up).normalized;

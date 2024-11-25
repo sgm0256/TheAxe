@@ -21637,6 +21637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd36fb4338594ed4aa102b53d4f0f325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 0}
   playerSO: {fileID: 11400000, guid: 89d4f0de6ee893b41a455a62d7026402, type: 2}
   statCardPrefab: {fileID: 9121053888177544597, guid: 55804e283b4636944a47a384027add65, type: 3}
   skillCardPrefab: {fileID: 1471329505017521716, guid: 67d72a456f651f545a6bb20a985d8409, type: 3}

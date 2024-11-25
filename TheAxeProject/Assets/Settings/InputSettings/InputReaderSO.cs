@@ -1,10 +1,11 @@
 using Core.Entities;
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "SO/Input")]
-public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IEntityComponent
+public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, Controls.IUIActions, IEntityComponent
 {
     public Vector2 Movement { get; private set; }
     public Vector2 MousePos { get; private set; }
@@ -13,6 +14,8 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IEntityC
 
     private Controls _controls;
 
+    private bool isPlayerInput = true;
+
     private void OnEnable()
     {
         if (_controls == null)
@@ -20,6 +23,11 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IEntityC
 
         _controls.Player.Enable();
         _controls.Player.SetCallbacks(this);
+
+        _controls.UI.Enable();
+        _controls.UI.SetCallbacks(this);
+
+        GameManager.Instance.OnUIEvent += (value) => isPlayerInput = value;
     }
 
     public void Initialize(Entity entity) { }
@@ -31,6 +39,12 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IEntityC
 
     public void OnFire(InputAction.CallbackContext context)
     {
+        if(!isPlayerInput)
+        {
+            FireEvent?.Invoke(false);
+            return;
+        }
+
         if (context.performed)
             FireEvent?.Invoke(true);
         else if(context.canceled)
@@ -40,5 +54,10 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, IEntityC
     public void OnAim(InputAction.CallbackContext context)
     {
         MousePos = context.ReadValue<Vector2>();
+    }
+
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        
     }
 }
