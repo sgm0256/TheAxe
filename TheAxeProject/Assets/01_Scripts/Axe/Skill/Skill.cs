@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem ps;
     [SerializeField] protected PlayerManagerSO playerSO;
     [SerializeField] protected float radius = 0.5f;
     [SerializeField] protected LayerMask whatIsEnemy;
@@ -44,6 +45,11 @@ public class Skill : MonoBehaviour
     public virtual void StartSkill()
     {
         mover.AttackMove();
+
+        if(skillData.isFlight && ps != null)
+        {
+            ps.Play();
+        }
     }
 
     protected virtual void FlightSkill(GameObject obj) { }

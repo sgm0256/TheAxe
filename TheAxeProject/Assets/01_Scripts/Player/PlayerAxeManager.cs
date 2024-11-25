@@ -55,7 +55,6 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
             {
                 isSpawning = true;
                 StartCoroutine(CreateAxe());
-                Debug.Log($"playeraxe: {isOnUI}");
             }
         }
 

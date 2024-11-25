@@ -1,6 +1,5 @@
 using Core.Entities;
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -39,7 +38,7 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, Controls
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if(!isPlayerInput)
+        if (!isPlayerInput)
         {
             FireEvent?.Invoke(false);
             return;
@@ -47,7 +46,7 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, Controls
 
         if (context.performed)
             FireEvent?.Invoke(true);
-        else if(context.canceled)
+        else if (context.canceled)
             FireEvent?.Invoke(false);
     }
 
@@ -58,6 +57,6 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, Controls
 
     public void OnClick(InputAction.CallbackContext context)
     {
-        
+
     }
 }

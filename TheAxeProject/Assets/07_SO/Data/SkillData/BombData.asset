@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ce1a5c66f172c4db7513e736087387, type: 3}
   m_Name: BombData
   m_EditorClassIdentifier: 
+  ps: {fileID: 1141919520508197145, guid: cbdfb022857815147a327fc112362ae8, type: 3}
   poolType: {fileID: 11400000, guid: 2b30bfd16deef0d418b97cd5f76a94ed, type: 2}
   skillType: 4
   sprite: {fileID: 986257651, guid: 4a64fae7a3b44634fafa8a8be4cd0d69, type: 3}

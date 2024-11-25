@@ -36,8 +36,6 @@ public class UpgradeManager : MonoBehaviour
 
         SkillManager.Instance.AddSKill(FindSkillData(SkillType.Normal));
         FindSkillData(SkillType.Normal).Upgrade();
-        SkillManager.Instance.AddSKill(FindSkillData(SkillType.Bomb));
-        FindSkillData(SkillType.Bomb).Upgrade();
 
         foreach (DataSO data in DataList)
             data.ResetInfo();
@@ -112,9 +110,13 @@ public class UpgradeManager : MonoBehaviour
 
         int level = data.level;
         if (level == 1)
+        {
             SkillManager.Instance.AddSKill(FindSkillData(data.skillType));
-        if (level == 5)
+        }
+        else if (level == 5)
+        {
             DataList.Remove(FindSkillData(type));
+        }
 
         CloseSelectSkill();
     }
