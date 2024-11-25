@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: befe42bd555ff6d489e056e33c9f16c0, type: 3}
-  m_Name: RushEnemy
+  m_Script: {fileID: 11500000, guid: 39efaaa6bacd0d44baab9612939624c0, type: 3}
+  m_Name: FirstLoading
   m_EditorClassIdentifier: 
-  typeName: RushEnemy
-  assetRef:
-    m_AssetGUID: c9d0781c9f083df4d902f883eaff2b95
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  initCount: 100
+  _isLoaded: 0

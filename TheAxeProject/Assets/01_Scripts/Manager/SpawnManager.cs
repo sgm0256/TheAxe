@@ -24,6 +24,8 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     private void Start()
     {
         _poolManager = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Enemy);
+        _isStopSpawn = false;
+        StopAllCoroutines();
         SpawnStart();
     }
 
@@ -33,18 +35,6 @@ public class SpawnManager : MonoSingleton<SpawnManager>
         StartCoroutine(SpawnCoroutine());
         StartCoroutine(SpawnDecreaseTime());
         StartCoroutine(WaveTime());
-    }
-
-    private void Update()
-    {
-        // TODO : IsStopSpawn 바꾸기 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            if (_isStopSpawn)
-                _isStopSpawn = false;
-            else
-                _isStopSpawn = true;
-        }
     }
 
     private PoolTypeSO RandomEnemyType()

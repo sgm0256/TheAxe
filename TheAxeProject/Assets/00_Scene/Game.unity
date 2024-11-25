@@ -22302,9 +22302,9 @@ MonoBehaviour:
   - {fileID: 734750267}
   - {fileID: 290966872}
   - {fileID: 650400018}
-  _spawnTime: 1.5
-  _spawnDecreaseTime: 0.035
-  _spawnDecreaseCooldown: 30
+  _spawnTime: 1.3
+  _spawnDecreaseTime: 0.02
+  _spawnDecreaseCooldown: 20
   _waveCooldown: 60
   _waveCount: 30
 --- !u!4 &1352808980

@@ -63,9 +63,13 @@ namespace Core.Entities
             if (_currentHp <= 0)
             {
                 _isDead = true;
-                GameManager.Instance.CurrentEnemyKillCount++;
                 OnDeadEvent?.Invoke();
             }
+        }
+
+        public void PlusKillCount()
+        {
+            GameManager.Instance.CurrentEnemyKillCount++;
         }
 
         public void HitPopDamage(float damage)

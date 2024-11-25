@@ -17,32 +17,40 @@ public class AssetLoader : MonoSingleton<AssetLoader>
     [SerializeField] private AssetDBSO _assetDB;
     [SerializeField] private TextMeshProUGUI _loadingCountText;
 
+    public bool IsLoadComplete => _isLoadComplete;
+    
     private bool _isLoadComplete;
     private int _toLoadCount;
     private int _currentLoadedCount;
     
     protected override void Awake()
     {
-        base.Awake();
-        _isLoadComplete = false;
-
-        _currentLoadedCount = 0;
-        _assetDB.LoadCountEvent += AddLoadCount;
-        _assetDB.LoadMessageEvent += LoadComplete;
-        _assetDB.Initialize();
-
-        foreach (PoolManagerSO poolManager in _poolManager.poolManagerList)
+        if (_isLoadComplete)
         {
-            poolManager.LoadCountEvent   += AddLoadCount;
-            poolManager.LoadMessageEvent += LoadComplete;
+            SceneManager.LoadScene(_nextScene);
         }
-        
-        AssetLoadedEvent += () =>
+        else
         {
-            _loadingText.gameObject.SetActive(false);
-            _subTitleText.gameObject.SetActive(true);
-            _isLoadComplete = true;
-        };
+            base.Awake();
+
+            _currentLoadedCount = 0;
+            _assetDB.LoadCountEvent += AddLoadCount;
+            _assetDB.LoadMessageEvent += LoadComplete;
+            _assetDB.Initialize();
+
+            foreach (PoolManagerSO poolManager in _poolManager.poolManagerList)
+            {
+                poolManager.LoadCountEvent   += AddLoadCount;
+                poolManager.LoadMessageEvent += LoadComplete;
+            }
+        
+            AssetLoadedEvent += () =>
+            {
+                _loadingText.gameObject.SetActive(false);
+                _subTitleText.gameObject.SetActive(true);
+                _isLoadComplete = true;
+            };
+        }
     }
 
     private void Start()
@@ -50,15 +58,6 @@ public class AssetLoader : MonoSingleton<AssetLoader>
         if (_isLoadComplete)
         {
             SceneManager.LoadScene(_nextScene);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        foreach (PoolManagerSO poolManager in _poolManager.poolManagerList)
-        {
-            poolManager.LoadCountEvent   -= AddLoadCount;
-            poolManager.LoadMessageEvent -= LoadComplete;
         }
     }
 

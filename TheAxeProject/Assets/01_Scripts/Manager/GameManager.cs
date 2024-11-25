@@ -32,6 +32,14 @@ public class GameManager : MonoSingleton<GameManager>
     private int _gameMinute = 0;
     private int _enemyKillCount = 0;
 
+    public void SetGame()
+    {
+        _gameTime = 0f;
+        _durationTime = 0f;
+        _gameMinute = 0;
+        _enemyKillCount = 0;
+    }
+
     private void Update()
     {
         if (IsGameStart)
@@ -52,7 +60,7 @@ public class GameManager : MonoSingleton<GameManager>
             _gameTime = 0f;
         }
 
-        if (_gameMinute >= 15 && IsGameClear == false)
+        if (_gameMinute >= 10 && IsGameClear == false)
         {
             IsGameClear = true;
             OnGameClearEvent?.Invoke();

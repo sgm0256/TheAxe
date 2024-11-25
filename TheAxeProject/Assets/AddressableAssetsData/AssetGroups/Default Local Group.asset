@@ -32,17 +32,17 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6714723f517949246ba1f305bfc0edfd
-    m_Address: Assets/02_Prefabs/Enemy/RangeEnemy.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 903651178a7a64445bfeea52877033ee
+  - m_GUID: c9d0781c9f083df4d902f883eaff2b95
     m_Address: Assets/02_Prefabs/Enemy/RushEnemy.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3d54a709aec66aa4a84792cb2dc01999
+  - m_GUID: 908b07fc0cbf9294098425b0c9157eca
+    m_Address: Assets/02_Prefabs/Enemy/RangeEnemy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8168d4584439b1b45be7cedce19d840a
     m_Address: Assets/02_Prefabs/Enemy/MeleeEnemy.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
