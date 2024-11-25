@@ -37,7 +37,7 @@ public class DamageCaster : MonoBehaviour
             if(hit.collider.TryGetComponent<IDamageable>(out IDamageable health))
             {
                 //int damage = _owner.Stat.GetDamage(); //������ ������
-                float knockbackPower = 3f; //���߿� �������κ��� �����;� ��.
+                //float knockbackPower = 3f; //���߿� �������κ��� �����;� ��.
 
                 //health.ApplyDamage(damage, hit.point, hit.normal, knockbackPower, _owner, DamageType.Melee);
             }

@@ -43,6 +43,8 @@ public class GameEnd : MonoBehaviour
     
     public void GameOver()
     {
+        GameManager.Instance.OnUIEvent?.Invoke(true);
+
         _infoPanel.gameObject.SetActive(false);
         _endPanel.gameObject.SetActive(true);
         _gameEndText.text = "Game Over";

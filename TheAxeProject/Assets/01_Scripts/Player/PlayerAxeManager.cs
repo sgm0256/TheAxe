@@ -5,6 +5,7 @@ using ObjectPooling;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerAxeManager : MonoBehaviour, IEntityComponent
 {
@@ -16,6 +17,7 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
     private bool isSpawning = false;
     private bool isAttacking = false;
     private bool isAttackHold = false;
+    private bool isOnUI = false;
     private int orderIdx = 0;
     private int maxAxeCount = 5;
 
@@ -38,19 +40,26 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         stat.GetStat(axeCntStat).OnValueChange += (stat, cur, prev) => maxAxeCount = (int)stat.Value;
 
         entity.GetCompo<EntityLevel>().LevelUpEvent += (level) => spawnCoolTime -= 0.1f;
+
+        GameManager.Instance.OnUIEvent += (value) => isOnUI = value;
     }
 
     private void Update()
     {
+        if (isOnUI)
+            return;
+
         if (axeList.Count < maxAxeCount && !isSpawning)
         {
             //if (Input.GetKeyDown(KeyCode.Space))
             {
                 isSpawning = true;
                 StartCoroutine(CreateAxe());
+                Debug.Log($"playeraxe: {isOnUI}");
             }
         }
-        if(isAttackHold && axeList.Count > 0 && !isAttacking)
+
+        if (isAttackHold && axeList.Count > 0 && !isAttacking)
         {
             isAttacking = true;
             StartCoroutine(Attack());
@@ -124,5 +133,13 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
 
         yield return new WaitForSeconds(attackCoolTime);
         isAttacking = false;
+    }
+
+    private void OnDestroy()
+    {
+        foreach(VisualAxe axe in axeList)
+        {
+            SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(axe);
+        }
     }
 }
