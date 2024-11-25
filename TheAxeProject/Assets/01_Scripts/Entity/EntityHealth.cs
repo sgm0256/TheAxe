@@ -46,7 +46,7 @@ namespace Core.Entities
             _currentHp = current;
         }
 
-        public void ApplyDamage(float damage, Entity dealer)
+        public void ApplyDamage(float damage, Entity dealer = default)
         {
             _currentHp -= damage;
             OnHitEvent?.Invoke();

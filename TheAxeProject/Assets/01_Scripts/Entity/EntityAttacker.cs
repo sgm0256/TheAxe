@@ -6,7 +6,6 @@ namespace Core.Entities
 {
     public class EntityAttacker : MonoBehaviour, IEntityComponent
     {
-        public event Action OnAttackEvent; 
         public bool IsCanAttack { get; set; } = true;
 
         [SerializeField] private StatSO _attackSpeedStat;
@@ -68,8 +67,6 @@ namespace Core.Entities
                     EntityHealth health = player.GetCompo<EntityHealth>();
                     health.ApplyDamage(_currentDamage, _entity);
                 }
-                
-                OnAttackEvent?.Invoke();
             }
         }
     }
