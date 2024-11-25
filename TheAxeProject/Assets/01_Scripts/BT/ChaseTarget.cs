@@ -28,9 +28,8 @@ namespace MK.BT
             
             Vector2 direction = target.Value.position - transform.position;
 
-            _mover.SetMovement(direction);
-            
-            //transform.rotation = rotation;
+            if(_mover.CanManualMove)
+                _mover.SetMovement(direction);
 
             return TaskStatus.Running;
         }

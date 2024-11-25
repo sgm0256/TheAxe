@@ -4,7 +4,8 @@ using UnityEngine;
 namespace MK.BT
 {
     public class RangeAttack : ChargeAttack
-    {   
+    {
+        public PoolTypeSO _attackType;
         public float size = 3f;
 
         public override void OnStart()
@@ -16,8 +17,9 @@ namespace MK.BT
         
         protected override void HandleReadyToAttack()
         {
-            // TODO : RanageAttack 만들기
-            //Transform attack = SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.RanageAttack).Pop(attackLoadType) as Transform;
+            AttackFire attack = SingletonPoolManager.Instance.Pop(PoolEnumType.RanageAttack, _attackType) as AttackFire;
+            attack.transform.position = _attackLoad.transform.position;
+            attack.transform.localScale = new Vector3(size, size, 1);
             _isCanAttack = true;
         }
     }

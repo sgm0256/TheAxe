@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MKDir;
 
@@ -10,6 +11,7 @@ namespace ObjectPooling
     
     public class SingletonPoolManager : MonoSingleton<SingletonPoolManager>
     {
+        public event Action OnAllPushEvent;
         public List<PoolManagerSO> poolManagerList = new();
 
         private Dictionary<PoolEnumType, PoolManagerSO> _poolManagers = new ();
@@ -32,6 +34,11 @@ namespace ObjectPooling
         public void Push(PoolEnumType poolManagerType, IPoolable item)
         {
             GetPoolManager(poolManagerType).Push(item);
+        }
+
+        public void AllPush()
+        {
+            OnAllPushEvent?.Invoke();
         }
 
         public PoolManagerSO GetPoolManager(PoolEnumType type)

@@ -36,8 +36,9 @@ public class GameEnd : MonoBehaviour
         _gameEndText.text = "Game Clear";
         _endPanel.color = _clearColor;
         TextSetting();
-        StartCoroutine(LerpAlphaColor(_gameEndText.color));
-        StartCoroutine(LerpAlphaColor(_endPanel.color, 0.9f));
+        Time.timeScale = 0;
+        StartCoroutine(LerpAlphaColorImage());
+        StartCoroutine(LerpAlphaColorText());
     }
     
     public void GameOver()
@@ -47,8 +48,9 @@ public class GameEnd : MonoBehaviour
         _gameEndText.text = "Game Over";
         _endPanel.color = _overColor;
         TextSetting();
-        StartCoroutine(LerpAlphaColor(_gameEndText.color));
-        StartCoroutine(LerpAlphaColor(_endPanel.color, 0.9f));
+        Time.timeScale = 0;
+        StartCoroutine(LerpAlphaColorImage());
+        StartCoroutine(LerpAlphaColorText());
     }
 
     private void TextSetting()
@@ -57,19 +59,33 @@ public class GameEnd : MonoBehaviour
         _killText.text = $"적 처치 횟수 : {GameManager.Instance.CurrentEnemyKillCount}";
     }
 
-    private IEnumerator LerpAlphaColor(Color color, float endValue = 1f)
+    private IEnumerator LerpAlphaColorImage()
     {
         float time = 0f;
-        float startColor = color.a;
+        float startColor = _endPanel.color.a;
 
         while (time < _lerpTime)
         {
-            color.a = Mathf.Lerp(startColor, endValue, time / _lerpTime);
-            time += Time.deltaTime;
+            _endPanel.color = new Color(_endPanel.color.r, _endPanel.color.g, _endPanel.color.b, Mathf.Lerp(startColor, 0.9f, time / _lerpTime));
+            time += Time.unscaledDeltaTime;
             yield return null;
         }
+        
+        _infoPanel.gameObject.SetActive(true);
+    }
+    
+    private IEnumerator LerpAlphaColorText()
+    {
+        float time = 0f;
+        float startColor = _gameEndText.color.a;
 
-        color.a = endValue;
+        while (time < _lerpTime)
+        {
+            _gameEndText.color = new Color(_gameEndText.color.r, _gameEndText.color.g, _gameEndText.color.b, Mathf.Lerp(startColor, 1f, time / _lerpTime));
+            time += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        
         _infoPanel.gameObject.SetActive(true);
     }
 }

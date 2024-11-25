@@ -1,3 +1,4 @@
+using System.Collections;
 using Core.StatSystem;
 using UnityEngine;
 
@@ -6,9 +7,10 @@ namespace Core.Entities
     public class EntityMover : MonoBehaviour, IEntityComponent, IAfterInitable
     {
         private float _moveSpeed;
-
+        
         public Vector2 Velocity => _rbCompo.velocity;
         public float SpeedMultiplier { get; set; } = 1f;
+        public bool CanManualMove { get; set; } = true;
         
         private Rigidbody2D _rbCompo;
         private Entity _entity;
@@ -57,6 +59,19 @@ namespace Core.Entities
         public void StopImmediately()
         {
             _movementVec = Vector2.zero;
+        }
+
+        public void StopMove()
+        {
+            StartCoroutine(StopMoveCoroutine());
+        }
+
+        private IEnumerator StopMoveCoroutine()
+        {
+            CanManualMove = false;
+            StopImmediately();
+            yield return new WaitForSeconds(0.2f);
+            CanManualMove = true;
         }
 
         public void SetMovement(Vector2 movement) => _movementVec = movement.normalized;

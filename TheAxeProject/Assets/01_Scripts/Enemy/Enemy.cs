@@ -1,4 +1,3 @@
-using System;
 using Core.Entities;
 using Core.StatSystem;
 using ObjectPooling;
@@ -32,6 +31,12 @@ namespace MK.Enemy
             _stat = GetCompo<EntityStat>();
             _health.OnDeadEvent.AddListener(EnemyPoolPush);
             GameManager.Instance.OnStatUpEvent += HandleStatUp;
+            SingletonPoolManager.Instance.OnAllPushEvent += HandleAllPush;
+        }
+
+        private void HandleAllPush()
+        {
+            SingletonPoolManager.Instance.Push(PoolEnumType.Enemy, this);
         }
 
         protected virtual void HandleStatUp()
@@ -42,6 +47,7 @@ namespace MK.Enemy
         protected void OnDestroy()
         {
             GameManager.Instance.OnStatUpEvent -= HandleStatUp;
+            SingletonPoolManager.Instance.OnAllPushEvent -= HandleAllPush;
         }
 
         public void EnemyPoolPush()

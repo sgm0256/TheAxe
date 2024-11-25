@@ -31,7 +31,18 @@ public class AttackLoad : MonoBehaviour, IPoolable
 
     private void Awake()
     {
+        SingletonPoolManager.Instance.OnAllPushEvent += HandleAllPush;
         _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, 0.2f);
+    }
+
+    private void OnDestroy()
+    {
+        SingletonPoolManager.Instance.OnAllPushEvent -= HandleAllPush;
+    }
+
+    private void HandleAllPush()
+    {
+        SingletonPoolManager.Instance.Push(PoolEnumType.AttackLoad, this);
     }
 
     private IEnumerator ChargeAlpha()

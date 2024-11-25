@@ -31,6 +31,7 @@ namespace Core.Entities
         private void OnEnable()
         {
             _isDead = false;
+            _currentHp = _stat.HpStat.Value;
         }
 
         private void OnDestroy()
@@ -45,13 +46,13 @@ namespace Core.Entities
             _currentHp = current;
         }
 
-        public void ApplyDamage(float damage, Entity dealer)
+        public void ApplyDamage(float damage, Entity dealer = default)
         {
-            _stat.HpStat.BaseValue -= damage;
+            _currentHp -= damage;
             OnHitEvent?.Invoke();
             DeadCheck();
         }
-
+        
         private void DeadCheck()
         {
             if (_isDead) return;
