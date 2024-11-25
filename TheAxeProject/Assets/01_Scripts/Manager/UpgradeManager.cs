@@ -96,8 +96,6 @@ public class UpgradeManager : MonoBehaviour
 
     private void OpenPanel()
     {
-        GameManager.Instance.OnUIEvent?.Invoke(true);
-
         canvasGroup.alpha = 1f;
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
@@ -135,8 +133,6 @@ public class UpgradeManager : MonoBehaviour
 
     private void CloseSelectSkill()
     {
-        GameManager.Instance.OnUIEvent?.Invoke(false);
-
         spawnIdxList.Clear();
         IsSelect = false;
 

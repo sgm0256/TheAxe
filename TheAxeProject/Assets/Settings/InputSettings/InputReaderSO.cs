@@ -25,8 +25,6 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, Controls
 
         _controls.UI.Enable();
         _controls.UI.SetCallbacks(this);
-
-        GameManager.Instance.OnUIEvent += (value) => isPlayerInput = value;
     }
 
     public void Initialize(Entity entity) { }
@@ -38,12 +36,6 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, Controls
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (!isPlayerInput)
-        {
-            FireEvent?.Invoke(false);
-            return;
-        }
-
         if (context.performed)
             FireEvent?.Invoke(true);
         else if (context.canceled)

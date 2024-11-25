@@ -40,8 +40,6 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
         stat.GetStat(axeCntStat).OnValueChange += (stat, cur, prev) => maxAxeCount = (int)stat.Value;
 
         entity.GetCompo<EntityLevel>().LevelUpEvent += (level) => spawnCoolTime -= 0.1f;
-
-        GameManager.Instance.OnUIEvent += (value) => isOnUI = value;
     }
 
     private void Update()
@@ -136,6 +134,9 @@ public class PlayerAxeManager : MonoBehaviour, IEntityComponent
 
     private void OnDestroy()
     {
+        if (SingletonPoolManager.Instance == null)
+            return;
+
         foreach(VisualAxe axe in axeList)
         {
             SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(axe);
