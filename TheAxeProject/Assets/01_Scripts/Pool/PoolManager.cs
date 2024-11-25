@@ -13,10 +13,6 @@ namespace ObjectPooling
         private Transform _rootTrm;
         [field: SerializeField] public PoolEnumType PoolEnumType { get; set; }
 
-        public event Action<int> LoadCountEvent;
-        public event Action<int, string> LoadMessageEvent;
-        public event Action LoadSuccessEvent;
-
         public void InitializePool(Transform root)
         {
             _rootTrm = root;
@@ -25,15 +21,8 @@ namespace ObjectPooling
             foreach (var poolType in poolList)
             {
                 var pool = new Pool(poolType, _rootTrm, poolType.initCount);
-                LoadCountEvent?.Invoke(poolType.initCount);
-                pool.LoadCompleteEvent += () =>
-                {
-                    LoadMessageEvent?.Invoke(poolType.initCount, $"{poolType.typeName} is loaded");
-                };
-
                 _pools.Add(poolType, pool);
             }
-            LoadSuccessEvent?.Invoke();
         }
 
         public IPoolable Pop(PoolTypeSO type)

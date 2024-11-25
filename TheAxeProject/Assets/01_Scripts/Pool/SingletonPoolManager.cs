@@ -9,36 +9,31 @@ namespace ObjectPooling
     {
         AttackLoad, InteractiveObject, Axe, RanageAttack, Enemy, Environment, Effect
     }
-    
+
     public class SingletonPoolManager : MonoSingleton<SingletonPoolManager>
     {
         public event Action OnAllPushEvent;
         public List<PoolManagerSO> poolManagerList = new();
 
-        private Dictionary<PoolEnumType, PoolManagerSO> _poolManagers = new ();
+        private Dictionary<PoolEnumType, PoolManagerSO> _poolManagers = new();
 
         protected override void Awake()
         {
-            if (AssetLoader.Instance.IsLoadComplete)
+            base.Awake();
+            foreach (PoolManagerSO poolManager in poolManagerList)
             {
-                SceneManager.LoadScene("Game");
+                poolManager.InitializePool(this.transform);
+                _poolManagers.Add(poolManager.PoolEnumType, poolManager);
             }
-            else
-            {
-                base.Awake();
-                foreach (PoolManagerSO poolManager in poolManagerList)
-                {
-                    poolManager.InitializePool(this.transform);
-                    _poolManagers.Add(poolManager.PoolEnumType, poolManager);
-                }
-            }
+
+            SceneManager.LoadScene("Game");
         }
 
         public IPoolable Pop(PoolEnumType poolManagerType, PoolTypeSO type)
         {
             return GetPoolManager(poolManagerType).Pop(type);
         }
-        
+
         public void Push(PoolEnumType poolManagerType, IPoolable item)
         {
             GetPoolManager(poolManagerType).Push(item);

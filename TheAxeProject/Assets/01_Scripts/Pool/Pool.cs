@@ -10,35 +10,28 @@ namespace ObjectPooling
         private Transform _parent;
         private PoolTypeSO _poolType;
 
-        public event Action LoadCompleteEvent;
-
         public Pool(PoolTypeSO poolType, Transform parent, int count)
         {
             _pool = new Stack<IPoolable>(count);
             _parent = parent;
             _poolType = poolType;
 
-            LoadAndInstantiate(count);
+            Instantiate(count);
         }
 
-        private async void LoadAndInstantiate(int count)
+        private void Instantiate(int count)
         {
-            var asset = _poolType.assetRef;
-            await asset.LoadAssetAsync<GameObject>().Task;
-            //로드 실패시 에러처리
-            Debug.Assert(asset.IsValid(), $"Error : Loading asset failed {_poolType.typeName}");
+            var asset = _poolType.prefab;
 
             for (int i = 0; i < count; i++)
             {
-                GameObject gameObj = await asset.InstantiateAsync().Task;
+                GameObject gameObj = UnityEngine.Object.Instantiate(asset);
                 gameObj.SetActive(false);
                 gameObj.transform.SetParent(_parent);
                 IPoolable item = gameObj.GetComponent<IPoolable>();
                 item.SetUpPool(this);
                 _pool.Push(item);
             }
-
-            LoadCompleteEvent?.Invoke(); //로딩성공 메시지
         }
 
         public IPoolable Pop()
@@ -46,7 +39,7 @@ namespace ObjectPooling
             IPoolable item;
             if (_pool.Count == 0)
             {
-                GameObject gameObj = GameObject.Instantiate(_poolType.assetRef.Asset, _parent) as GameObject;
+                GameObject gameObj = UnityEngine.Object.Instantiate(_poolType.prefab, _parent);
                 item = gameObj.GetComponent<IPoolable>();
                 item.SetUpPool(this);
             }
