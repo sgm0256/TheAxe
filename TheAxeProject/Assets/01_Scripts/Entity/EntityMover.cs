@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Core.StatSystem;
 using UnityEngine;
@@ -38,6 +39,11 @@ namespace Core.Entities
         {
             _stat.MoveSpeedStat.OnValueChange += HandleMoveSpeedChange;
             _moveSpeed = _stat.MoveSpeedStat.Value;
+        }
+
+        private void OnEnable()
+        {
+            CanManualMove = true;
         }
 
         private void OnDestroy()
