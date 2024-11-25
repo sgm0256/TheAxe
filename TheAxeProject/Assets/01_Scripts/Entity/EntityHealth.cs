@@ -1,5 +1,6 @@
 using System;
 using Core.StatSystem;
+using ObjectPooling;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,7 @@ namespace Core.Entities
 {
     public class EntityHealth : MonoBehaviour, IEntityComponent
     {
+        public PoolTypeSO _popupType;
         public UnityEvent OnDeadEvent;
         public UnityEvent OnHitEvent;
         public bool IsDead => _isDead;
@@ -49,6 +51,7 @@ namespace Core.Entities
         public void ApplyDamage(float damage, Entity dealer = default)
         {
             _currentHp -= damage;
+            HitPopDamage(damage);
             OnHitEvent?.Invoke();
             DeadCheck();
         }
@@ -63,6 +66,12 @@ namespace Core.Entities
                 GameManager.Instance.CurrentEnemyKillCount++;
                 OnDeadEvent?.Invoke();
             }
+        }
+
+        public void HitPopDamage(float damage)
+        {
+            PopUpText popUp = SingletonPoolManager.Instance.Pop(PoolEnumType.InteractiveObject, _popupType) as PopUpText;
+            popUp.StartPopUp(((int)damage).ToString(), transform.position);
         }
     }
 }

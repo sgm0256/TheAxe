@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f5b79a5e5a5fb469f9d3da3ceb0597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _popupType: {fileID: 11400000, guid: ea7758d53914ba244871f2e251eadaba, type: 2}
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:

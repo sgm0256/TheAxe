@@ -23442,6 +23442,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: _popupType
+      value: 
+      objectReference: {fileID: 11400000, guid: ea7758d53914ba244871f2e251eadaba, type: 2}
+    - target: {fileID: 1601099629797642955, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: OnHitEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
