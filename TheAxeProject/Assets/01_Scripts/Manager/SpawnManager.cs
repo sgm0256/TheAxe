@@ -20,7 +20,6 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     
     private PoolManagerSO _poolManager;
     private bool _isStopSpawn = false;
-    private bool _isStartSpawn = false;
 
     private void Start()
     {
@@ -112,7 +111,6 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     
     private IEnumerator SpawnCoroutine()
     {
-        _isStartSpawn = true;
         while (_isStopSpawn == false)
         {
             Enemy enemy = _poolManager.Pop(RandomEnemyType()) as Enemy;
@@ -120,7 +118,5 @@ public class SpawnManager : MonoSingleton<SpawnManager>
             
             yield return new WaitForSeconds(_spawnTime);
         }
-        
-        _isStartSpawn = false;
     }
 }

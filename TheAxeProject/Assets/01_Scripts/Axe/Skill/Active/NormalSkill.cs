@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class NormalSkill : Skill
 {
-    [SerializeField] private float knockbackpower = 10f;
-
     protected override void Impact(Vector3 lastDir)
     {
         if (stat == null)

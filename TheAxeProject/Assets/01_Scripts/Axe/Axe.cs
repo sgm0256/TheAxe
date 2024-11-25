@@ -28,6 +28,8 @@ public class Axe : Entity, IPoolable
 
         visualTrm.gameObject.SetActive(false);
         skillCompo = GetComponentInChildren<Skill>();
+
+        SingletonPoolManager.Instance.OnAllPushEvent += () => SingletonPoolManager.Instance.GetPoolManager(PoolEnumType.Axe).Push(this);
     }
 
     public void Attack(Vector2 startPos)

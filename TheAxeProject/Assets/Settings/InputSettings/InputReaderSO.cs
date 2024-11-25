@@ -13,8 +13,6 @@ public class InputReaderSO : ScriptableObject, Controls.IPlayerActions, Controls
 
     private Controls _controls;
 
-    private bool isPlayerInput = true;
-
     private void OnEnable()
     {
         if (_controls == null)
