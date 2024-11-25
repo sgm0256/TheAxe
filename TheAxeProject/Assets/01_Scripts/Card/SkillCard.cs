@@ -8,12 +8,17 @@ public class SkillCard : Card
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI descText;
     [SerializeField] private TextMeshProUGUI desc2Text;
+    [SerializeField] private TextMeshProUGUI unDevelopText;
 
     private SkillDataSO skillData;
 
     public override void Init(DataSO data)
     {
         skillData = (SkillDataSO)data;
+        if(skillData.skillType != SkillType.Normal && skillData.skillType != SkillType.Bomb)
+        {
+            unDevelopText.gameObject.SetActive(true);
+        }
 
         iconImage.sprite = skillData.sprite;
 
