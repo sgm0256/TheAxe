@@ -20203,6 +20203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextSceneName: Game
+  _first: {fileID: 0}
 --- !u!1 &340789447
 GameObject:
   m_ObjectHideFlags: 0
@@ -23168,6 +23169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextSceneName: Title
+  _first: {fileID: 0}
 --- !u!1 &1972850523
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class VisualAxe : MonoBehaviour, IPoolable
     [SerializeField] private PlayerManagerSO playerSO;
     [SerializeField] private StatSO sizeStat;
     [SerializeField] private PoolTypeSO poolType;
+    [SerializeField] private float offSet = 1.5f;
 
     public PoolTypeSO PoolType => poolType;
     public GameObject GameObject => gameObject;
@@ -63,7 +64,7 @@ public class VisualAxe : MonoBehaviour, IPoolable
         if (isSpawn)
         {
             Vector3 pos = (Quaternion.Euler(0, 1, moveAngle) * transform.root.up).normalized;
-            transform.DOLocalMove(pos * transform.localScale.x, 0.2f);
+            transform.DOLocalMove(pos * transform.localScale.x * offSet, 0.2f);
         }
         else
         {
@@ -86,7 +87,7 @@ public class VisualAxe : MonoBehaviour, IPoolable
 
             float angle = Mathf.Lerp(curAngle, moveAngle, timer * 5f);
             Vector3 pos = (Quaternion.Euler(0, 0, angle) * transform.root.up).normalized;
-            transform.localPosition = pos * transform.localScale.x;
+            transform.localPosition = pos * transform.localScale.x * offSet;
 
             yield return null;
         }

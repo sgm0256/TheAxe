@@ -91,7 +91,7 @@ namespace Core.Entities
         {
             _rbCompo.velocity = _moveSpeed * SpeedMultiplier * _movementVec;
             
-            _renderer.FlipController(_rbCompo.velocity.x);
+            _renderer.FlipController(Mathf.Clamp(_rbCompo.velocity.x, -1, 1));
         }
     }
 }

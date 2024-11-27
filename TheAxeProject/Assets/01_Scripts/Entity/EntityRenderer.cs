@@ -20,7 +20,7 @@ namespace Core.Entities
         public void Flip()
         {
             FacingDirection *= -1;
-            _entity.transform.Rotate(0, 180f, 0);
+            transform.Rotate(0, 180f, 0);
         }
 
         public void FlipController(float xMove)
