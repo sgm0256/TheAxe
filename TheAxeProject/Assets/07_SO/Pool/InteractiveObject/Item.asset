@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   typeName: Item
-  assetRef:
-    m_AssetGUID: 
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 1252424827978902247, guid: bbc3f381a87ec55438270357f6a81f5b, type: 3}
   initCount: 30

@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: VisualAxe
   m_EditorClassIdentifier: 
   typeName: VisualAxe
-  assetRef:
-    m_AssetGUID: b32dda65b3dc69240a915cf8e2b13115
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 3760614797665927047, guid: b32dda65b3dc69240a915cf8e2b13115, type: 3}
   initCount: 10

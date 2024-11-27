@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: RushEnemy
   m_EditorClassIdentifier: 
   typeName: RushEnemy
-  assetRef:
-    m_AssetGUID: c9d0781c9f083df4d902f883eaff2b95
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 3478163882868125272, guid: c9d0781c9f083df4d902f883eaff2b95, type: 3}
   initCount: 100

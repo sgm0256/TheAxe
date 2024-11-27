@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: PoisonAxe
   m_EditorClassIdentifier: 
   typeName: PoisonAxe
-  assetRef:
-    m_AssetGUID: 8e7145877b37c364ab8af980bb26a7cb
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 4903695209806520860, guid: 8e7145877b37c364ab8af980bb26a7cb, type: 3}
   initCount: 10

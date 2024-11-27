@@ -16,10 +16,10 @@ namespace ObjectPooling
             _parent = parent;
             _poolType = poolType;
 
-            Instantiate(count);
+            ObjInstantiate(count);
         }
 
-        private void Instantiate(int count)
+        private void ObjInstantiate(int count)
         {
             var asset = _poolType.prefab;
 

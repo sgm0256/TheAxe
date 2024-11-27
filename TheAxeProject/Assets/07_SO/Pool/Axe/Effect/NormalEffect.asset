@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: NormalEffect
   m_EditorClassIdentifier: 
   typeName: NormalEffect
-  assetRef:
-    m_AssetGUID: cd7485cb013e18a459d2f6b5fc9f58e0
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 1055654520263853355, guid: cd7485cb013e18a459d2f6b5fc9f58e0, type: 3}
   initCount: 10

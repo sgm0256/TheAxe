@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: LightningAxe
   m_EditorClassIdentifier: 
   typeName: LightningAxe
-  assetRef:
-    m_AssetGUID: 4a3742cb11baaa74c95aff81aba644d0
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 4903695209806520860, guid: 4a3742cb11baaa74c95aff81aba644d0, type: 3}
   initCount: 10

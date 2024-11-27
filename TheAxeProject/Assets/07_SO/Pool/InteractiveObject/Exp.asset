@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: Exp
   m_EditorClassIdentifier: 
   typeName: Exp
-  assetRef:
-    m_AssetGUID: f8792407f2769a64890608d25ad14201
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 1902743846025822133, guid: f8792407f2769a64890608d25ad14201, type: 3}
   initCount: 30

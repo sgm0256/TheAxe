@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: IceAxe
   m_EditorClassIdentifier: 
   typeName: IceAxe
-  assetRef:
-    m_AssetGUID: 828beb5626c5fa641915bba947d5855d
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 4903695209806520860, guid: 828beb5626c5fa641915bba947d5855d, type: 3}
   initCount: 10

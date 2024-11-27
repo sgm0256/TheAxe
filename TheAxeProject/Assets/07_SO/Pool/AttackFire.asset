@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: AttackFire
   m_EditorClassIdentifier: 
   typeName: AttackFire
-  assetRef:
-    m_AssetGUID: ac186fe44550acb4ba8666c9ce7471dd
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 8494627520363959494, guid: ac186fe44550acb4ba8666c9ce7471dd, type: 3}
   initCount: 30

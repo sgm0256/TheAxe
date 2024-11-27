@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
   typeName: MeleeEnemy
-  assetRef:
-    m_AssetGUID: 8168d4584439b1b45be7cedce19d840a
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 7163871246492366123, guid: 8168d4584439b1b45be7cedce19d840a, type: 3}
   initCount: 100

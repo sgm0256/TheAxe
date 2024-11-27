@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: RanageEnemy
   m_EditorClassIdentifier: 
   typeName: RanageEnemy
-  assetRef:
-    m_AssetGUID: 908b07fc0cbf9294098425b0c9157eca
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 4836254951844132559, guid: 908b07fc0cbf9294098425b0c9157eca, type: 3}
   initCount: 100

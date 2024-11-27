@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: BombAxe
   m_EditorClassIdentifier: 
   typeName: BombAxe
-  assetRef:
-    m_AssetGUID: 5d63822d65b9e31498fe688f0c35f116
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 4903695209806520860, guid: 5d63822d65b9e31498fe688f0c35f116, type: 3}
   initCount: 10

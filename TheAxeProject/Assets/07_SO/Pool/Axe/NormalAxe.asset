@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: NormalAxe
   m_EditorClassIdentifier: 
   typeName: NormalAxe
-  assetRef:
-    m_AssetGUID: 1a6e0697863a4074b9d53621551dc781
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 4903695209806520860, guid: 1a6e0697863a4074b9d53621551dc781, type: 3}
   initCount: 10

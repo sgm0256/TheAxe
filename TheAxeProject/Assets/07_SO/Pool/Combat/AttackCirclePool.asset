@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: AttackCirclePool
   m_EditorClassIdentifier: 
   typeName: AttackCircle
-  assetRef:
-    m_AssetGUID: e2737fa3bbaea65418fab5e578d5493d
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 2384504658107749979, guid: e2737fa3bbaea65418fab5e578d5493d, type: 3}
   initCount: 10

@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: PopupText
   m_EditorClassIdentifier: 
   typeName: PopupDamage
-  assetRef:
-    m_AssetGUID: 927d3551fd82bdb40948f0823c93db18
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 7095345037945136768, guid: 927d3551fd82bdb40948f0823c93db18, type: 3}
   initCount: 100

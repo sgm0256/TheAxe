@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: BombEffect
   m_EditorClassIdentifier: 
   typeName: BombEffect
-  assetRef:
-    m_AssetGUID: 76fd09b48d5cfdc42a6277a2b3299ce2
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 143511754217624684, guid: 76fd09b48d5cfdc42a6277a2b3299ce2, type: 3}
   initCount: 10

@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: TornadoAxe
   m_EditorClassIdentifier: 
   typeName: TornadoAxe
-  assetRef:
-    m_AssetGUID: 5739a256f155c174999fb84146f8edbf
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
+  prefab: {fileID: 4903695209806520860, guid: 5739a256f155c174999fb84146f8edbf, type: 3}
   initCount: 10
