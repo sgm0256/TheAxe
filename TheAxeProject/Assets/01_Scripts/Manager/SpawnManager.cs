@@ -11,13 +11,13 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     public List<PoolTypeSO> enemyPool = new List<PoolTypeSO>();
     public List<Transform> SpawnPoint = new List<Transform>();
     public bool IsWave { get; set; } = false;
-    
+
     [SerializeField] private float _spawnTime = 2.5f;
     [SerializeField] private float _spawnDecreaseTime = 0.1f;
     [SerializeField] private float _spawnDecreaseCooldown = 30f;
     [SerializeField] private float _waveCooldown = 60f;
     [SerializeField] private int _waveCount = 50;
-    
+
     private PoolManagerSO _poolManager;
     private bool _isStopSpawn = false;
 
@@ -86,7 +86,7 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     private IEnumerator WaveTime()
     {
         if (_isStopSpawn) yield return null;
-        
+
         yield return new WaitForSeconds(_waveCooldown);
         EnemyWave();
     }
@@ -94,18 +94,21 @@ public class SpawnManager : MonoSingleton<SpawnManager>
     private IEnumerator SpawnDecreaseTime()
     {
         if (_isStopSpawn) yield return null;
-        
-        yield return new WaitForSeconds(_spawnDecreaseCooldown);
-        _spawnTime -= _spawnDecreaseTime;
+
+        while (_spawnTime > 0.5f)
+        {
+            yield return new WaitForSeconds(_spawnDecreaseCooldown);
+            _spawnTime -= _spawnDecreaseTime;
+        }
     }
-    
+
     private IEnumerator SpawnCoroutine()
     {
         while (_isStopSpawn == false)
         {
             Enemy enemy = _poolManager.Pop(RandomEnemyType()) as Enemy;
             enemy.transform.position = SpawnPoint[Random.Range(0, SpawnPoint.Count)].position;
-            
+
             yield return new WaitForSeconds(_spawnTime);
         }
     }

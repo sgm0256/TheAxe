@@ -22304,7 +22304,7 @@ MonoBehaviour:
   - {fileID: 290966872}
   - {fileID: 650400018}
   _spawnTime: 1.3
-  _spawnDecreaseTime: 0.02
+  _spawnDecreaseTime: 0.05
   _spawnDecreaseCooldown: 20
   _waveCooldown: 60
   _waveCount: 30
@@ -23550,6 +23550,10 @@ PrefabInstance:
     - target: {fileID: 3986855167212321114, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264604007266913816, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
+      propertyPath: _statOverrides.Array.data[1]._overrideBaseValue
+      value: 100000000
       objectReference: {fileID: 0}
     - target: {fileID: 9192258756489589532, guid: 05a5d807c9740434fbc70f4a4c13acc7, type: 3}
       propertyPath: m_Name
