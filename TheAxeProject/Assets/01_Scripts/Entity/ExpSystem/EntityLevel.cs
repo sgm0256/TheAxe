@@ -11,7 +11,7 @@ namespace Core.Entities
 
         public int LevelUpNeedValue => _levelUpNeedExp;
 
-        [SerializeField] private int _levelUpNeedExp = 10;
+        [SerializeField] private int _levelUpNeedExp = 300;
         
         private Entity _entity;
         private EntityCollector _collector;

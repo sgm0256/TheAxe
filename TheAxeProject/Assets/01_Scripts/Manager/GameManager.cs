@@ -34,14 +34,16 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void SetGame()
     {
-        _gameTime = 0f;
+        _gameTime = 40f;
         _durationTime = 0f;
-        _gameMinute = 0;
-        _enemyKillCount = 0;
+        _gameMinute = 9;
+        _enemyKillCount = 428;
     }
 
     private void Update()
     {
+        
+        
         if (IsGameStart)
         {
             _durationTime += Time.deltaTime;
